@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var viewModel: EmojiMemoryGame
     private let emojis = ["👻", "😈", "🎃", "🕷️", "💀", "🧙🏻‍♀️", "🙀", "👹", "😱", "☠️", "🍭"]
     
     var body: some View {
@@ -29,7 +31,7 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    ContentView(viewModel: EmojiMemoryGame())
 }
 
 struct CardView: View {
