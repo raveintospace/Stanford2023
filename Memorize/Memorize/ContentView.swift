@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    let emojis = ["👻", "😈", "🎃", "🕷️", "💀", "🧙🏻‍♀️", "🙀", "👹", "😱", "☠️", "🍭"]
+    private let emojis = ["👻", "😈", "🎃", "🕷️", "💀", "🧙🏻‍♀️", "🙀", "👹", "😱", "☠️", "🍭"]
     
-    @State var cardCount: Int = 4
+    @State private var cardCount: Int = 4
     
     var body: some View {
         VStack {
@@ -67,13 +67,12 @@ struct ContentView: View {
 
 struct CardView: View {
     let content: String
-    @State var isFaceUp: Bool = true
+    private let base = RoundedRectangle(cornerRadius: 12)
+    
+    @State private var isFaceUp: Bool = true
     
     var body: some View {
         ZStack {
-            
-            let base = RoundedRectangle(cornerRadius: 12)
-            
             Group {
                 base.fill(.white)
                 base.strokeBorder(lineWidth: 2)
@@ -81,6 +80,7 @@ struct CardView: View {
                     .font(.largeTitle)
             }
             .opacity(isFaceUp ? 1 : 0)
+            
             base.fill()
                 .opacity(isFaceUp ? 0 : 1)
         }
