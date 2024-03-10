@@ -1,5 +1,5 @@
 //
-//  EmojiMemoryGame.swift
+//  EmojiMemoryGameViewModel.swift
 //  Memorize
 //
 //  Created by Uri on 9/3/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class EmojiMemoryGame {
+class EmojiMemoryGameViewModel {
     
     private static let emojis = ["👻", "😈", "🎃", "🕷️", "💀", "🧙🏻‍♀️", "🙀", "👹", "😱", "☠️", "🍭"]
     
