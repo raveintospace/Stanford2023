@@ -19,10 +19,11 @@ struct EmojiMemorizeGameView: View {
     }
     
     var cards: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 85))]) {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 85), spacing: 0)], spacing: 0) {
             ForEach(viewModel.cards.indices, id: \.self) { index in
-                CardView(card: viewModel.cards[index])
-                    .aspectRatio(contentMode: .fit)
+                CardView(viewModel.cards[index])
+                    .aspectRatio(2/3, contentMode: .fit)
+                    .padding(4)
             }
         }
         .foregroundColor(Color.orange)
@@ -36,6 +37,12 @@ struct EmojiMemorizeGameView: View {
 struct CardView: View {
     
     let card: MemorizeGame<String>.Card
+    
+    // init to avoid the external parameter name
+    init(_ card: MemorizeGame<String>.Card) {
+        self.card = card
+    }
+    
     private let base = RoundedRectangle(cornerRadius: 12)
     
     var body: some View {
@@ -44,7 +51,9 @@ struct CardView: View {
                 base.fill(.white)
                 base.strokeBorder(lineWidth: 2)
                 Text(card.content)
-                    .font(.largeTitle)
+                    .font(.system(size: 200))
+                    .minimumScaleFactor(0.01)
+                    .aspectRatio(1, contentMode: .fit)
             }
             .opacity(card.isFaceUp ? 1 : 0)
             
