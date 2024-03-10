@@ -9,11 +9,16 @@ import SwiftUI
 
 struct EmojiMemorizeGameView: View {
     
-    var viewModel: EmojiMemoryGameViewModel = EmojiMemoryGameViewModel()
+    @ObservedObject var viewModel: EmojiMemoryGameViewModel = EmojiMemoryGameViewModel()
     
     var body: some View {
-        ScrollView {
-            cards
+        VStack {
+            ScrollView {
+                cards
+            }
+            Button("Shuffle") {
+                viewModel.shuffle()
+            }
         }
         .padding()
     }

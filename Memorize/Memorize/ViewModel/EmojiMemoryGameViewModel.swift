@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class EmojiMemoryGameViewModel {
+class EmojiMemoryGameViewModel: ObservableObject {
     
     private static let emojis = ["👻", "😈", "🎃", "🕷️", "💀", "🧙🏻‍♀️", "🙀", "👹", "😱", "☠️", "🍭"]
     
@@ -21,10 +21,15 @@ class EmojiMemoryGameViewModel {
          }
     }
     
-    private var model = createMemorizeGame()
+    @Published private var model = createMemorizeGame()
     
     var cards: Array<MemorizeGame<String>.Card> {
         return model.cards
+    }
+    
+    // MARK: - Intents
+    func shuffle() {
+        model.shuffle()
     }
     
     func choose(_ card: MemorizeGame<String>.Card) {
