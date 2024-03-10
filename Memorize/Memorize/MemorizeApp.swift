@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct MemorizeApp: App {
+    @StateObject var game = EmojiMemoryGameViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            EmojiMemorizeGameView()
+            EmojiMemorizeGameView(viewModel: game)
         }
     }
 }
