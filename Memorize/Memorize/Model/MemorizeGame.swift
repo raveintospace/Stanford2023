@@ -23,26 +23,11 @@ struct MemorizeGame<CardContent> where CardContent: Equatable {
     
     var indexOfTheOneAndOnlyFaceUpCard: Int? {
         get {
-            var faceUpCardIndices = [Int]()
-            for index in cards.indices {
-                if cards[index].isFaceUp {
-                    faceUpCardIndices.append(index)
-                }
-            }
-            if faceUpCardIndices.count == 1 {
-                return faceUpCardIndices.first
-            } else {
-                return nil // when two cards are faceUp
-            }
+            let faceUpCardIndices = cards.indices.filter { index in cards[index].isFaceUp }
+            return faceUpCardIndices.count == 1 ? faceUpCardIndices.first : nil     // nil when 2 cards are faceUp
         }
         set {
-            for index in cards.indices {
-                if index == newValue {
-                    cards[index].isFaceUp = true
-                } else {
-                    cards[index].isFaceUp = false   // when a third card is selected
-                }
-            }
+            cards.indices.forEach { cards[$0].isFaceUp = (newValue == $0) }     // when a third card is faceUp
         }
     }
     
