@@ -22,12 +22,8 @@ struct MemorizeGame<CardContent> where CardContent: Equatable {
     }
     
     var indexOfTheOneAndOnlyFaceUpCard: Int? {
-        get {
-            return cards.indices.filter { index in cards[index].isFaceUp }.only // index of first card faceUp
-        }
-        set {
-            cards.indices.forEach { cards[$0].isFaceUp = (newValue == $0) }     // when a third card is faceUp
-        }
+        get { cards.indices.filter { index in cards[index].isFaceUp }.only } // index of first card faceUp
+        set { cards.indices.forEach { cards[$0].isFaceUp = (newValue == $0) } }    // when a third card is faceUp
     }
     
     mutating func shuffle() {
