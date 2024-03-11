@@ -23,8 +23,7 @@ struct MemorizeGame<CardContent> where CardContent: Equatable {
     
     var indexOfTheOneAndOnlyFaceUpCard: Int? {
         get {
-            let faceUpCardIndices = cards.indices.filter { index in cards[index].isFaceUp }
-            return faceUpCardIndices.count == 1 ? faceUpCardIndices.first : nil     // nil when 2 cards are faceUp
+            return cards.indices.filter { index in cards[index].isFaceUp }.only // index of first card faceUp
         }
         set {
             cards.indices.forEach { cards[$0].isFaceUp = (newValue == $0) }     // when a third card is faceUp
@@ -38,7 +37,7 @@ struct MemorizeGame<CardContent> where CardContent: Equatable {
     mutating func choose(_ card: Card) {
         if let chosenIndex = cards.firstIndex(where: { $0.id == card.id }) {
             if !cards[chosenIndex].isFaceUp && !cards[chosenIndex].isMatched {
-                if let potentialMatchIndex = indexOfTheOneAndOnlyFaceUpCard {
+                if let potentialMatchIndex = indexOfTheOneAndOnlyFaceUpCard {   // potential = second card faceUp
                     if cards[chosenIndex].content == cards[potentialMatchIndex].content {
                         cards[chosenIndex].isMatched = true
                         cards[potentialMatchIndex].isMatched = true
