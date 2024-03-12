@@ -12,7 +12,7 @@ class EmojiMemoryGameViewModel: ObservableObject {
     private static let emojis = ["👻", "😈", "🎃", "🕷️", "💀", "🧙🏻‍♀️", "🙀", "👹", "😱", "☠️", "🍭"]
     
     private static func createMemorizeGame() -> MemorizeGame<String> {
-         return MemorizeGame(numberOfPairsOfCards: 10) { pairIndex in
+         return MemorizeGame(numberOfPairsOfCards: 12) { pairIndex in
              if emojis.indices.contains(pairIndex) {
                  return emojis[pairIndex]
              } else {

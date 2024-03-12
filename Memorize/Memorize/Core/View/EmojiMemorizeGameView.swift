@@ -11,12 +11,13 @@ struct EmojiMemorizeGameView: View {
     
     @ObservedObject var viewModel: EmojiMemoryGameViewModel
     
+    private let cardAspectRatio: CGFloat = 2/3
+    
     var body: some View {
         VStack {
-            ScrollView {
-                cards
-                    .animation(.default, value: viewModel.cards) // animate when shuffle
-            }
+           cards
+                .animation(.default, value: viewModel.cards) // animate when shuffle
+            
             Button("Shuffle") {
                 viewModel.shuffle()
             }
@@ -24,18 +25,46 @@ struct EmojiMemorizeGameView: View {
         .padding()
     }
     
-    var cards: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 85), spacing: 0)], spacing: 0) {
-            ForEach(viewModel.cards) { card in
-                CardView(card)
-                    .aspectRatio(2/3, contentMode: .fit)
-                    .padding(4)
-                    .onTapGesture {
-                        viewModel.choose(card)
-                    }
+    private var cards: some View {
+        GeometryReader { geometry in
+            let gridItemSize = gridItemWidthThatFits(
+                cardCount: viewModel.cards.count,
+                size: geometry.size,
+                atAspectRatio: cardAspectRatio
+            )
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: gridItemSize), spacing: 0)], spacing: 0) {
+                ForEach(viewModel.cards) { card in
+                    CardView(card)
+                        .aspectRatio(cardAspectRatio, contentMode: .fit)
+                        .padding(4)
+                        .onTapGesture {
+                            viewModel.choose(card)
+                        }
+                }
             }
         }
         .foregroundColor(Color.orange)
+    }
+    
+    // set the cards on screen using the space read with geometryReader
+    func gridItemWidthThatFits(
+        cardCount: Int,
+        size: CGSize,
+        atAspectRatio aspectRatio: CGFloat
+    ) -> CGFloat {
+        let cardCount = CGFloat(cardCount)
+        var columnCount = 1.0
+        repeat {
+            let width = size.width / columnCount
+            let height = width / aspectRatio
+            
+            let rowCount = (cardCount / columnCount).rounded(.up)
+            if rowCount * height < size.height {
+                return (size.width / columnCount).rounded(.down)
+            }
+            columnCount += 1
+        } while columnCount < cardCount
+        return min(size.width / cardCount, size.height * aspectRatio).rounded(.down)
     }
 }
 
