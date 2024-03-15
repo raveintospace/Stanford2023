@@ -9,10 +9,12 @@ import SwiftUI
 
 struct CardView: View {
     
-    let card: MemorizeGame<String>.Card
+    typealias Card = MemorizeGame<String>.Card
+    
+    let card: Card
     
     // init to avoid the external parameter name
-    init(_ card: MemorizeGame<String>.Card) {
+    init(_ card: Card) {
         self.card = card
     }
     
@@ -37,6 +39,12 @@ struct CardView: View {
     }
 }
 
-#Preview {
-    CardView(MemorizeGame<String>.Card(content: "X", id: "test1"))
+struct CardView_Previews: PreviewProvider {
+    typealias Card = MemorizeGame<String>.Card
+    
+    static var previews: some View {
+        CardView(Card(content: "X", id: "test1"))
+            .padding()
+            .foregroundStyle(Color.green)
+    }
 }
