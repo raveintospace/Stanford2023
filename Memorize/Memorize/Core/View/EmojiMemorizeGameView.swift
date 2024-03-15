@@ -12,10 +12,12 @@ struct EmojiMemorizeGameView: View {
     @ObservedObject var viewModel: EmojiMemoryGameViewModel
     
     private let cardAspectRatio: CGFloat = 2/3
+    private let spacing: CGFloat = 4
     
     var body: some View {
         VStack {
            cards
+                .foregroundColor(viewModel.color)
                 .animation(.default, value: viewModel.cards) // animate when shuffle
             
             Button("Shuffle") {
@@ -28,12 +30,11 @@ struct EmojiMemorizeGameView: View {
     private var cards: some View {
         AspectVGrid(viewModel.cards, aspectRatio: cardAspectRatio) { card in
             CardView(card)
-                .padding(4)
+                .padding(spacing)
                 .onTapGesture {
                     viewModel.choose(card)
                 }
         }
-        .foregroundColor(Color.orange)
     }
 }
 
