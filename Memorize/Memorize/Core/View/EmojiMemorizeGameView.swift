@@ -38,13 +38,9 @@ struct EmojiMemorizeGameView: View {
             CardView(card)
                 .padding(spacing)
                 .overlay(FlyingNumber(number: scoreChanged(causedBy: card)))
+                .zIndex(scoreChanged(causedBy: card) != 0 ? 1 : 0)
                 .onTapGesture {
-                    withAnimation(.easeInOut(duration: 0.5)) {
-                        let scoreBeforeChoosing = viewModel.score
-                        viewModel.choose(card)
-                        let scoreChange = viewModel.score - scoreBeforeChoosing
-                        lastScoreChange = (scoreChange, causedByCardId: card.id)
-                    }
+                    choose(card)
                 }
         }
     }
@@ -52,6 +48,15 @@ struct EmojiMemorizeGameView: View {
     private func scoreChanged(causedBy card: Card) -> Int {
         let (amount, causedByCardId: id) = lastScoreChange
         return card.id == id ? amount : 0
+    }
+    
+    private func choose(_ card: Card) {
+        withAnimation(.easeInOut(duration: 0.5)) {
+            let scoreBeforeChoosing = viewModel.score
+            viewModel.choose(card)
+            let scoreChange = viewModel.score - scoreBeforeChoosing
+            lastScoreChange = (scoreChange, causedByCardId: card.id)
+        }
     }
     
     private var score: some View {
