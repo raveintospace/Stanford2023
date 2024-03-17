@@ -44,6 +44,7 @@ struct CardView: View {
                     }
                     .padding(Constants.inset)
                     .cardify(isFaceUp: card.isFaceUp)
+                    .transition(.scale)
             } else {
                 Color.clear // keep the space of matched cards that disappear
             }
