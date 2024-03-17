@@ -34,7 +34,7 @@ struct MemorizeGame<CardContent> where CardContent: Equatable {
     /* Scoring explanation
     - 1 if one of the two cards is first time seen
     - 2 if both cards have been seen before
-    */    
+    */
     mutating func choose(_ card: Card) {
         if let chosenIndex = cards.firstIndex(where: { $0.id == card.id }) {
             if !cards[chosenIndex].isFaceUp && !cards[chosenIndex].isMatched {
@@ -62,12 +62,25 @@ struct MemorizeGame<CardContent> where CardContent: Equatable {
     struct Card: Equatable, Identifiable, CustomDebugStringConvertible {
         var isFaceUp: Bool = false {
             didSet {
+                if isFaceUp {
+                    startUsingBonusTime()
+                } else {
+                    stopUsingBonusTime()
+                }
                 if oldValue && !isFaceUp {  // was isFaceUp and is not anymore
                     hasBeenSeen = true
                 }
             }
         }
-        var isMatched: Bool = false
+        
+        var isMatched: Bool = false {
+            didSet {
+                if isMatched {
+                    stopUsingBonusTime()
+                }
+            }
+        }
+        
         var hasBeenSeen = false
         let content: CardContent
         
