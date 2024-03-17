@@ -30,6 +30,8 @@ struct EmojiMemorizeGameView: View {
     private let cardAspectRatio: CGFloat = 2/3
     private let spacing: CGFloat = 4
     private let deckWidth: CGFloat = 50
+    private let dealInterval: TimeInterval = 0.05
+    private let dealAnimation: Animation = .easeInOut(duration: 1)
     
     @Namespace private var dealingNamespace
     
@@ -90,10 +92,12 @@ struct EmojiMemorizeGameView: View {
         }
         .frame(width: deckWidth, height: deckWidth / cardAspectRatio)
         .onTapGesture {
-            withAnimation(.easeInOut(duration: 1)) {
-                for card in viewModel.cards {
-                    dealt.insert(card.id)
+            var delay: TimeInterval = 0
+            for card in viewModel.cards {
+                withAnimation(dealAnimation.delay(delay)) {
+                    _ = dealt.insert(card.id)   // _ = to avoid a warning
                 }
+                delay += dealInterval
             }
         }
     }
