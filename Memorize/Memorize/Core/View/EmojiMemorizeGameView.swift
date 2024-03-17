@@ -54,10 +54,14 @@ struct EmojiMemorizeGameView: View {
                     .onTapGesture {
                         choose(card)
                     }
+                    .transition(.offset(
+                        x: CGFloat.random(in: -1000...1000),
+                        y: CGFloat.random(in: -1000...1000)
+                    ))
             }
         }
         .onAppear {     // deal the cards
-            withAnimation(.easeInOut(duration: 1.5)) {
+            withAnimation(.easeInOut(duration: 1)) {
                 for card in viewModel.cards {
                     dealt.insert(card.id)
                 }
