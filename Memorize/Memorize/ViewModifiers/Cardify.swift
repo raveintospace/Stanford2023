@@ -7,9 +7,23 @@
 
 import SwiftUI
 
-struct Cardify: ViewModifier {
+struct Cardify: ViewModifier, Animatable {
     
-    let isFaceUp: Bool
+    var isFaceUp: Bool {
+        rotation < 90
+    }
+    
+    var rotation: Double
+    
+    // custom rotation
+    var animatableData: Double {
+        get { rotation }
+        set { rotation = newValue }
+    }
+    
+    init(isFaceUp: Bool) {
+        rotation = isFaceUp ? 0 : 180
+    }
     
     private struct Constants {
         static let cornerRadius: CGFloat = 12
@@ -26,7 +40,7 @@ struct Cardify: ViewModifier {
             base.fill()
                 .opacity(isFaceUp ? 0 : 1)
         }
-        .rotation3DEffect(.degrees(isFaceUp ? 0: 180), axis: (0, 1, 0))
+        .rotation3DEffect(.degrees(rotation), axis: (0, 1, 0))
     }
 }
 
