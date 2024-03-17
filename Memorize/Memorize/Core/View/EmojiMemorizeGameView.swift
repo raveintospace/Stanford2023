@@ -9,6 +9,8 @@ import SwiftUI
 
 struct EmojiMemorizeGameView: View {
     
+    typealias Card = MemorizeGame<String>.Card
+    
     @ObservedObject var viewModel: EmojiMemoryGameViewModel
     
     // tuple with Int & Card.Id as parameters
@@ -29,16 +31,17 @@ struct EmojiMemorizeGameView: View {
     private let spacing: CGFloat = 4
     private let deckWidth: CGFloat = 50
     
-    typealias Card = MemorizeGame<String>.Card
+    @Namespace private var dealingNamespace
     
     var body: some View {
         VStack {
             cards
-                .foregroundColor(viewModel.color)
+                .foregroundStyle(viewModel.color)
             HStack {
                 score
                 Spacer()
                 deck
+                    .foregroundStyle(viewModel.color)
                 Spacer()
                 shuffleButton
             }
@@ -51,16 +54,14 @@ struct EmojiMemorizeGameView: View {
         AspectVGrid(viewModel.cards, aspectRatio: cardAspectRatio) { card in
             if isDealt(card) {
                 CardView(card)
+                    .matchedGeometryEffect(id: card.id, in: dealingNamespace)
+                    .transition(.asymmetric(insertion: .identity, removal: .identity))
                     .padding(spacing)
                     .overlay(FlyingNumber(number: scoreChanged(causedBy: card)))
                     .zIndex(scoreChanged(causedBy: card) != 0 ? 1 : 0)
                     .onTapGesture {
                         choose(card)
                     }
-                    .transition(.offset(
-                        x: CGFloat.random(in: -1000...1000),
-                        y: CGFloat.random(in: -1000...1000)
-                    ))
             }
         }
     }
@@ -83,10 +84,8 @@ struct EmojiMemorizeGameView: View {
         ZStack {
             ForEach(undealtCards) { card in
                 CardView(card)
-                    .transition(.offset(
-                        x: CGFloat.random(in: -1000...1000),
-                        y: CGFloat.random(in: -1000...1000)
-                    ))
+                    .matchedGeometryEffect(id: card.id, in: dealingNamespace)
+                    .transition(.asymmetric(insertion: .identity, removal: .identity))
             }
         }
         .frame(width: deckWidth, height: deckWidth / cardAspectRatio)
