@@ -13,7 +13,10 @@ struct FlyingNumber: View {
     
     var body: some View {
         if number != 0 {
-            Text(number, format: .number)
+            Text(number, format: .number.sign(strategy: .always())) // show + or -
+                .font(.largeTitle)
+                .foregroundStyle(number < 0 ? Color.red : Color.green)
+                .shadow(color: .black, radius: 1.5, x: 1, y: 1)
         }
     }
 }
