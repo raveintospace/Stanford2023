@@ -31,7 +31,7 @@ struct EmojiMemorizeGameView: View {
     private let spacing: CGFloat = 4
     private let deckWidth: CGFloat = 50
     private let dealInterval: TimeInterval = 0.05
-    private let dealAnimation: Animation = .easeInOut(duration: 1)
+    private let dealAnimation: Animation = .spring(duration: 0.7)
     
     @Namespace private var dealingNamespace
     
@@ -92,13 +92,17 @@ struct EmojiMemorizeGameView: View {
         }
         .frame(width: deckWidth, height: deckWidth / cardAspectRatio)
         .onTapGesture {
-            var delay: TimeInterval = 0
-            for card in viewModel.cards {
-                withAnimation(dealAnimation.delay(delay)) {
-                    _ = dealt.insert(card.id)   // _ = to avoid a warning
-                }
-                delay += dealInterval
+            deal()
+        }
+    }
+    
+    private func deal() {
+        var delay: TimeInterval = 0
+        for card in viewModel.cards {
+            withAnimation(dealAnimation.delay(delay)) {
+                _ = dealt.insert(card.id)   // _ = to avoid a warning
             }
+            delay += dealInterval
         }
     }
     
