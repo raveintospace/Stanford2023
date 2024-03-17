@@ -27,6 +27,7 @@ struct EmojiMemorizeGameView: View {
     
     private let cardAspectRatio: CGFloat = 2/3
     private let spacing: CGFloat = 4
+    private let deckWidth: CGFloat = 50
     
     typealias Card = MemorizeGame<String>.Card
     
@@ -36,6 +37,8 @@ struct EmojiMemorizeGameView: View {
                 .foregroundColor(viewModel.color)
             HStack {
                 score
+                Spacer()
+                deck
                 Spacer()
                 shuffleButton
             }
@@ -60,13 +63,6 @@ struct EmojiMemorizeGameView: View {
                     ))
             }
         }
-        .onAppear {     // deal the cards
-            withAnimation(.easeInOut(duration: 1)) {
-                for card in viewModel.cards {
-                    dealt.insert(card.id)
-                }
-            }
-        }
     }
     
     private func scoreChanged(causedBy card: Card) -> Int {
@@ -80,6 +76,26 @@ struct EmojiMemorizeGameView: View {
             viewModel.choose(card)
             let scoreChange = viewModel.score - scoreBeforeChoosing
             lastScoreChange = (scoreChange, causedByCardId: card.id)
+        }
+    }
+    
+    private var deck: some View {
+        ZStack {
+            ForEach(undealtCards) { card in
+                CardView(card)
+                    .transition(.offset(
+                        x: CGFloat.random(in: -1000...1000),
+                        y: CGFloat.random(in: -1000...1000)
+                    ))
+            }
+        }
+        .frame(width: deckWidth, height: deckWidth / cardAspectRatio)
+        .onTapGesture {
+            withAnimation(.easeInOut(duration: 1)) {
+                for card in viewModel.cards {
+                    dealt.insert(card.id)
+                }
+            }
         }
     }
     
