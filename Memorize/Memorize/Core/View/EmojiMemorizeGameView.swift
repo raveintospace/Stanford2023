@@ -14,6 +14,17 @@ struct EmojiMemorizeGameView: View {
     // tuple with Int & Card.Id as parameters
     @State private var lastScoreChange = (0, causedByCardId: "")
     
+    // initial dealt of cards
+    @State private var dealt = Set<Card.ID>()
+    
+    private func isDealt(_ card: Card) -> Bool {
+        dealt.contains(card.id)
+    }
+    
+    private var undealtCards: [Card] {
+        viewModel.cards.filter { !isDealt($0) }
+    }
+    
     private let cardAspectRatio: CGFloat = 2/3
     private let spacing: CGFloat = 4
     
@@ -21,7 +32,7 @@ struct EmojiMemorizeGameView: View {
     
     var body: some View {
         VStack {
-           cards
+            cards
                 .foregroundColor(viewModel.color)
             HStack {
                 score
@@ -35,13 +46,22 @@ struct EmojiMemorizeGameView: View {
     
     private var cards: some View {
         AspectVGrid(viewModel.cards, aspectRatio: cardAspectRatio) { card in
-            CardView(card)
-                .padding(spacing)
-                .overlay(FlyingNumber(number: scoreChanged(causedBy: card)))
-                .zIndex(scoreChanged(causedBy: card) != 0 ? 1 : 0)
-                .onTapGesture {
-                    choose(card)
+            if isDealt(card) {
+                CardView(card)
+                    .padding(spacing)
+                    .overlay(FlyingNumber(number: scoreChanged(causedBy: card)))
+                    .zIndex(scoreChanged(causedBy: card) != 0 ? 1 : 0)
+                    .onTapGesture {
+                        choose(card)
+                    }
+            }
+        }
+        .onAppear {     // deal the cards
+            withAnimation(.easeInOut(duration: 1.5)) {
+                for card in viewModel.cards {
+                    dealt.insert(card.id)
                 }
+            }
         }
     }
     

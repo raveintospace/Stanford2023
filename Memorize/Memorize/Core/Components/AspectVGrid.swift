@@ -1,7 +1,7 @@
 //
 //  AspectVGrid.swift
 //  Memorize
-//
+//  The container of our cards
 //  Created by Uri on 12/3/24.
 //
 
