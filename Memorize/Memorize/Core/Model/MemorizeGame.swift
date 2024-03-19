@@ -8,8 +8,8 @@
 import Foundation
 
 struct MemorizeGame<CardContent> where CardContent: Equatable {
-    private(set) var cards: Array<Card> // set is private, access is public
-    private(set) var score: Int = 0
+    private(set) var cards: Array<Card> // set is private, access is public. Cards can only be added in model
+    private(set) var score: Int = 0     // score can only be updated in model
     
     init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
         cards = []
