@@ -38,29 +38,39 @@ struct EmojiMemorizeGameView: View {
     @State private var showGameEndedAlert: Bool = false
     
     var body: some View {
-        ZStack {
-            VStack {
-                cards
-                    .foregroundStyle(viewModel.color)
-                HStack {
-                    score
-                    Spacer()
-                    deck
+        NavigationStack {
+            ZStack {
+                VStack {
+                    cards
                         .foregroundStyle(viewModel.color)
-                    Spacer()
-                    shuffleButton
+                    HStack {
+                        score
+                        Spacer()
+                        deck
+                            .foregroundStyle(viewModel.color)
+                        Spacer()
+                        shuffleButton
+                    }
+                    .font(.title2)
                 }
-                .font(.title2)
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
-        }
-        .alert(isPresented: $showGameEndedAlert) {
-            Alert(title: Text("Game ended"),
-                  message: Text("Do you want to play again?"),
-                  primaryButton: .default(Text("Confirm")) {
-                print("start again")
-            },
-                  secondaryButton: .cancel())
+            .alert(isPresented: $showGameEndedAlert) {
+                Alert(title: Text("Game ended"),
+                      message: Text("Do you want to play again?"),
+                      primaryButton: .default(Text("Confirm")) {
+                    print("start again")
+                },
+                      secondaryButton: .cancel())
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Text("Score")
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Text("Matches")
+                }
+            }
         }
     }
     
