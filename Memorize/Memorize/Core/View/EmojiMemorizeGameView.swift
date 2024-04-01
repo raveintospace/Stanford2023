@@ -136,7 +136,7 @@ struct EmojiMemorizeGameView: View {
     }
     
     private var matches: some View {
-        Text("Matches: \(viewModel.pairsMatched)")
+        Text("Matches: \(viewModel.matches)")
             .animation(nil)
     }
     

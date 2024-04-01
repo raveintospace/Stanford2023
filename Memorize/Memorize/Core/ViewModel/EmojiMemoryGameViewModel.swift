@@ -37,8 +37,8 @@ class EmojiMemoryGameViewModel: ObservableObject {
         model.score
     }
     
-    var pairsMatched: Int {
-        model.pairsMatched
+    var matches: Int {
+        model.matches
     }
     
     // MARK: - Intents

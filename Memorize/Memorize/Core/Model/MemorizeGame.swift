@@ -11,7 +11,7 @@ struct MemorizeGame<CardContent> where CardContent: Equatable {
     private(set) var cards: Array<Card> // set is private, access is public. Cards can only be added in model
     private(set) var score: Int = 0     // score can only be updated in model
     
-    private(set) var pairsMatched: Int = 0
+    private(set) var matches: Int = 0
     
     init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
         cards = []
@@ -45,8 +45,8 @@ struct MemorizeGame<CardContent> where CardContent: Equatable {
                         cards[chosenIndex].isMatched = true
                         cards[potentialMatchIndex].isMatched = true
                         score += 2 + cards[chosenIndex].bonus + cards[potentialMatchIndex].bonus
-                        pairsMatched += 1
-                        debugPrint("pairsMatched: \(pairsMatched)")
+                        matches += 1
+                        debugPrint("pairsMatched: \(matches)")
                     } else {
                         if cards[chosenIndex].hasBeenSeen {
                             score -= 1
@@ -65,7 +65,7 @@ struct MemorizeGame<CardContent> where CardContent: Equatable {
     
     mutating func resetGame() {
         score = 0
-        pairsMatched = 0
+        matches = 0
     }
     
     struct Card: Equatable, Identifiable, CustomDebugStringConvertible {
