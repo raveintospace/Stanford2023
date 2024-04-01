@@ -44,7 +44,7 @@ struct EmojiMemorizeGameView: View {
                     cards
                         .foregroundStyle(viewModel.color)
                     HStack {
-                        score
+                        Text("Options")
                         Spacer()
                         deck
                             .foregroundStyle(viewModel.color)
@@ -65,10 +65,10 @@ struct EmojiMemorizeGameView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Text("Score")
+                    score
                 }
                 ToolbarItem(placement: .topBarTrailing) {
-                    Text("Matches")
+                    matches
                 }
             }
         }
@@ -132,6 +132,11 @@ struct EmojiMemorizeGameView: View {
     
     private var score: some View {
         Text("Score: \(viewModel.score)")
+            .animation(nil)
+    }
+    
+    private var matches: some View {
+        Text("Matches: \(viewModel.pairsMatched)")
             .animation(nil)
     }
     
