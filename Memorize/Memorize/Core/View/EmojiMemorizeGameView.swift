@@ -101,6 +101,12 @@ struct EmojiMemorizeGameView: View {
             viewModel.choose(card)
             let scoreChange = viewModel.score - scoreBeforeChoosing
             lastScoreChange = (scoreChange, causedByCardId: card.id)
+            
+            if viewModel.isGameFinished() {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    showGameEndedAlert = true
+                }
+            }
         }
     }
     

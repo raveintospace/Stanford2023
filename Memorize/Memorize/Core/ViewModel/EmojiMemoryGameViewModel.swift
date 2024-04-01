@@ -11,10 +11,10 @@ class EmojiMemoryGameViewModel: ObservableObject {
     
     typealias Card = MemorizeGame<String>.Card
     
-    private static let emojis = ["👻", "😈", "🎃", "🕷️", "💀", "🧙🏻‍♀️", "🙀", "👹", "😱", "☠️", "🍭"]
+    static let emojis = ["👻", "😈", "🎃", "🕷️", "💀", "🧙🏻‍♀️", "🙀", "👹", "😱", "☠️", "🍭"]
     
     private static func createMemorizeGame() -> MemorizeGame<String> {
-         return MemorizeGame(numberOfPairsOfCards: 11) { pairIndex in
+        return MemorizeGame(numberOfPairsOfCards: emojis.count) { pairIndex in
              if emojis.indices.contains(pairIndex) {
                  return emojis[pairIndex]
              } else {
@@ -39,6 +39,14 @@ class EmojiMemoryGameViewModel: ObservableObject {
     
     var matches: Int {
         model.matches
+    }
+    
+    func isGameFinished() -> Bool {
+        if matches == EmojiMemoryGameViewModel.emojis.count {
+            return true
+        } else {
+            return false
+        }
     }
     
     // MARK: - Intents
