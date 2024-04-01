@@ -49,4 +49,8 @@ class EmojiMemoryGameViewModel: ObservableObject {
     func choose(_ card: Card) {
         model.choose(card)
     }
+    
+    func resetGame() {
+        model.resetGame()
+    }
 }

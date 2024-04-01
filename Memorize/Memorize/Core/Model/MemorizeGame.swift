@@ -63,6 +63,11 @@ struct MemorizeGame<CardContent> where CardContent: Equatable {
         }
     }
     
+    mutating func resetGame() {
+        score = 0
+        pairsMatched = 0
+    }
+    
     struct Card: Equatable, Identifiable, CustomDebugStringConvertible {
         var isFaceUp: Bool = false {
             didSet {
