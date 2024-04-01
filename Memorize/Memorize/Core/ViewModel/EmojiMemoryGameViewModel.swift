@@ -37,6 +37,10 @@ class EmojiMemoryGameViewModel: ObservableObject {
         model.score
     }
     
+    var pairsMatched: Int {
+        model.pairsMatched
+    }
+    
     // MARK: - Intents
     func shuffle() {
         model.shuffle()
