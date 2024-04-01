@@ -13,6 +13,9 @@ struct EmojiMemorizeGameView: View {
     
     @ObservedObject var viewModel: EmojiMemoryGameViewModel
     
+    // Restart the game
+    @State private var shouldResetGame: Bool = false
+    
     // tuple with Int & Card.Id as parameters
     @State private var lastScoreChange = (0, causedByCardId: "")
     
@@ -59,7 +62,7 @@ struct EmojiMemorizeGameView: View {
                 Alert(title: Text("Game ended"),
                       message: Text("Do you want to play again?"),
                       primaryButton: .default(Text("Confirm")) {
-                    print("start again")
+                    resetGame()
                 },
                       secondaryButton: .cancel())
             }
@@ -71,6 +74,9 @@ struct EmojiMemorizeGameView: View {
                     matches
                 }
             }
+        }
+        .onChange(of: shouldResetGame) { _, _ in
+            resetView()
         }
     }
     
@@ -108,6 +114,17 @@ struct EmojiMemorizeGameView: View {
                 }
             }
         }
+    }
+    
+    private func resetView() {
+        dealt = []
+        lastScoreChange = (0, causedByCardId: "")
+        shouldResetGame = false
+    }
+    
+    private func resetGame() {
+        viewModel.resetGame()
+        shouldResetGame = true
     }
     
     private var deck: some View {
