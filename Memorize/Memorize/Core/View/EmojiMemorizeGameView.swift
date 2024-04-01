@@ -97,6 +97,8 @@ struct EmojiMemorizeGameView: View {
     }
     
     private func deal() {
+        viewModel.shuffle()
+        
         var delay: TimeInterval = 0
         for card in viewModel.cards {
             withAnimation(dealAnimation.delay(delay)) {
