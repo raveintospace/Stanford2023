@@ -35,21 +35,33 @@ struct EmojiMemorizeGameView: View {
     
     @Namespace private var dealingNamespace
     
+    @State private var showGameEndedAlert: Bool = false
+    
     var body: some View {
-        VStack {
-            cards
-                .foregroundStyle(viewModel.color)
-            HStack {
-                score
-                Spacer()
-                deck
+        ZStack {
+            VStack {
+                cards
                     .foregroundStyle(viewModel.color)
-                Spacer()
-                shuffleButton
+                HStack {
+                    score
+                    Spacer()
+                    deck
+                        .foregroundStyle(viewModel.color)
+                    Spacer()
+                    shuffleButton
+                }
+                .font(.title2)
             }
-            .font(.title2)
+            .padding(.horizontal)
         }
-        .padding()
+        .alert(isPresented: $showGameEndedAlert) {
+            Alert(title: Text("Game ended"),
+                  message: Text("Do you want to play again?"),
+                  primaryButton: .default(Text("Confirm")) {
+                print("start again")
+            },
+                  secondaryButton: .cancel())
+        }
     }
     
     private var cards: some View {
