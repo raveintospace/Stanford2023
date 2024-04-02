@@ -13,13 +13,13 @@ struct EmojiMemorizeGameView: View {
     
     @ObservedObject var viewModel: EmojiMemoryGameViewModel
     
-    // Restart the game
-    @State private var shouldResetGame: Bool = false
+    @State private var showGameEndedAlert: Bool = false
+    @State private var games: Int = 0
     
-    // tuple with Int & Card.Id as parameters
+    // tuple with Int & Card.Id as parameters, tracks card with score
     @State private var lastScoreChange = (0, causedByCardId: "")
     
-    // initial dealt of cards
+    // initial dealt of cards, shows the deck at the bottom of view
     @State private var dealt = Set<Card.ID>()
     
     private func isDealt(_ card: Card) -> Bool {
@@ -38,8 +38,6 @@ struct EmojiMemorizeGameView: View {
     
     @Namespace private var dealingNamespace
     
-    @State private var showGameEndedAlert: Bool = false
-    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -47,7 +45,7 @@ struct EmojiMemorizeGameView: View {
                     cards
                         .foregroundStyle(viewModel.color)
                     HStack {
-                        Text("Options")
+                        Text("Options: \(games)")
                         Spacer()
                         deck
                             .foregroundStyle(viewModel.color)
@@ -74,9 +72,6 @@ struct EmojiMemorizeGameView: View {
                     matches
                 }
             }
-        }
-        .onChange(of: shouldResetGame) { _, _ in
-            resetView()
         }
     }
     
@@ -116,15 +111,11 @@ struct EmojiMemorizeGameView: View {
         }
     }
     
-    private func resetView() {
-        dealt = []
-        lastScoreChange = (0, causedByCardId: "")
-        shouldResetGame = false
-    }
-    
     private func resetGame() {
         viewModel.resetGame()
-        shouldResetGame = true
+        dealt = []
+        lastScoreChange = (0, causedByCardId: "")
+        games += 1
     }
     
     private var deck: some View {
