@@ -60,5 +60,6 @@ class EmojiMemoryGameViewModel: ObservableObject {
     
     func resetGame() {
         model.resetGame()
+        model = EmojiMemoryGameViewModel.createMemorizeGame()
     }
 }
