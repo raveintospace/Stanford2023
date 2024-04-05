@@ -19,7 +19,7 @@ struct EmojiMemorizeGameView: View {
     // tuple with Int & Card.Id as parameters, tracks card with score
     @State private var lastScoreChange = (0, causedByCardId: "")
     
-    // initial dealt of cards, shows the deck at the bottom of view
+    // initial dealt of cards, shows the pileOfCards at the bottom of view
     @State private var dealt = Set<Card.ID>()
     
     private func isDealt(_ card: Card) -> Bool {
@@ -46,8 +46,21 @@ struct EmojiMemorizeGameView: View {
                         .foregroundStyle(viewModel.color)
                     HStack {
                         Text("Options: \(games)")
+                            .contextMenu {
+                                Menu {
+                                    ForEach(viewModel.memorizeDecks) { memorizeDeck in
+                                        AnimatedActionButton(memorizeDeck.name) {
+                                            if let index = viewModel.memorizeDecks.firstIndex(where: { $0.name == memorizeDeck.name }) {
+                                                viewModel.deckIndex = index
+                                            }
+                                        }
+                                    }
+                                } label: {
+                                    Label("Select deck", systemImage: "text.insert")
+                                }
+                            }
                         Spacer()
-                        deck
+                        pileOfCards
                             .foregroundStyle(viewModel.color)
                         Spacer()
                         shuffleButton
@@ -118,7 +131,7 @@ struct EmojiMemorizeGameView: View {
         games += 1
     }
     
-    private var deck: some View {
+    private var pileOfCards: some View {
         ZStack {
             ForEach(undealtCards) { card in
                 CardView(card)

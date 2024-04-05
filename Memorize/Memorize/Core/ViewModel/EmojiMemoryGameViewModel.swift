@@ -13,6 +13,8 @@ class EmojiMemoryGameViewModel: ObservableObject {
     
     static let emojis = ["👻", "😈", "🎃", "🕷️", "💀", "🧙🏻‍♀️", "🙀", "👹", "😱", "☠️", "🍭"]
     
+    var memorizeDecks = MemorizeDeck.builtins
+    
     private static func createMemorizeGame() -> MemorizeGame<String> {
         return MemorizeGame(numberOfPairsOfCards: emojis.count) { pairIndex in
              if emojis.indices.contains(pairIndex) {
@@ -23,6 +25,24 @@ class EmojiMemoryGameViewModel: ObservableObject {
          }
     }
     
+    // MARK: - MemorizeDeck
+    @Published private var _deckIndex = 0
+    
+    var deckIndex: Int {
+        get { boundsCheckedDeckIndex(_deckIndex) }
+        set { _deckIndex = boundsCheckedDeckIndex(newValue) }
+    }
+    
+    private func boundsCheckedDeckIndex(_ index: Int) -> Int {
+        var index = index % memorizeDecks.count
+        debugPrint("Index is \(index)")
+        if index < 0 {
+            index += memorizeDecks.count
+        }
+        return index
+    }
+    
+    // MARK: - MemorizeGame
     @Published private var model = createMemorizeGame()
     
     var cards: Array<Card> {

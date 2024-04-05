@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct MemorizeDeck {
+struct MemorizeDeck: Identifiable {
+    var id = UUID()
     var name: String
     var emojis: [String]
     
