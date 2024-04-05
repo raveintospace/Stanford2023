@@ -170,6 +170,7 @@ extension EmojiMemorizeGameView {
                     AnimatedActionButton(memorizeDeck.name) {
                         if let index = viewModel.memorizeDecks.firstIndex(where: { $0.name == memorizeDeck.name }) {
                             viewModel.deckIndex = index
+                            resetGame()
                         }
                     }
                 }

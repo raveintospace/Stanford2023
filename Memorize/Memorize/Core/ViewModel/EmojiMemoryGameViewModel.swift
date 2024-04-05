@@ -15,10 +15,10 @@ class EmojiMemoryGameViewModel: ObservableObject {
     
     var memorizeDecks = MemorizeDeck.builtins
     
-    private static func createMemorizeGame() -> MemorizeGame<String> {
-        return MemorizeGame(numberOfPairsOfCards: emojis.count) { pairIndex in
-             if emojis.indices.contains(pairIndex) {
-                 return emojis[pairIndex]
+    private static func createMemorizeGame(memorizeDecks: [MemorizeDeck], deckIndex: Int) -> MemorizeGame<String> {
+        return MemorizeGame(numberOfPairsOfCards: memorizeDecks[deckIndex].emojis.count) { pairIndex in
+            if memorizeDecks[deckIndex].emojis.indices.contains(pairIndex) {
+                return memorizeDecks[deckIndex].emojis[pairIndex]
              } else {
                  return "⁉️"
              }
@@ -26,7 +26,7 @@ class EmojiMemoryGameViewModel: ObservableObject {
     }
     
     // MARK: - MemorizeDeck
-    @Published private var _deckIndex = 0
+    @Published private var _deckIndex = 5
     
     var deckIndex: Int {
         get { boundsCheckedDeckIndex(_deckIndex) }
@@ -43,7 +43,7 @@ class EmojiMemoryGameViewModel: ObservableObject {
     }
     
     // MARK: - MemorizeGame
-    @Published private var model = createMemorizeGame()
+    @Published private var model = createMemorizeGame(memorizeDecks: MemorizeDeck.builtins, deckIndex: 5)
     
     var cards: Array<Card> {
         model.cards
@@ -62,7 +62,7 @@ class EmojiMemoryGameViewModel: ObservableObject {
     }
     
     func isGameFinished() -> Bool {
-        if matches == EmojiMemoryGameViewModel.emojis.count {
+        if matches == memorizeDecks[deckIndex].emojis.count {
             return true
         } else {
             return false
@@ -80,6 +80,6 @@ class EmojiMemoryGameViewModel: ObservableObject {
     
     func resetGame() {
         model.resetGame()
-        model = EmojiMemoryGameViewModel.createMemorizeGame()
+        model = EmojiMemoryGameViewModel.createMemorizeGame(memorizeDecks: memorizeDecks, deckIndex: deckIndex)
     }
 }
