@@ -45,7 +45,7 @@ struct EmojiMemorizeGameView: View {
                     cards
                         .foregroundStyle(viewModel.color)
                     HStack {
-                        optionsMenu
+                        options
                         Spacer()
                         pileOfCards
                             .foregroundStyle(viewModel.color)
@@ -154,21 +154,25 @@ struct EmojiMemorizeGameView: View {
             .animation(nil)
     }
     
-    private var optionsMenu: some View {
-        Text("Options: \(games)")
-            .contextMenu {
-                Menu {
-                    ForEach(viewModel.memorizeDecks) { memorizeDeck in
-                        AnimatedActionButton(memorizeDeck.name) {
-                            if let index = viewModel.memorizeDecks.firstIndex(where: { $0.name == memorizeDeck.name }) {
-                                viewModel.deckIndex = index
-                            }
+    private var options: some View {
+        Menu("Options: \(games)") {
+            Menu {
+                ForEach(viewModel.memorizeDecks) { memorizeDeck in
+                    AnimatedActionButton(memorizeDeck.name) {
+                        if let index = viewModel.memorizeDecks.firstIndex(where: { $0.name == memorizeDeck.name }) {
+                            viewModel.deckIndex = index
                         }
                     }
-                } label: {
-                    Label("Select deck", systemImage: "text.insert")
                 }
+            } label: {
+                Text("Select deck")
             }
+            Menu {
+               Text("update to AnimatedActionButton and show a sheet")
+            } label : {
+                Text("See scoreboard")
+            }
+        }
     }
     
     private var shuffleButton: some View {
