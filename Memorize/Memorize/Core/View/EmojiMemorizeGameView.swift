@@ -74,6 +74,13 @@ struct EmojiMemorizeGameView: View {
             }
         }
     }
+}
+
+#Preview {
+    EmojiMemorizeGameView(viewModel: EmojiMemoryGameViewModel())
+}
+
+extension EmojiMemorizeGameView {
     
     private var cards: some View {
         AspectVGrid(viewModel.cards, aspectRatio: cardAspectRatio) { card in
@@ -144,6 +151,8 @@ struct EmojiMemorizeGameView: View {
         }
     }
     
+    // MARK: - Toolbar & Buttons
+    
     private var score: some View {
         Text("Score: \(viewModel.score)")
             .animation(nil)
@@ -157,7 +166,7 @@ struct EmojiMemorizeGameView: View {
     private var options: some View {
         Menu("Options: \(games)") {
             Menu {
-                ForEach(viewModel.memorizeDecks) { memorizeDeck in
+                ForEach(viewModel.memorizeDecks.sorted(by: { $0.name > $1.name })) { memorizeDeck in
                     AnimatedActionButton(memorizeDeck.name) {
                         if let index = viewModel.memorizeDecks.firstIndex(where: { $0.name == memorizeDeck.name }) {
                             viewModel.deckIndex = index
@@ -172,6 +181,11 @@ struct EmojiMemorizeGameView: View {
             } label : {
                 Text("See scoreboard")
             }
+            Menu {
+                Text("Set background color")
+            } label: {
+                Text("Set background color")
+            }
         }
     }
     
@@ -182,8 +196,4 @@ struct EmojiMemorizeGameView: View {
             }
         }
     }
-}
-
-#Preview {
-    EmojiMemorizeGameView(viewModel: EmojiMemoryGameViewModel())
 }
