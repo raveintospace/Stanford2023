@@ -32,7 +32,7 @@ struct EmojiMemorizeGameView: View {
     
     private let cardAspectRatio: CGFloat = 2/3
     private let spacing: CGFloat = 4
-    private let deckWidth: CGFloat = 50
+    private let pileOfCardsWidth: CGFloat = 50
     private let dealInterval: TimeInterval = 0.05
     private let dealAnimation: Animation = .spring(duration: 0.7)
     
@@ -45,20 +45,7 @@ struct EmojiMemorizeGameView: View {
                     cards
                         .foregroundStyle(viewModel.color)
                     HStack {
-                        Text("Options: \(games)")
-                            .contextMenu {
-                                Menu {
-                                    ForEach(viewModel.memorizeDecks) { memorizeDeck in
-                                        AnimatedActionButton(memorizeDeck.name) {
-                                            if let index = viewModel.memorizeDecks.firstIndex(where: { $0.name == memorizeDeck.name }) {
-                                                viewModel.deckIndex = index
-                                            }
-                                        }
-                                    }
-                                } label: {
-                                    Label("Select deck", systemImage: "text.insert")
-                                }
-                            }
+                        optionsMenu
                         Spacer()
                         pileOfCards
                             .foregroundStyle(viewModel.color)
@@ -139,7 +126,7 @@ struct EmojiMemorizeGameView: View {
                     .transition(.asymmetric(insertion: .identity, removal: .identity))
             }
         }
-        .frame(width: deckWidth, height: deckWidth / cardAspectRatio)
+        .frame(width: pileOfCardsWidth, height: pileOfCardsWidth / cardAspectRatio)
         .onTapGesture {
             deal()
         }
@@ -165,6 +152,23 @@ struct EmojiMemorizeGameView: View {
     private var matches: some View {
         Text("Matches: \(viewModel.matches)")
             .animation(nil)
+    }
+    
+    private var optionsMenu: some View {
+        Text("Options: \(games)")
+            .contextMenu {
+                Menu {
+                    ForEach(viewModel.memorizeDecks) { memorizeDeck in
+                        AnimatedActionButton(memorizeDeck.name) {
+                            if let index = viewModel.memorizeDecks.firstIndex(where: { $0.name == memorizeDeck.name }) {
+                                viewModel.deckIndex = index
+                            }
+                        }
+                    }
+                } label: {
+                    Label("Select deck", systemImage: "text.insert")
+                }
+            }
     }
     
     private var shuffleButton: some View {
