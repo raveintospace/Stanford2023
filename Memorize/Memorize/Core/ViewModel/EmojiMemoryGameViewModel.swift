@@ -12,7 +12,6 @@ class EmojiMemoryGameViewModel: ObservableObject {
     typealias Card = MemorizeGame<String>.Card
     
     static let emojis = ["👻", "😈", "🎃", "🕷️", "💀", "🧙🏻‍♀️", "🙀", "👹", "😱", "☠️", "🍭"]
-    static let emojisTwo = ["🌲", "🌴", "🌿", "☘️", "🍀", "🍁", "🍄", "🌾", "💐", "🌷", "🌹", "🥀", "🌺", "🌸", "🌼", "🌻"]
     
     private static func createMemorizeGame() -> MemorizeGame<String> {
         return MemorizeGame(numberOfPairsOfCards: emojis.count) { pairIndex in
