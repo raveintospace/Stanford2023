@@ -191,7 +191,7 @@ extension EmojiMemorizeGameView {
                     }
                 }
             } label: {
-                Text("Set background color")
+                Text("Set card color")
             }
         } label: {
             Image(systemName: "gearshape.2")

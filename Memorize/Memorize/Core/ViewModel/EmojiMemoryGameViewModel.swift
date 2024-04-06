@@ -58,11 +58,6 @@ class EmojiMemoryGameViewModel: ObservableObject {
     }
     
     @Published var color: Color = .orange
-    let availableColors: [CardColor] = [.blue, .green, .orange, .purple, .red, .yellow]
-    
-    func updateColor(to selectedColor: CardColor) {
-        self.color = selectedColor.color
-    }
     
     func isGameFinished() -> Bool {
         if matches == memorizeDecks[deckIndex].emojis.count {
