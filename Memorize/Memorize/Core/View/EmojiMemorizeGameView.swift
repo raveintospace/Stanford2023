@@ -13,8 +13,9 @@ struct EmojiMemorizeGameView: View {
     
     @ObservedObject var viewModel: EmojiMemoryGameViewModel
     
+    @State private var hasGameStarted: Bool = false
     @State private var showGameEndedAlert: Bool = false
-    @State private var games: Int = 0
+    @State private var games: Int = 0   // remove on final version of app
     
     // tuple with Int & Card.Id as parameters, tracks card with score
     @State private var lastScoreChange = (0, causedByCardId: "")
@@ -109,9 +110,13 @@ extension EmojiMemorizeGameView {
         HStack {
             options
             Spacer()
-            startButton
-                .font(.title)
+            if !hasGameStarted {
+                startButton
+            } else {
+                restartButton
+            }
         }
+        .padding(.top, 0)
     }
     
     private func scoreChanged(causedBy card: Card) -> Int {
@@ -134,13 +139,6 @@ extension EmojiMemorizeGameView {
         }
     }
     
-    private func resetGame() {
-        viewModel.resetGame()
-        dealt = []
-        lastScoreChange = (0, causedByCardId: "")
-        games += 1  // remove on final version of app
-    }
-    
     private func deal() {
         //viewModel.shuffle()
         
@@ -151,6 +149,16 @@ extension EmojiMemorizeGameView {
             }
             delay += dealInterval
         }
+        
+        hasGameStarted = true
+    }
+    
+    private func resetGame() {
+        viewModel.resetGame()
+        dealt = []
+        lastScoreChange = (0, causedByCardId: "")
+        hasGameStarted = false
+        games += 1  // remove on final version of app
     }
     
     // MARK: - Toolbar & Buttons
@@ -203,5 +211,13 @@ extension EmojiMemorizeGameView {
         Button("Start") {
             deal()
         }
+        .font(.title)
+    }
+    
+    private var restartButton: some View {
+        Button("Restart") {
+            debugPrint("Restart pressed")
+        }
+        .font(.title)
     }
 }
