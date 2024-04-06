@@ -36,6 +36,8 @@ struct EmojiMemorizeGameView: View {
     private let dealInterval: TimeInterval = 0.05
     private let dealAnimation: Animation = .spring(duration: 0.7)
     
+    @ScaledMetric var optionsButtonSize: CGFloat = 50
+    
     @Namespace private var dealingNamespace
     
     var body: some View {
@@ -122,7 +124,7 @@ extension EmojiMemorizeGameView {
         viewModel.resetGame()
         dealt = []
         lastScoreChange = (0, causedByCardId: "")
-        games += 1
+        games += 1  // remove on final version of app
     }
     
     private var pileOfCards: some View {
@@ -164,7 +166,7 @@ extension EmojiMemorizeGameView {
     }
     
     private var options: some View {
-        Menu("Options: \(games)") {
+        Menu {
             Menu {
                 ForEach(viewModel.memorizeDecks.sorted(by: { $0.name > $1.name })) { memorizeDeck in
                     AnimatedActionButton(memorizeDeck.name) {
@@ -187,6 +189,9 @@ extension EmojiMemorizeGameView {
             } label: {
                 Text("Set background color")
             }
+        } label: {
+            Image(systemName: "gearshape.2")
+                .font(.system(size: optionsButtonSize))
         }
     }
     
