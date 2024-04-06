@@ -16,7 +16,7 @@ struct FlyingNumber: View {
     var body: some View {
         if number != 0 {
             Text(number, format: .number.sign(strategy: .always())) // show + or -
-                .font(.largeTitle)
+                .font(.title3)
                 .foregroundStyle(number < 0 ? Color.red : Color.green)
                 .shadow(color: .black, radius: 1.5, x: 1, y: 1)
                 .offset(x: 0, y: offset)
@@ -34,5 +34,5 @@ struct FlyingNumber: View {
 }
 
 #Preview {
-    FlyingNumber(number: 3)
+    FlyingNumber(number: 13)
 }

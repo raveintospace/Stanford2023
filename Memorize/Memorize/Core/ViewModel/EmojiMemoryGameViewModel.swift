@@ -11,8 +11,6 @@ class EmojiMemoryGameViewModel: ObservableObject {
     
     typealias Card = MemorizeGame<String>.Card
     
-    static let emojis = ["👻", "😈", "🎃", "🕷️", "💀", "🧙🏻‍♀️", "🙀", "👹", "😱", "☠️", "🍭"]
-    
     var memorizeDecks = MemorizeDeck.builtins
     
     private static func createMemorizeGame(memorizeDecks: [MemorizeDeck], deckIndex: Int) -> MemorizeGame<String> {
@@ -25,22 +23,8 @@ class EmojiMemoryGameViewModel: ObservableObject {
          }
     }
     
-    // MARK: - MemorizeDeck
-    @Published private var _deckIndex = 5
-    
-    var deckIndex: Int {
-        get { boundsCheckedDeckIndex(_deckIndex) }
-        set { _deckIndex = boundsCheckedDeckIndex(newValue) }
-    }
-    
-    private func boundsCheckedDeckIndex(_ index: Int) -> Int {
-        var index = index % memorizeDecks.count
-        debugPrint("Index is \(index)")
-        if index < 0 {
-            index += memorizeDecks.count
-        }
-        return index
-    }
+    // MARK: - MemorizeDeck, starts with Halloween
+    @Published var deckIndex = 5
     
     // MARK: - MemorizeGame
     @Published private var model = createMemorizeGame(memorizeDecks: MemorizeDeck.builtins, deckIndex: 5)
