@@ -15,7 +15,7 @@ Memory game to match emojis, user can play with several themed decks
 - MatchedGeometryEffect
 
 - Options menu to select the deck, the card color and to check the scoreboard
-- Button to restart the game
+- Button to start / restart the game
 
 - Languages: Localized in Catalan, English and Spanish
 
