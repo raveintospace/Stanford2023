@@ -136,9 +136,6 @@ extension EmojiMemorizeGameView {
             }
         }
         .frame(width: pileOfCardsWidth, height: pileOfCardsWidth / cardAspectRatio)
-        .onTapGesture {
-            deal()
-        }
     }
     
     private func deal() {
@@ -186,7 +183,7 @@ extension EmojiMemorizeGameView {
             }
             Menu {
                 ForEach(CardColor.allCases.sorted(by: { $0.description > $1.description }), id: \.self) { deckColor in
-                    Button("\(deckColor.description)") {
+                    Button(deckColor.description) {
                         viewModel.color = deckColor.color
                     }
                 }
