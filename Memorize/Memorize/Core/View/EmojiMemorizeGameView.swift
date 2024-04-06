@@ -45,16 +45,8 @@ struct EmojiMemorizeGameView: View {
             ZStack {
                 VStack {
                     cards
-                        .foregroundStyle(viewModel.color)
-                    HStack {
-                        options
-                        Spacer()
-                        pileOfCards
-                            .foregroundStyle(viewModel.color)
-                        Spacer()
-                        shuffleButton
-                    }
-                    .font(.title2)
+                    pileOfCards
+                    gameButtons
                 }
                 .padding(.horizontal)
             }
@@ -98,6 +90,28 @@ extension EmojiMemorizeGameView {
                     }
             }
         }
+        .foregroundStyle(viewModel.color)
+    }
+    
+    private var pileOfCards: some View {
+        ZStack {
+            ForEach(undealtCards) { card in
+                CardView(card)
+                    .matchedGeometryEffect(id: card.id, in: dealingNamespace)
+                    .transition(.asymmetric(insertion: .identity, removal: .identity))
+            }
+        }
+        .foregroundStyle(viewModel.color)
+        .frame(width: pileOfCardsWidth, height: pileOfCardsWidth / cardAspectRatio)
+    }
+    
+    private var gameButtons: some View {
+        HStack {
+            options
+            Spacer()
+            startButton
+                .font(.title)
+        }
     }
     
     private func scoreChanged(causedBy card: Card) -> Int {
@@ -125,17 +139,6 @@ extension EmojiMemorizeGameView {
         dealt = []
         lastScoreChange = (0, causedByCardId: "")
         games += 1  // remove on final version of app
-    }
-    
-    private var pileOfCards: some View {
-        ZStack {
-            ForEach(undealtCards) { card in
-                CardView(card)
-                    .matchedGeometryEffect(id: card.id, in: dealingNamespace)
-                    .transition(.asymmetric(insertion: .identity, removal: .identity))
-            }
-        }
-        .frame(width: pileOfCardsWidth, height: pileOfCardsWidth / cardAspectRatio)
     }
     
     private func deal() {
@@ -196,7 +199,7 @@ extension EmojiMemorizeGameView {
         }
     }
     
-    private var shuffleButton: some View {
+    private var startButton: some View {
         Button("Start") {
             deal()
         }
