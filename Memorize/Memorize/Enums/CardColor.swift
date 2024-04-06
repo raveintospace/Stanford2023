@@ -10,14 +10,18 @@ import SwiftUI
 
 enum CardColor: CaseIterable, CustomStringConvertible {
     
-    case blue, green, orange, purple, red, yellow
+    case blue, brown, green, indigo, orange, purple, red, yellow
     
     var color: Color {
         switch self {
         case .blue:
             return Color.blue
+        case .brown:
+            return Color.brown
         case .green:
             return Color.green
+        case .indigo:
+            return Color.indigo
         case .orange:
             return Color.orange
         case .purple:
@@ -33,8 +37,12 @@ enum CardColor: CaseIterable, CustomStringConvertible {
         switch self {
         case .blue:
             return "Blue"
+        case .brown:
+            return "Brown"
         case .green:
             return "Green"
+        case .indigo:
+            return "Indigo"
         case .orange:
             return "Orange"
         case .purple:
