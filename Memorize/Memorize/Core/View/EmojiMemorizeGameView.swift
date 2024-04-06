@@ -200,10 +200,8 @@ extension EmojiMemorizeGameView {
     }
     
     private var shuffleButton: some View {
-        Button("Shuffle") {
-            withAnimation {
-                viewModel.shuffle()
-            }
+        Button("Start") {
+            deal()
         }
     }
 }
