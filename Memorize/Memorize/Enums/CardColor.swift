@@ -36,21 +36,21 @@ enum CardColor: CaseIterable, CustomStringConvertible {
     var description: String {
         switch self {
         case .blue:
-            return "Blue"
+            return NSLocalizedString("Blue", comment: "")
         case .brown:
-            return "Brown"
+            return NSLocalizedString("Brown", comment: "")
         case .green:
-            return "Green"
+            return NSLocalizedString("Green", comment: "")
         case .indigo:
-            return "Indigo"
+            return NSLocalizedString("Indigo", comment: "")
         case .orange:
-            return "Orange"
+            return NSLocalizedString("Orange", comment: "")
         case .purple:
-            return "Purple"
+            return NSLocalizedString("Purple", comment: "")
         case .red:
-            return "Red"
+            return NSLocalizedString("Red", comment: "")
         case .yellow:
-            return "Yellow"
+            return NSLocalizedString("Yellow", comment: "")
         }
     }
 }
