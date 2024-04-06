@@ -185,7 +185,11 @@ extension EmojiMemorizeGameView {
                 Text("See scoreboard")
             }
             Menu {
-                Text("Set background color")
+                ForEach(CardColor.allCases.sorted(by: { $0.description > $1.description }), id: \.self) { deckColor in
+                    Button("\(deckColor.description)") {
+                        viewModel.color = deckColor.color
+                    }
+                }
             } label: {
                 Text("Set background color")
             }

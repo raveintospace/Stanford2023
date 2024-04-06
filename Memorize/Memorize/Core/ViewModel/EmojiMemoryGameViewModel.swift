@@ -49,16 +49,19 @@ class EmojiMemoryGameViewModel: ObservableObject {
         model.cards
     }
     
-    var color: Color {
-        .orange
-    }
-    
     var score: Int {
         model.score
     }
     
     var matches: Int {
         model.matches
+    }
+    
+    @Published var color: Color = .orange
+    let availableColors: [CardColor] = [.blue, .green, .orange, .purple, .red, .yellow]
+    
+    func updateColor(to selectedColor: CardColor) {
+        self.color = selectedColor.color
     }
     
     func isGameFinished() -> Bool {
