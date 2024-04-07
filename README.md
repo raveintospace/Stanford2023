@@ -19,7 +19,8 @@ Memory game to match emojis, user can play with several themed decks
 ---
 - Options menu to select the deck, the card color and to check the scoreboard
 - Button to start / restart the game
-- ConfirmationDialog when game ends, user can play again, save the score (if it's a top score) or exit the app
+- ConfirmationDialog when game ends, user can play again, save the score (if it's a top score) or quit the game
+- Scoreform to save the score
 - Scoreboard with highest five scores
 ---
 - Languages: Localized in Catalan, English and Spanish
@@ -27,6 +28,7 @@ Memory game to match emojis, user can play with several themed decks
 **Components**
 - AnimatedactionButton: Button with its actions animated
 - AspectVGrid: View resizes its components in a LazyVGrid according to how many of them are created at the begining of the game, using GeometryReader
+- DismissXButton: Button that dismisses the view by default, but can execute other actions if needed
 - FlyingNumber: The score of each play goes up or down of the card using offset & opacity
 - PieShape: A circle that diminishes using TimeInterval, the smaller the less score for the play
 - Cardify: Animatable & ViewModifier to give a look & feel of a game card, including a rotation3DEffect
