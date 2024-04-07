@@ -15,6 +15,7 @@ struct EmojiMemorizeGameView: View {
     
     @State private var hasGameStarted: Bool = false
     @State private var showGameEndedAlert: Bool = false
+    @State private var playerName: String = ""
     @State private var games: Int = 0   // remove on final version of app
     
     // tuple with Int & Card.Id as parameters, tracks card with score
@@ -162,6 +163,24 @@ extension EmojiMemorizeGameView {
         lastScoreChange = (0, causedByCardId: "")
         hasGameStarted = false
         games += 1  // remove on final version of app
+    }
+    
+    private var scoreForm: some View {
+        Form {
+            Section(header: Text("Player name")) {
+                TextField("Player name", text: $playerName)
+                    .autocorrectionDisabled()
+            }
+            Section(header: Text("Final score")) {
+                Text("\(viewModel.score)")
+            }
+            Section(header: Text("Total matches")) {
+                Text("\(viewModel.matches)")
+            }
+            Section(header: Text("Deck player")) {
+                Text("\(viewModel.memorizeDecks[viewModel.deckIndex].name)")
+            }
+        }
     }
     
     // MARK: - Toolbar & Buttons

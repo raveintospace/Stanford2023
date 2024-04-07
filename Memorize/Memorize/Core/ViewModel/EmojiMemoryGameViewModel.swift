@@ -51,6 +51,13 @@ class EmojiMemoryGameViewModel: ObservableObject {
         }
     }
     
+    // MARK: - Scoreboard
+    @Published var scoreboard: [Scorecard] = []
+    
+    func saveScore(player: String, deck: String, matches: Int, score: Int) {
+        scoreboard.append(Scorecard(player: player, deck: deck, matches: matches, score: score))
+    }
+    
     // MARK: - Intents
     func shuffle() {
         model.shuffle()
