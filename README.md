@@ -9,6 +9,7 @@ Memory game to match emojis, user can play with several themed decks
 - Model for game conforming to Equatable, Identifiable and CustomDebugStringConvertible
 - Logic implemented in Model for game: Creation of game, shuffle of cards, chosing a card and comparing it with the next one chosen, score for the game
 - Model for card decks
+- Model for scorecard
   
 - Animations
 - Transitions
@@ -16,6 +17,8 @@ Memory game to match emojis, user can play with several themed decks
 
 - Options menu to select the deck, the card color and to check the scoreboard
 - Button to start / restart the game
+- ConfirmationDialog when game ends, user can play again, save the score (if it's a top score) or exit the app
+- Scoreboard with highest five scores
 
 - Languages: Localized in Catalan, English and Spanish
 
