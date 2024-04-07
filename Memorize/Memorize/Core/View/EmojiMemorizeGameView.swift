@@ -57,7 +57,8 @@ struct EmojiMemorizeGameView: View {
                 saveScoreButton
                 quitGameButton
             }
-            .sheet(isPresented: $showSaveScoreSheet) {
+            .sheet(isPresented: $showSaveScoreSheet,
+                   onDismiss: { resetGame() }) {
                 ScoreForm(viewModel: viewModel)
             }
             .toolbar {
@@ -189,7 +190,7 @@ extension EmojiMemorizeGameView {
                 Text("Select deck")
             }
             Menu {
-               Text("update to AnimatedActionButton and show a sheet")
+                Text("update to AnimatedActionButton and show a sheet")
             } label : {
                 Text("See scoreboard")
             }

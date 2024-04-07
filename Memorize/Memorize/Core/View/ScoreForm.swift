@@ -12,12 +12,14 @@ struct ScoreForm: View {
     @ObservedObject var viewModel: EmojiMemoryGameViewModel
     
     @State private var playerName: String = ""
+    @FocusState private var focused: Bool
     
     var body: some View {
         Form {
             Section(header: Text("Player name")) {
                 TextField("Player name", text: $playerName)
                     .autocorrectionDisabled()
+                    .focused($focused)
             }
             Section(header: Text("Deck player")) {
                 Text("\(viewModel.memorizeDecks[viewModel.deckIndex].name)")
@@ -40,6 +42,9 @@ struct ScoreForm: View {
                 }
                 .disabled(playerName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
             }
+        }
+        .onAppear {
+            focused = true
         }
     }
 }
