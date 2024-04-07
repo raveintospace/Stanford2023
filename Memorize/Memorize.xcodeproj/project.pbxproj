@@ -11,6 +11,7 @@
 		34315F732BC05B7C00F72EF4 /* AnimatedActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34315F722BC05B7C00F72EF4 /* AnimatedActionButton.swift */; };
 		343516992B9F737B00200A8A /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343516982B9F737B00200A8A /* Array.swift */; };
 		344783DA2BC2B10500155304 /* Scorecard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344783D92BC2B10500155304 /* Scorecard.swift */; };
+		344783DC2BC2E26700155304 /* ScoreForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344783DB2BC2E26700155304 /* ScoreForm.swift */; };
 		345BD6712BA7057C004AFF24 /* FlyingNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345BD6702BA7057C004AFF24 /* FlyingNumber.swift */; };
 		346015032BC18A4C006F17B9 /* CardColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346015022BC18A4C006F17B9 /* CardColor.swift */; };
 		346015052BC1A785006F17B9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 346015042BC1A785006F17B9 /* Localizable.xcstrings */; };
@@ -31,6 +32,7 @@
 		34315F722BC05B7C00F72EF4 /* AnimatedActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedActionButton.swift; sourceTree = "<group>"; };
 		343516982B9F737B00200A8A /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		344783D92BC2B10500155304 /* Scorecard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scorecard.swift; sourceTree = "<group>"; };
+		344783DB2BC2E26700155304 /* ScoreForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreForm.swift; sourceTree = "<group>"; };
 		345BD6702BA7057C004AFF24 /* FlyingNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyingNumber.swift; sourceTree = "<group>"; };
 		346015022BC18A4C006F17B9 /* CardColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardColor.swift; sourceTree = "<group>"; };
 		346015042BC1A785006F17B9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = Memorize/Localizable.xcstrings; sourceTree = SOURCE_ROOT; };
@@ -148,6 +150,7 @@
 			children = (
 				3492EAC12B9B879C00B401D1 /* EmojiMemorizeGameView.swift */,
 				34C913462BA4B4A2006D908B /* CardView.swift */,
+				344783DB2BC2E26700155304 /* ScoreForm.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				34C9134D2BA4C34A006D908B /* Cardify.swift in Sources */,
 				346015032BC18A4C006F17B9 /* CardColor.swift in Sources */,
 				343516992B9F737B00200A8A /* Array.swift in Sources */,
+				344783DC2BC2E26700155304 /* ScoreForm.swift in Sources */,
 				344783DA2BC2B10500155304 /* Scorecard.swift in Sources */,
 				34BD7CA22BA0CD77006D051A /* AspectVGrid.swift in Sources */,
 				34315F732BC05B7C00F72EF4 /* AnimatedActionButton.swift in Sources */,
