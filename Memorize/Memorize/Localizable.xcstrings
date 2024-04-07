@@ -69,22 +69,6 @@
         }
       }
     },
-    "Confirm" : {
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Acceptar"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aceptar"
-          }
-        }
-      }
-    },
     "Countries" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -98,22 +82,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Países"
-          }
-        }
-      }
-    },
-    "Do you want to play again?" : {
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vols tornar a jugar?"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¿Quieres volver a jugar?"
           }
         }
       }
@@ -135,18 +103,18 @@
         }
       }
     },
-    "Game ended" : {
+    "Game ended 🎉 \nWhat do you want to do now?" : {
       "localizations" : {
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Partida acabada"
+            "value" : "Partida finalitzada 🎉 Què vols fer ara?"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Partida finalizada"
+            "value" : "Partida finalizada 🎉 ¿Qué quieres hacer ahora?"
           }
         }
       }
@@ -235,6 +203,22 @@
         }
       }
     },
+    "Play again" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nova partida"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nueva partida"
+          }
+        }
+      }
+    },
     "Purple" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -252,6 +236,22 @@
         }
       }
     },
+    "Quit game" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sortir del joc"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salir del juego"
+          }
+        }
+      }
+    },
     "Red" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -265,6 +265,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rojo"
+          }
+        }
+      }
+    },
+    "Restart" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reiniciar"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reiniciar"
+          }
+        }
+      }
+    },
+    "Save score" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar puntuació"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar puntuación"
           }
         }
       }

@@ -58,8 +58,8 @@ struct EmojiMemorizeGameView: View {
                 Button("Save score") {
                     debugPrint("Save Score with userDefault, reset game after saving")
                 }
-                Button("Exit app", role: .destructive) {
-                    debugPrint("Exit app")
+                Button("Quit game", role: .destructive) {
+                    debugPrint("Show credits")
                 }
             }
             .toolbar {
