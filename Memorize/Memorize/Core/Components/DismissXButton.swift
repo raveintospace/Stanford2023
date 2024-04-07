@@ -11,9 +11,11 @@ struct DismissXButton: View {
     
     @Environment(\.dismiss) var dismiss
     
+    let customAction: (() -> Void)?
+    
     var body: some View {
         Button(action: {
-            dismiss()
+            customAction?() ?? dismiss()
         }, label: {
             Image(systemName: "xmark")
                 .font(.headline)
@@ -22,5 +24,5 @@ struct DismissXButton: View {
 }
 
 #Preview {
-    DismissXButton()
+    DismissXButton(customAction: nil)
 }
