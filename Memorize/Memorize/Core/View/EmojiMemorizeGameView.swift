@@ -178,6 +178,12 @@ extension EmojiMemorizeGameView {
             Section(header: Text("Deck player")) {
                 Text("\(viewModel.memorizeDecks[viewModel.deckIndex].name)")
             }
+            Section {
+                Button("Save score") {
+                    debugPrint("Save score")
+                }
+                .disabled(playerName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+            }
         }
     }
     
