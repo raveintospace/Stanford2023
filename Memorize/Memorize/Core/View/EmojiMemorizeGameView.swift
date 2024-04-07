@@ -51,13 +51,16 @@ struct EmojiMemorizeGameView: View {
                 }
                 .padding(.horizontal)
             }
-            .alert(isPresented: $showGameEndedAlert) {
-                Alert(title: Text("Game ended"),
-                      message: Text("Do you want to play again?"),
-                      primaryButton: .default(Text("Confirm")) {
+            .confirmationDialog("Game ended 🎉 \nWhat do you want to do now?", isPresented: $showGameEndedAlert, titleVisibility: .visible) {
+                Button("Play again") {
                     resetGame()
-                },
-                      secondaryButton: .cancel())
+                }
+                Button("Save score") {
+                    debugPrint("Save Score with userDefault, reset game after saving")
+                }
+                Button("Exit app", role: .destructive) {
+                    debugPrint("Exit app")
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
