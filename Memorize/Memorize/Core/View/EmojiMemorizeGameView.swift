@@ -15,6 +15,7 @@ struct EmojiMemorizeGameView: View {
     
     @State private var hasGameStarted: Bool = false
     @State private var showGameEndedAlert: Bool = false
+    @State private var showSaveScoreSheet: Bool = false
     @State private var playerName: String = ""
     @State private var games: Int = 0   // remove on final version of app
     
@@ -53,15 +54,12 @@ struct EmojiMemorizeGameView: View {
                 .padding(.horizontal)
             }
             .confirmationDialog("Game ended 🎉 \nWhat do you want to do now?", isPresented: $showGameEndedAlert, titleVisibility: .visible) {
-                Button("Play again") {
-                    resetGame()
-                }
-                Button("Save score") {
-                    debugPrint("Save Score with userDefault, reset game after saving")
-                }
-                Button("Quit game", role: .destructive) {
-                    debugPrint("Show credits")
-                }
+                playAgainButton
+                saveScoreButton
+                quitGameButton
+            }
+            .sheet(isPresented: $showSaveScoreSheet) {
+                scoreForm
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -241,5 +239,24 @@ extension EmojiMemorizeGameView {
             debugPrint("Restart pressed")
         }
         .font(.title)
+    }
+    
+    private var playAgainButton: some View {
+        Button("Play again") {
+            resetGame()
+        }
+    }
+    
+    private var saveScoreButton: some View {
+        Button("Save score") {
+            showSaveScoreSheet = true
+            debugPrint("Save Score with userDefault, reset game after saving")
+        }
+    }
+    
+    private var quitGameButton: some View {
+        Button("Quit game", role: .destructive) {
+            debugPrint("Show credits")
+        }
     }
 }
