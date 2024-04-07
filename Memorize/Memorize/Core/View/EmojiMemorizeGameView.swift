@@ -218,7 +218,7 @@ extension EmojiMemorizeGameView {
     
     private var restartButton: some View {
         Button("Restart") {
-            debugPrint("Restart pressed")
+            resetGame()
         }
         .font(.title)
     }

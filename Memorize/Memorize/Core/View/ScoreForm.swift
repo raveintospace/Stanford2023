@@ -11,6 +11,8 @@ struct ScoreForm: View {
     
     @ObservedObject var viewModel: EmojiMemoryGameViewModel
     
+    @Environment(\.dismiss) var dismiss
+    
     @State private var playerName: String = ""
     @FocusState private var focused: Bool
     
@@ -39,6 +41,7 @@ struct ScoreForm: View {
             Section {
                 Button("Save score") {
                     viewModel.saveScore(player: playerName, deck: viewModel.memorizeDecks[viewModel.deckIndex].name, matches: viewModel.matches, score: viewModel.score)
+                    dismiss()
                 }
                 .disabled(playerName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
             }
