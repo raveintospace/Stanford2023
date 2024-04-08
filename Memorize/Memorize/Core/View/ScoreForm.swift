@@ -26,8 +26,10 @@ struct ScoreForm: View {
                         TextField("Player name", text: $playerName)
                             .autocorrectionDisabled()
                             .focused($focused)
+                            .onChange(of: playerName) { if playerName.count > 20 { playerName = String(String(playerName).prefix(20)) }
+                            }
                     }
-                    Section(header: Text("Deck player")) {
+                    Section(header: Text("Deck played")) {
                         Text("\(viewModel.memorizeDecks[viewModel.deckIndex].name)")
                     }
                     Section(header: Text("Total matches")) {
