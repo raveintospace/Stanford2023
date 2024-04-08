@@ -12,8 +12,13 @@ struct Scoreboard: View {
     let scores = Scorecard.stub
     
     var body: some View {
-        VStack {
-            titlesRow
+        Grid(horizontalSpacing: 500, verticalSpacing: 20) {
+            GridRow {
+                titlesRow
+            }
+            Divider()
+                .frame(minHeight: 3)
+                .overlay(Color.black)
             scoreList
         }
     }
@@ -55,6 +60,9 @@ extension Scoreboard {
                 Spacer()
             }
             .padding(.horizontal)
+            Divider()
+                .frame(minHeight: 1)
+                .overlay(Color.black)
         }
     }
 }
