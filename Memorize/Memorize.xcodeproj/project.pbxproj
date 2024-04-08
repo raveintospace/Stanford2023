@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		341948342BC451C20075B3DE /* Scoreboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341948332BC451C20075B3DE /* Scoreboard.swift */; };
 		34315F712BC0558000F72EF4 /* MemorizeDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34315F702BC0558000F72EF4 /* MemorizeDeck.swift */; };
 		34315F732BC05B7C00F72EF4 /* AnimatedActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34315F722BC05B7C00F72EF4 /* AnimatedActionButton.swift */; };
 		343516992B9F737B00200A8A /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343516982B9F737B00200A8A /* Array.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		341948332BC451C20075B3DE /* Scoreboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scoreboard.swift; sourceTree = "<group>"; };
 		34315F702BC0558000F72EF4 /* MemorizeDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeDeck.swift; sourceTree = "<group>"; };
 		34315F722BC05B7C00F72EF4 /* AnimatedActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedActionButton.swift; sourceTree = "<group>"; };
 		343516982B9F737B00200A8A /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				3492EAC12B9B879C00B401D1 /* EmojiMemorizeGameView.swift */,
 				34C913462BA4B4A2006D908B /* CardView.swift */,
 				344783DB2BC2E26700155304 /* ScoreForm.swift */,
+				341948332BC451C20075B3DE /* Scoreboard.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				343516992B9F737B00200A8A /* Array.swift in Sources */,
 				344783DC2BC2E26700155304 /* ScoreForm.swift in Sources */,
 				344783DA2BC2B10500155304 /* Scorecard.swift in Sources */,
+				341948342BC451C20075B3DE /* Scoreboard.swift in Sources */,
 				34BD7CA22BA0CD77006D051A /* AspectVGrid.swift in Sources */,
 				34315F732BC05B7C00F72EF4 /* AnimatedActionButton.swift in Sources */,
 				3492EAC02B9B879C00B401D1 /* MemorizeApp.swift in Sources */,

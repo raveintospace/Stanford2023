@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Scorecard {
+struct Scorecard: Identifiable {
+    let id = UUID()
     var player: String
     var deck: String
     var matches: Int
