@@ -32,16 +32,16 @@ extension Scoreboard {
     
     private var titlesRow: some View {
         HStack {
-            Text("Player")
+            Text("PLAYER")
                 .background(Color.blue)
             Spacer()
-            Text("Deck")
+            Text("DECK")
                 .background(Color.red)
             Spacer()
-            Text("Matches")
+            Text("MATCHES")
                 .background(Color.yellow)
             Spacer()
-            Text("Score")
+            Text("SCORE")
                 .background(Color.green)
         }
         .padding(.horizontal)
