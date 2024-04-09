@@ -16,7 +16,7 @@ struct Scoreboard: View {
     var body: some View {
         ScrollView {
             Grid(alignment: .leadingFirstTextBaseline,
-                 horizontalSpacing: 15,
+                 horizontalSpacing: 20,
                  verticalSpacing: 10) {
                 GridRow {
                     Text("PLAYER")
@@ -38,6 +38,7 @@ struct Scoreboard: View {
                         Text(score.player)
                         Text(score.deck)
                             .gridColumnAlignment(.center)
+                            .multilineTextAlignment(.center)
                         Text("\(score.matches)")
                             .gridColumnAlignment(.center)
                         Text("\(score.score)")
