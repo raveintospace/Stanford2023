@@ -9,7 +9,9 @@ import SwiftUI
 
 struct Scoreboard: View {
     
-    let scores = Scorecard.stub
+    @ObservedObject var viewModel: EmojiMemoryGameViewModel
+    
+    let scores = Scorecard.stub // update with real data
     
     var body: some View {
         ScrollView {
@@ -29,8 +31,7 @@ struct Scoreboard: View {
                 
                 Divider()
                     .frame(minHeight: 3)
-                    .overlay(Color.black)
-                    .padding(.horizontal, -25)
+                    .overlay(viewModel.color)
                 
                 ForEach(scores) { score in
                     GridRow(alignment: .center) {
@@ -43,6 +44,8 @@ struct Scoreboard: View {
                             .gridColumnAlignment(.trailing)
                     }
                     Divider()
+                        .frame(minHeight: 1)
+                        .overlay(viewModel.color.opacity(0.5))
                 }
                 
             }
@@ -52,11 +55,7 @@ struct Scoreboard: View {
 }
 
 #Preview {
-    Scoreboard()
-}
-
-extension Scoreboard {
-    
+    Scoreboard(viewModel: EmojiMemoryGameViewModel())
 }
 
 
