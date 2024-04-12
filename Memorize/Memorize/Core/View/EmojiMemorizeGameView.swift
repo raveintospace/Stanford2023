@@ -16,6 +16,7 @@ struct EmojiMemorizeGameView: View {
     @State private var hasGameStarted: Bool = false
     @State private var showGameEndedAlert: Bool = false
     @State private var showSaveScoreSheet: Bool = false
+    @State private var showScoreboardSheet: Bool = false
     @State private var games: Int = 0   // remove on final version of app
     
     // tuple with Int & Card.Id as parameters, tracks card with score
@@ -57,8 +58,14 @@ struct EmojiMemorizeGameView: View {
                 saveScoreButton
                 quitGameButton
             }
+            .sheet(isPresented: $showScoreboardSheet) {
+                Scoreboard(viewModel: viewModel)
+            }
             .sheet(isPresented: $showSaveScoreSheet,
-                   onDismiss: { resetGame() }) {
+                   onDismiss: {
+                resetGame()
+                showScoreboardSheet = true
+            }) {
                 ScoreForm(viewModel: viewModel)
             }
             .toolbar {
@@ -177,6 +184,9 @@ extension EmojiMemorizeGameView {
     
     private var options: some View {
         Menu {
+            AnimatedActionButton("See scoreboard") {
+                showScoreboardSheet = true
+            }
             Menu {
                 ForEach(viewModel.memorizeDecks.sorted(by: { $0.name > $1.name })) { memorizeDeck in
                     AnimatedActionButton(memorizeDeck.name) {
@@ -188,11 +198,6 @@ extension EmojiMemorizeGameView {
                 }
             } label: {
                 Text("Select deck")
-            }
-            Menu {
-                Text("update to AnimatedActionButton and show a sheet")
-            } label : {
-                Text("See scoreboard")
             }
             Menu {
                 ForEach(CardColor.allCases.sorted(by: { $0.description > $1.description }), id: \.self) { deckColor in
