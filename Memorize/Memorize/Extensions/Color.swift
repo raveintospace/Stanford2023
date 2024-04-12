@@ -17,5 +17,4 @@ struct DeckTheme {
     let gold = Color("Gold")
     let silver = Color("Silver")
     let uv = Color("UV")
-    let magenta = Color("Magenta")
 }

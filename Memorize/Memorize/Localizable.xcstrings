@@ -1,6 +1,38 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
+    },
+    "%lld" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        }
+      }
+    },
     "Animal faces" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -86,6 +118,70 @@
         }
       }
     },
+    "DECK" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BARALLA"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BARAJA"
+          }
+        }
+      }
+    },
+    "Deck played" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baralla jugada"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baraja jugada"
+          }
+        }
+      }
+    },
+    "Exit" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tancar"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerrar"
+          }
+        }
+      }
+    },
+    "Exit screen" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tancar pantalla"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerrar pantalla"
+          }
+        }
+      }
+    },
     "Faces" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -103,6 +199,22 @@
         }
       }
     },
+    "Final score" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puntuació final"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puntuación final"
+          }
+        }
+      }
+    },
     "Game ended 🎉 \nWhat do you want to do now?" : {
       "localizations" : {
         "ca" : {
@@ -115,6 +227,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Partida finalizada 🎉 ¿Qué quieres hacer ahora?"
+          }
+        }
+      }
+    },
+    "Gold" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Or"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oro"
           }
         }
       }
@@ -149,6 +277,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Índigo"
+          }
+        }
+      }
+    },
+    "Keep editing" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seguir editant"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seguir editando"
+          }
+        }
+      }
+    },
+    "MATCHES" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parelles"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PAREJAS"
           }
         }
       }
@@ -215,6 +375,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nueva partida"
+          }
+        }
+      }
+    },
+    "PLAYER" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JUGADOR"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JUGADOR"
+          }
+        }
+      }
+    },
+    "Player name" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nom del jugador"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre del jugador"
           }
         }
       }
@@ -301,18 +493,66 @@
         }
       }
     },
-    "Score: %lld" : {
+    "Save your score" : {
       "localizations" : {
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Punts: %lld"
+            "value" : "Guardar puntuació"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Puntos: %lld"
+            "value" : "Guardar puntuación"
+          }
+        }
+      }
+    },
+    "SCORE" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PUNTUACIÓ"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PUNTUACIÓN"
+          }
+        }
+      }
+    },
+    "Score: %lld" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puntuació: %lld"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puntuación: %lld"
+          }
+        }
+      }
+    },
+    "Scoreboard" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Taula de puntuacions"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tabla de puntuaciones"
           }
         }
       }
@@ -365,6 +605,22 @@
         }
       }
     },
+    "Silver" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plata"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plata"
+          }
+        }
+      }
+    },
     "Sports" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -398,8 +654,40 @@
         }
       }
     },
+    "Total matches" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parelles totals"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parejas totales"
+          }
+        }
+      }
+    },
     "update to AnimatedActionButton and show a sheet" : {
 
+    },
+    "UV" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UV"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UV"
+          }
+        }
+      }
     },
     "Vehicles" : {
       "extractionState" : "manual",
@@ -431,6 +719,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Amarillo"
+          }
+        }
+      }
+    },
+    "You will lose your score if you press Exit" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perdràs la puntuació si prems Tancar"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perderás tu puntuación si pulsas Cerrar"
           }
         }
       }
