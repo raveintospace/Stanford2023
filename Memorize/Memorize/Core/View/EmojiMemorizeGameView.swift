@@ -64,7 +64,6 @@ struct EmojiMemorizeGameView: View {
             .sheet(isPresented: $showSaveScoreSheet,
                    onDismiss: {
                 resetGame()
-                showScoreboardSheet = true
             }) {
                 ScoreForm(viewModel: viewModel)
             }
