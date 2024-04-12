@@ -24,6 +24,7 @@ Memory game to match emojis, user can play with several themed decks
 - Scoreboard with highest five scores
 ---
 - Languages: Localized in Catalan, English and Spanish
+- Custom Colors Gold, Silver and UltraViolet (see reference below)
 ---
 **Components**
 - AnimatedactionButton: Button with its actions animated
@@ -34,7 +35,8 @@ Memory game to match emojis, user can play with several themed decks
 - Cardify: Animatable & ViewModifier to give a look & feel of a game card, including a rotation3DEffect
 
  **Extensions**
-- Extension "only" for Array, to return the only element if the array is of one element 
+- Extension "only" for Array, to return the only element if the array is of one element
+- Extension color to work with custom colors 
 
 ## License
 
