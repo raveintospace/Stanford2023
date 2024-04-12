@@ -21,6 +21,7 @@
 		3492EAC22B9B879C00B401D1 /* EmojiMemorizeGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3492EAC12B9B879C00B401D1 /* EmojiMemorizeGameView.swift */; };
 		3492EAC42B9B879F00B401D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3492EAC32B9B879F00B401D1 /* Assets.xcassets */; };
 		3492EAC72B9B879F00B401D1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3492EAC62B9B879F00B401D1 /* Preview Assets.xcassets */; };
+		34B742B62BC990F6007806E6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B742B52BC990F6007806E6 /* Color.swift */; };
 		34BD7CA22BA0CD77006D051A /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD7CA12BA0CD77006D051A /* AspectVGrid.swift */; };
 		34C913472BA4B4A2006D908B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C913462BA4B4A2006D908B /* CardView.swift */; };
 		34C9134A2BA4BED6006D908B /* PieShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C913492BA4BED6006D908B /* PieShape.swift */; };
@@ -45,6 +46,7 @@
 		3492EAC12B9B879C00B401D1 /* EmojiMemorizeGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemorizeGameView.swift; sourceTree = "<group>"; };
 		3492EAC32B9B879F00B401D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3492EAC62B9B879F00B401D1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		34B742B52BC990F6007806E6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		34BD7CA12BA0CD77006D051A /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 		34C913462BA4B4A2006D908B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		34C913492BA4BED6006D908B /* PieShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieShape.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				343516982B9F737B00200A8A /* Array.swift */,
+				34B742B52BC990F6007806E6 /* Color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				345BD6712BA7057C004AFF24 /* FlyingNumber.swift in Sources */,
 				34315F712BC0558000F72EF4 /* MemorizeDeck.swift in Sources */,
 				344783DE2BC2E7F100155304 /* DismissXButton.swift in Sources */,
+				34B742B62BC990F6007806E6 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
