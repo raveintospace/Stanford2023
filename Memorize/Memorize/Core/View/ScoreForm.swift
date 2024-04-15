@@ -66,13 +66,13 @@ struct ScoreForm: View {
             }
             .navigationTitle("Save your score")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar(content: {
+            .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     DismissXButton {
                         showDismissAlert = true
                     }
                 }
-            })
+            }
         }
     }
 }

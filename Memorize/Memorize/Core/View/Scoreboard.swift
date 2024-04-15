@@ -11,6 +11,8 @@ struct Scoreboard: View {
     
     @ObservedObject var viewModel: EmojiMemoryGameViewModel
     
+    @Environment(\.dismiss) var dismiss
+    
     let scores = Scorecard.stub // update with real data
     
     var body: some View {
@@ -58,6 +60,11 @@ struct Scoreboard: View {
             }
             .navigationTitle("Scoreboard")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    DismissXButton(customAction: nil)
+                }
+            }
         }
     }
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class EmojiMemoryGameViewModel: ObservableObject {
+final class EmojiMemoryGameViewModel: ObservableObject {
     
     typealias Card = MemorizeGame<String>.Card
     

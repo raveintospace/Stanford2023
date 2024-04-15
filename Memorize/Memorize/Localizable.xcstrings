@@ -558,6 +558,7 @@
       }
     },
     "See scoreboard" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -669,9 +670,6 @@
           }
         }
       }
-    },
-    "update to AnimatedActionButton and show a sheet" : {
-
     },
     "UV" : {
       "localizations" : {

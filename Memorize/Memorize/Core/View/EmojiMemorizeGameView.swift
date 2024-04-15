@@ -60,12 +60,14 @@ struct EmojiMemorizeGameView: View {
             }
             .sheet(isPresented: $showScoreboardSheet) {
                 Scoreboard(viewModel: viewModel)
+                    .interactiveDismissDisabled()
             }
             .sheet(isPresented: $showSaveScoreSheet,
                    onDismiss: {
                 resetGame()
             }) {
                 ScoreForm(viewModel: viewModel)
+                    .interactiveDismissDisabled()
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
