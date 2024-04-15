@@ -85,5 +85,6 @@ extension ScoreForm {
     
     private func saveScore() {
         viewModel.saveScore(player: playerName, deck: viewModel.memorizeDecks[viewModel.deckIndex].name, matches: viewModel.matches, score: viewModel.score)
+        viewModel.showScoreSavedConfirmation = true
     }
 }

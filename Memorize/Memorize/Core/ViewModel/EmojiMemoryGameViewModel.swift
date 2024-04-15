@@ -54,6 +54,8 @@ final class EmojiMemoryGameViewModel: ObservableObject {
     // MARK: - Scoreboard
     @Published var scoreboard: [Scorecard] = []
     
+    @Published var showScoreSavedConfirmation: Bool = false
+    
     func saveScore(player: String, deck: String, matches: Int, score: Int) {
         scoreboard.append(Scorecard(player: player, deck: deck, matches: matches, score: score))
     }

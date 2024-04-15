@@ -78,6 +78,18 @@ struct EmojiMemorizeGameView: View {
                 }
             }
         }
+        .safeAreaInset(edge: .bottom) {
+            if viewModel.showScoreSavedConfirmation {
+                ConfirmationRectangle(copy: "Score saved", iconName: "checkmark.seal")
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                            withAnimation(.easeOut) {
+                                viewModel.showScoreSavedConfirmation = false
+                            }
+                        }
+                    }
+            }
+        }
     }
 }
 
