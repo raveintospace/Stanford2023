@@ -77,6 +77,8 @@ struct EmojiMemorizeGameView: View {
                     matches
                 }
             }
+            .navigationTitle("\(viewModel.memorizeDecks[viewModel.deckIndex].name)")
+            .navigationBarTitleDisplayMode(.inline)
         }
         .safeAreaInset(edge: .bottom) {
             if viewModel.showScoreSavedConfirmation {
