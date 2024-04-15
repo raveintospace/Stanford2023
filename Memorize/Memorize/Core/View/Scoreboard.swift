@@ -52,7 +52,6 @@ struct Scoreboard: View {
                                 .frame(minHeight: 1)
                                 .overlay(viewModel.color.opacity(0.5))
                         }
-                        
                     }
                 }
                 .padding(.horizontal)
