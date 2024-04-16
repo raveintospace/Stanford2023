@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Scorecard: Identifiable {
-    let id = UUID()
+struct Scorecard: Identifiable, Codable {
+    var id = UUID()
     var player: String
     var deck: String
     var matches: Int

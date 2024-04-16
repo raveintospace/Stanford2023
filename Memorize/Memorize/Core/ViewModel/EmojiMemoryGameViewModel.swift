@@ -60,6 +60,15 @@ final class EmojiMemoryGameViewModel: ObservableObject {
         scoreboard.append(Scorecard(player: player, deck: deck, matches: matches, score: score))
     }
     
+    func getScoreboard() -> [Scorecard] {
+        if let scoreboardData = UserDefaults.standard.object(forKey: "scoreboard") as? Data {
+            if let scoreboard = try? JSONDecoder().decode([Scorecard].self, from: scoreboardData) {
+                return scoreboard
+            }
+        }
+        return []
+    }
+    
     // MARK: - Intents
     func shuffle() {
         model.shuffle()
