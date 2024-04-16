@@ -13,7 +13,9 @@ struct Scoreboard: View {
     
     @Environment(\.dismiss) var dismiss
     
-    let scores = Scorecard.stub // update with real data
+    //let scores = Scorecard.stub // update with real data
+    
+    //let scores = viewModel.scoreboard
     
     var body: some View {
         NavigationStack {
@@ -37,7 +39,7 @@ struct Scoreboard: View {
                             .frame(minHeight: 3)
                             .overlay(viewModel.color)
                         
-                        ForEach(scores) { score in
+                        ForEach(viewModel.scoreboard) { score in
                             GridRow(alignment: .center) {
                                 Text(score.player)
                                 Text(score.deck)

@@ -56,6 +56,7 @@ final class EmojiMemoryGameViewModel: ObservableObject {
     
     init() {
         scoreboard = getScoreboard()
+        debugPrint("scoreboard count: \(scoreboard.count)")
     }
     
     @Published var showScoreSavedConfirmation: Bool = false
@@ -63,6 +64,8 @@ final class EmojiMemoryGameViewModel: ObservableObject {
     func saveScore(player: String, deck: String, matches: Int, score: Int) {
         if scoreboard.count < 10 {
             scoreboard.append(Scorecard(player: player, deck: deck, matches: matches, score: score))
+            debugPrint("new score saved: \(score)")
+            debugPrint("scoreboard count: \(scoreboard.count)")
         }
     }
     

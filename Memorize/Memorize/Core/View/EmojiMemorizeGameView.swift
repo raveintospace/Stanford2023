@@ -54,8 +54,10 @@ struct EmojiMemorizeGameView: View {
                 .padding(.horizontal)
             }
             .confirmationDialog("Game ended 🎉 \nWhat do you want to do now?", isPresented: $showGameEndedAlert, titleVisibility: .visible) {
+                if !viewModel.isScoreboardFull() && viewModel.isNewHighScore(score: viewModel.score) {
+                    saveScoreButton
+                }
                 playAgainButton
-                saveScoreButton
                 quitGameButton
             }
             .sheet(isPresented: $showScoreboardSheet) {
@@ -254,6 +256,7 @@ extension EmojiMemorizeGameView {
             showSaveScoreSheet = true
             debugPrint("Save Score with userDefault, reset game after saving")
         }
+        //.disabled(viewModel.isScoreboardFull() || !viewModel.isNewHighScore(score: viewModel.score))
     }
     
     private var quitGameButton: some View {

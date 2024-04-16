@@ -46,7 +46,6 @@ struct MemorizeGame<CardContent> where CardContent: Equatable {
                         cards[potentialMatchIndex].isMatched = true
                         score += 2 + cards[chosenIndex].bonus + cards[potentialMatchIndex].bonus
                         matches += 1
-                        debugPrint("pairsMatched: \(matches)")
                     } else {
                         if cards[chosenIndex].hasBeenSeen {
                             score -= 1
