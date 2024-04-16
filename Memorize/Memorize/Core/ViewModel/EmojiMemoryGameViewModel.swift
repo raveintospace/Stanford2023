@@ -54,13 +54,36 @@ final class EmojiMemoryGameViewModel: ObservableObject {
     // MARK: - Scoreboard
     @Published var scoreboard: [Scorecard] = []
     
+    init() {
+        scoreboard = getScoreboard()
+    }
+    
     @Published var showScoreSavedConfirmation: Bool = false
     
     func saveScore(player: String, deck: String, matches: Int, score: Int) {
-        scoreboard.append(Scorecard(player: player, deck: deck, matches: matches, score: score))
+        if scoreboard.count < 10 {
+            scoreboard.append(Scorecard(player: player, deck: deck, matches: matches, score: score))
+        }
     }
     
-    func getScoreboard() -> [Scorecard] {
+    func isNewHighScore(score: Int) -> Bool {
+        guard let highestScore = scoreboard.map({ $0.score }).max() else {
+            return true // when scoreboard is empty it will be a highScore
+        }
+        return score > highestScore
+    }
+    
+    func isScoreboardFull() -> Bool {
+        return scoreboard.count >= 10
+    }
+    
+    private func encodeAndSaveScoreboard() {
+        if let encoded = try? JSONEncoder().encode(scoreboard) {
+            UserDefaults.standard.set(encoded, forKey: "scoreboard")
+        }
+    }
+    
+    private func getScoreboard() -> [Scorecard] {
         if let scoreboardData = UserDefaults.standard.object(forKey: "scoreboard") as? Data {
             if let scoreboard = try? JSONDecoder().decode([Scorecard].self, from: scoreboardData) {
                 return scoreboard
