@@ -70,10 +70,10 @@ final class EmojiMemoryGameViewModel: ObservableObject {
     }
     
     func isNewHighScore(score: Int) -> Bool {
-        guard let highestScore = scoreboard.map({ $0.score }).max() else {
-            return true // when scoreboard is empty it will be a highScore
+        if scoreboard.isEmpty {
+            return true
         }
-        return score > highestScore
+        return scoreboard.contains { $0.score < score }
     }
     
     func isScoreboardFull() -> Bool {
