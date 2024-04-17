@@ -15,8 +15,6 @@ struct Scoreboard: View {
     
     //let scores = Scorecard.stub // update with real data
     
-    //let scores = viewModel.scoreboard
-    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -39,7 +37,7 @@ struct Scoreboard: View {
                             .frame(minHeight: 3)
                             .overlay(viewModel.color)
                         
-                        ForEach(viewModel.scoreboard) { score in
+                        ForEach(viewModel.scoreboard.sorted(by: { $0.score > $1.score })) { score in
                             GridRow(alignment: .center) {
                                 Text(score.player)
                                 Text(score.deck)
