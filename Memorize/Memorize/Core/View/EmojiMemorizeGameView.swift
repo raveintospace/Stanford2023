@@ -17,7 +17,6 @@ struct EmojiMemorizeGameView: View {
     @State private var showGameEndedAlert: Bool = false
     @State private var showSaveScoreSheet: Bool = false
     @State private var showScoreboardSheet: Bool = false
-    @State private var games: Int = 0   // remove on final version of app
     
     // tuple with Int & Card.Id as parameters, tracks card with score
     @State private var lastScoreChange = (0, causedByCardId: "")
@@ -182,7 +181,6 @@ extension EmojiMemorizeGameView {
         dealt = []
         lastScoreChange = (0, causedByCardId: "")
         hasGameStarted = false
-        games += 1  // remove on final version of app
     }
     
     // MARK: - Toolbar & Buttons
@@ -252,7 +250,6 @@ extension EmojiMemorizeGameView {
     private var saveScoreButton: some View {
         Button("Save score") {
             showSaveScoreSheet = true
-            debugPrint("Save Score with userDefault, reset game after saving")
         }
         .disabled(viewModel.isScoreboardFull() && !viewModel.isNewHighScore(score: viewModel.score))
     }
