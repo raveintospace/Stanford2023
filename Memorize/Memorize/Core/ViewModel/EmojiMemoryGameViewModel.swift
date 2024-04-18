@@ -80,7 +80,12 @@ final class EmojiMemoryGameViewModel: ObservableObject {
     }
     
     func isScoreboardFull() -> Bool {
-        return scoreboard.count >= scoreboardLimit
+        return scoreboard.count == scoreboardLimit
+    }
+    
+    func resetScoreboard() {
+        scoreboard.removeAll()
+        encodeAndSaveScoreboard()
     }
     
     private func removeLowestScore() {
