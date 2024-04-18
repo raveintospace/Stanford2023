@@ -53,20 +53,22 @@ final class EmojiMemoryGameViewModel: ObservableObject {
     
     // MARK: - Scoreboard
     @Published var scoreboard: [Scorecard] = []
+    private var scoreboardLimit: Int = 4
     
     init() {
         scoreboard = getScoreboard()
-        debugPrint("scoreboard count: \(scoreboard.count)")
+        debugPrint("init, scoreboard count: \(scoreboard.count)")
     }
     
     @Published var showScoreSavedConfirmation: Bool = false
     
     func saveScore(player: String, deck: String, matches: Int, score: Int) {
-        if scoreboard.count < 10 {
-            scoreboard.append(Scorecard(player: player, deck: deck, matches: matches, score: score))
-            debugPrint("new score saved: \(score)")
-            debugPrint("scoreboard count: \(scoreboard.count)")
+        if isScoreboardFull() && isNewHighScore(score: score) {
+            scoreboard.removeLast()
         }
+        scoreboard.append(Scorecard(player: player, deck: deck, matches: matches, score: score))
+        debugPrint("new score saved: \(score)")
+        debugPrint("scoreboard count: \(scoreboard.count)")
     }
     
     func isNewHighScore(score: Int) -> Bool {
@@ -77,7 +79,7 @@ final class EmojiMemoryGameViewModel: ObservableObject {
     }
     
     func isScoreboardFull() -> Bool {
-        return scoreboard.count >= 10
+        return scoreboard.count >= scoreboardLimit
     }
     
     private func encodeAndSaveScoreboard() {
