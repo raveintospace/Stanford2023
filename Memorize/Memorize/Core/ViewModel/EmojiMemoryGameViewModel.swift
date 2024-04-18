@@ -64,9 +64,10 @@ final class EmojiMemoryGameViewModel: ObservableObject {
     
     func saveScore(player: String, deck: String, matches: Int, score: Int) {
         if isScoreboardFull() && isNewHighScore(score: score) {
-            scoreboard.removeLast()
+            removeLowestScore()
         }
         scoreboard.append(Scorecard(player: player, deck: deck, matches: matches, score: score))
+        encodeAndSaveScoreboard()
         debugPrint("new score saved: \(score)")
         debugPrint("scoreboard count: \(scoreboard.count)")
     }
@@ -80,6 +81,13 @@ final class EmojiMemoryGameViewModel: ObservableObject {
     
     func isScoreboardFull() -> Bool {
         return scoreboard.count >= scoreboardLimit
+    }
+    
+    private func removeLowestScore() {
+        guard let lowestScore = scoreboard.min(by: { $0.score < $1.score })?.score else { return }
+        if let index = scoreboard.firstIndex(where: { $0.score == lowestScore }) {
+            scoreboard.remove(at: index)
+        }
     }
     
     private func encodeAndSaveScoreboard() {
