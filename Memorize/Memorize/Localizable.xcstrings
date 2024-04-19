@@ -150,6 +150,38 @@
         }
       }
     },
+    "Discard" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descartar"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descartar"
+          }
+        }
+      }
+    },
+    "Do you want to erase the scores saved?" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vols esborrar les puntuacions guardades?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quieres borrar las puntuaciones guardadas?"
+          }
+        }
+      }
+    },
     "Exit" : {
       "localizations" : {
         "ca" : {
@@ -204,13 +236,13 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Puntuació final"
+            "value" : "Punts finals"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Puntuación final"
+            "value" : "Puntos finales"
           }
         }
       }
@@ -461,6 +493,38 @@
         }
       }
     },
+    "Reset" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset"
+          }
+        }
+      }
+    },
+    "Reset Scoreboard" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resetejar puntuacions"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resetear puntuaciones"
+          }
+        }
+      }
+    },
     "Restart" : {
       "localizations" : {
         "ca" : {
@@ -514,13 +578,13 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PUNTUACIÓ"
+            "value" : "PUNTS"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "PUNTUACIÓN"
+            "value" : "PUNTOS"
           }
         }
       }
@@ -530,13 +594,13 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Puntuació: %lld"
+            "value" : "Punts: %lld"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Puntuación: %lld"
+            "value" : "Puntos: %lld"
           }
         }
       }
@@ -546,30 +610,29 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Taula de puntuacions"
+            "value" : "Puntuacions"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tabla de puntuaciones"
+            "value" : "Puntuaciones"
           }
         }
       }
     },
     "See scoreboard" : {
-      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Veure taula de puntuacions"
+            "value" : "Veure puntuacions"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ver tabla de puntuaciones"
+            "value" : "Ver puntuaciones"
           }
         }
       }
@@ -726,13 +789,13 @@
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Perdràs la puntuació si prems Tancar"
+            "value" : "Perdràs els punts si prems Tancar"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Perderás tu puntuación si pulsas Cerrar"
+            "value" : "Perderás tus puntos si pulsas Cerrar"
           }
         }
       }
