@@ -29,6 +29,7 @@ Memory game to match emojis, user can play with several themed decks
 **Components**
 - AnimatedactionButton: Button with its actions animated
 - AspectVGrid: View resizes its components in a LazyVGrid according to how many of them are created at the begining of the game, using GeometryReader
+- ConfirmationRectangle: View shown to user after saving their score
 - DismissXButton: Button that dismisses the view by default, but can execute other actions if needed
 - FlyingNumber: The score of each play goes up or down of the card using offset & opacity
 - PieShape: A circle that diminishes using TimeInterval, the smaller the less score for the play
