@@ -25,6 +25,7 @@ struct ScoreForm: View {
                     Section(header: Text("Player name")) {
                         TextField("Player name", text: $playerName)
                             .autocorrectionDisabled()
+                            .textInputAutocapitalization(.words)
                             .focused($playerNameFocused)
                             .onChange(of: playerName) { if playerName.count > 20 { playerName = String(String(playerName).prefix(20)) }
                             }
