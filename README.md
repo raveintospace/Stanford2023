@@ -1,7 +1,9 @@
-# Stanford 2023 - Memorize
+# Stanford 2023 - Memoroji
 App made following Stanford University's course CS193p (Developing Applications for iOS using SwiftUI) - https://cs193p.sites.stanford.edu/2023
 
-Memory game to match emojis, user can play with several themed decks
+Memory game to match pairs of emojis, user can play with several themed decks.
+<br>
+Started following Stanford's course, evolved freely by myself.
 <br>
 <br>
 ⚠️⚠️ Project in construction ⚠️⚠️
@@ -16,15 +18,18 @@ Memory game to match emojis, user can play with several themed decks
 - Animations
 - Transitions
 - MatchedGeometryEffect
+- UserDefaults
 ---
 - Options menu to select the deck, the card color and to check the scoreboard
 - Button to start / restart the game
 - ConfirmationDialog when game ends, user can play again, save the score (if it's a top score) or quit the game
-- Scoreform to save the score
-- Scoreboard with highest five scores
+- Scoreform view to save the score
+- Scoreboard view with highest ten scores & reset possibility
+- Credits view with project's info
 ---
 - Languages: Localized in Catalan, English and Spanish
 - Custom Colors Gold, Silver and UltraViolet (see reference below)
+- Custom App Icon made with Canva
 ---
 **Components**
 - AnimatedactionButton: Button with its actions animated
