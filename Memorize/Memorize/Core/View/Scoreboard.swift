@@ -63,6 +63,9 @@ struct Scoreboard: View {
                 ToolbarItem(placement: .topBarLeading) {
                     DismissXButton(customAction: nil)
                 }
+                ToolbarItem(placement: .topBarTrailing) {
+                    resetButton
+                }
             }
         }
     }
@@ -70,6 +73,15 @@ struct Scoreboard: View {
 
 #Preview {
     Scoreboard(viewModel: EmojiMemoryGameViewModel())
+}
+
+extension Scoreboard {
+    
+    private var resetButton: some View {
+        Button("Reset") {
+            viewModel.resetScoreboard()
+        }
+    }
 }
 
 
