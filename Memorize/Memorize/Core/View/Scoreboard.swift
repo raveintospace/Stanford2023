@@ -13,7 +13,7 @@ struct Scoreboard: View {
     
     @Environment(\.dismiss) var dismiss
     
-    //let scores = Scorecard.stub // update with real data
+    @State private var showResetAlert: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -56,6 +56,15 @@ struct Scoreboard: View {
                 }
                 .padding(.horizontal)
                 .padding(.top, 20)
+                .alert(isPresented: $showResetAlert) {
+                    Alert(
+                        title: Text("Reset Scoreboard"),
+                        message: Text("Do you want to erase the scores saved?"),
+                        primaryButton: .default(Text("Discard")),
+                        secondaryButton: .destructive(Text("Reset")) { viewModel.resetScoreboard()
+                        }
+                    )
+                }
             }
             .navigationTitle("Scoreboard")
             .navigationBarTitleDisplayMode(.inline)
@@ -79,7 +88,7 @@ extension Scoreboard {
     
     private var resetButton: some View {
         Button("Reset") {
-            viewModel.resetScoreboard()
+            showResetAlert = true
         }
     }
 }

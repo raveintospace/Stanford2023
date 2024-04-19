@@ -53,7 +53,7 @@ final class EmojiMemoryGameViewModel: ObservableObject {
     
     // MARK: - Scoreboard
     @Published var scoreboard: [Scorecard] = []
-    private var scoreboardLimit: Int = 4
+    private var scoreboardLimit: Int = 10
     
     init() {
         scoreboard = getScoreboard()

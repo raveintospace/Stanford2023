@@ -14,7 +14,7 @@ struct ScoreForm: View {
     @Environment(\.dismiss) var dismiss
     
     @State private var playerName: String = ""
-    @FocusState private var focused: Bool
+    @FocusState private var playerNameFocused: Bool
     
     @State private var showDismissAlert: Bool = false
     
@@ -25,7 +25,7 @@ struct ScoreForm: View {
                     Section(header: Text("Player name")) {
                         TextField("Player name", text: $playerName)
                             .autocorrectionDisabled()
-                            .focused($focused)
+                            .focused($playerNameFocused)
                             .onChange(of: playerName) { if playerName.count > 20 { playerName = String(String(playerName).prefix(20)) }
                             }
                     }
@@ -53,7 +53,7 @@ struct ScoreForm: View {
                     }
                 }
                 .onAppear {
-                    focused = true
+                    playerNameFocused = true
                 }
                 .alert(isPresented: $showDismissAlert) {
                     Alert(
