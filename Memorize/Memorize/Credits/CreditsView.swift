@@ -15,7 +15,7 @@ struct CreditsView: View {
     
     let defaultURL = URL(string: "https://www.google.com")!
     let opendatasoftURL = URL(string: "https://public.opendatasoft.com/")!
-    let airbnbDataSetURL = URL(string: "https://public.opendatasoft.com/explore/dataset/airbnb-listings/api/?disjunctive.host_verifications&disjunctive.amenities&disjunctive.features")!
+    let airbnbDataSetURL = URL(string: "standofr")!
     let linkedinURL = URL(string: "https://www.linkedin.com/in/uri46/")!
     let gitHubURL = URL(string: "https://github.com/raveintospace")!
     
