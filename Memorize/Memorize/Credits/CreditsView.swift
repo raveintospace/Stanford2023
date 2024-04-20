@@ -9,13 +9,10 @@ import SwiftUI
 
 struct CreditsView: View {
     
-    @ObservedObject var viewModel: EmojiMemoryGameViewModel
-    
     @Environment(\.dismiss) var dismiss
     
     let defaultURL = URL(string: "https://www.google.com")!
-    let opendatasoftURL = URL(string: "https://public.opendatasoft.com/")!
-    let airbnbDataSetURL = URL(string: "standofr")!
+    let stanfordURL = URL(string: "https://cs193p.sites.stanford.edu/2023")!
     let linkedinURL = URL(string: "https://www.linkedin.com/in/uri46/")!
     let gitHubURL = URL(string: "https://github.com/raveintospace")!
     
@@ -24,7 +21,7 @@ struct CreditsView: View {
             ZStack {
                 List {
                     appPurposeSection
-                    openDatasoftSection
+                    stanfordSection
                     developerSection
                     appSection
                 }
@@ -43,7 +40,7 @@ struct CreditsView: View {
 }
 
 #Preview {
-    CreditsView(viewModel: EmojiMemoryGameViewModel())
+    CreditsView()
 }
 
 extension CreditsView {
@@ -56,9 +53,9 @@ extension CreditsView {
                     .frame(width: 100, height: 100)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                 Text("""
-                    With this app I want to show my skills as an iOS developer. I have practiced some learnings from previous programs, but I have also acquired a lot of knowledge, facing challenges, a few dead end situations and refactor sessions.
-
-                    It uses MVVM architechture, Combine & CoreData.
+                    With this app I followed Stanford University's course CS193p to keep learning how to develop apps with SwiftUI. I have added extra features to make the game more complete.
+                    
+                    It uses MVVM architecture and has several reusable components.
                     """)
                     .font(.callout)
                     .fontWeight(.medium)
@@ -69,7 +66,7 @@ extension CreditsView {
         }
     }
     
-    private var openDatasoftSection: some View {
+    private var stanfordSection: some View {
         Section {
             VStack(alignment: .leading) {
                 Image("ods")
@@ -78,15 +75,14 @@ extension CreditsView {
                     .frame(height: 100)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .padding(.bottom, 10)
-                Text("The Airbnb data used in this app comes from a free Opendata's API. JSON content may vary or come incomplete.")
+                Text("You can find more information about Stanford University's course CS193p (Developing Applications for iOS using SwiftUI) clicking on the link below.")
                     .font(.callout)
                     .fontWeight(.medium)
             }
             .padding(.vertical)
-            Link("Visit Opendatasoft 🖥️", destination: opendatasoftURL)
-            Link("Visit Airbnb dataset 🏠", destination: airbnbDataSetURL)
+            Link("Visit Stanford Course 🏫", destination: stanfordURL)
         } header: {
-            Text("Opendatasoft")
+            Text("Stanford University")
         }
     }
     
