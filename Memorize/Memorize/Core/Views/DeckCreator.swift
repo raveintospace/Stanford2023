@@ -16,7 +16,7 @@ struct DeckCreator: View {
     
     @Binding var deck: MemorizeDeck
     
-    @State private var emojisToAdd: String = ""
+    @State private var emojisToAdd: [String] = []
     @FocusState private var focused: Focused?
     
     private let emojiFont: Font = Font.system(size: 40)
@@ -28,17 +28,20 @@ struct DeckCreator: View {
                     .focused($focused, equals: .name)
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.words)
+                    // limit length of name
+                    
             }
             Section(header: Text("Emojis")) {
-                TextField("Add emojis here", text: $emojisToAdd)
+                TextField("Add emojis here", text: .constant(emojisToAdd.joined()))
                     .focused($focused, equals: .addEmojis)
                     .autocorrectionDisabled()
                     .font(emojiFont)
-//                    .onChange(of: emojisToAdd) { _, newValue in
-//                        deck.emojis = (newValue + deck.emojis)
-//                            .filter { $0.isEmoji }
-//                            .uniqued
-//                    }
+                    .onChange(of: emojisToAdd) { _, newValue in
+                        let newEmojis = newValue.filter { $0.isEmoji() }
+                        let uniqueEmojis = newEmojis.filter { !deck.emojis.contains($0)
+                        }
+                        deck.emojis.append(contentsOf: uniqueEmojis)
+                    }
                 removeEmojis
             }
         }
@@ -53,7 +56,7 @@ struct DeckCreator: View {
 }
 
 #Preview {
-    DeckCreator(deck: .constant(MemorizeDeck(name: "Preview", emojis: ["🐥", "🏋🏻‍♂️"])))
+    DeckCreator(deck: .constant(MemorizeDeck(name: "Preview", emojis: ["🐥", "🏋🏻‍♂️", "🐻", "🐼", "🐻‍❄️", "🐨", "🐯", "🦁", "🐮", "🐷", "🐸", "🐲", "🐙"])))
 }
 
 extension DeckCreator {
@@ -63,18 +66,20 @@ extension DeckCreator {
             Text("Tap emoji to remove")
                 .font(.caption)
                 .foregroundStyle(Color.red)
-            Text("Test")
-//            LazyVGrid(columns: [GridItem(.adaptive(minimum: 40))]) {
-//                ForEach(deck.emojis.uniqued.map(String.init), id: \.self) { emoji in
-//                    Text(emoji)
-//                        .onTapGesture {
-//                            withAnimation {
-//                                deck.emojis.remove(emoji.first!)
-//                                emojisToAdd.remove(emoji.first!)
-//                            }
-//                        }
-//                }
-//            }
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 40))]) {
+                ForEach(deck.emojis.indices, id: \.self) { index in
+                    let emoji = deck.emojis[index]
+                    Text(emoji)
+                        .onTapGesture {
+                            withAnimation {
+                                deck.emojis.remove(at: index)
+                                if let indexToRemove = emojisToAdd.firstIndex(of: emoji) {
+                                    emojisToAdd.remove(at: indexToRemove)
+                                }
+                            }
+                        }
+                }
+            }
         }
         .font(emojiFont)
     }
