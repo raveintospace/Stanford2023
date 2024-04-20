@@ -48,7 +48,7 @@ extension CreditsView {
     private var appPurposeSection: some View {
         Section {
             VStack(alignment: .leading) {
-                Image("customlogo")
+                Image("memorojiAppIcon")
                     .resizable()
                     .frame(width: 100, height: 100)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -69,7 +69,7 @@ extension CreditsView {
     private var stanfordSection: some View {
         Section {
             VStack(alignment: .leading) {
-                Image("ods")
+                Image("stanford")
                     .resizable()
                     .scaledToFit()
                     .frame(height: 100)
