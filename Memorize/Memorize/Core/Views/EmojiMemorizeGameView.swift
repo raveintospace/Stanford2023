@@ -15,6 +15,7 @@ struct EmojiMemorizeGameView: View {
     
     @State private var hasGameStarted: Bool = false
     @State private var showGameEndedAlert: Bool = false
+    @State private var showCreditsSheet: Bool = false
     @State private var showSaveScoreSheet: Bool = false
     @State private var showScoreboardSheet: Bool = false
     
@@ -56,6 +57,10 @@ struct EmojiMemorizeGameView: View {
                 saveScoreButton
                 playAgainButton
                 quitGameButton
+            }
+            .sheet(isPresented: $showCreditsSheet) {
+                CreditsView()
+                    .interactiveDismissDisabled()
             }
             .sheet(isPresented: $showScoreboardSheet) {
                 Scoreboard(viewModel: viewModel)
@@ -256,7 +261,10 @@ extension EmojiMemorizeGameView {
     
     private var quitGameButton: some View {
         Button("Quit game", role: .destructive) {
-            debugPrint("Show credits")
+            showCreditsSheet = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                resetGame()
+            }
         }
     }
 }
