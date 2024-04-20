@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Scoreboard: View {
     
-    @ObservedObject var viewModel: EmojiMemoryGameViewModel
+    @ObservedObject var viewModel: MemorojiViewModel
     
     @Environment(\.dismiss) var dismiss
     
@@ -81,7 +81,7 @@ struct Scoreboard: View {
 }
 
 #Preview {
-    Scoreboard(viewModel: EmojiMemoryGameViewModel())
+    Scoreboard(viewModel: MemorojiViewModel())
 }
 
 extension Scoreboard {

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class EmojiMemoryGameViewModel: ObservableObject {
+final class MemorojiViewModel: ObservableObject {
     
     typealias Card = MemorizeGame<String>.Card
     
@@ -121,6 +121,6 @@ final class EmojiMemoryGameViewModel: ObservableObject {
     
     func resetGame() {
         model.resetGame()
-        model = EmojiMemoryGameViewModel.createMemorizeGame(memorizeDecks: memorizeDecks, deckIndex: deckIndex)
+        model = MemorojiViewModel.createMemorizeGame(memorizeDecks: memorizeDecks, deckIndex: deckIndex)
     }
 }

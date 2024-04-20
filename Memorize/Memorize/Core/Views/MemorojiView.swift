@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct EmojiMemorizeGameView: View {
+struct MemorojiView: View {
     
     typealias Card = MemorizeGame<String>.Card
     
-    @ObservedObject var viewModel: EmojiMemoryGameViewModel
+    @ObservedObject var viewModel: MemorojiViewModel
     
     @State private var hasGameStarted: Bool = false
     @State private var showGameEndedAlert: Bool = false
@@ -100,10 +100,10 @@ struct EmojiMemorizeGameView: View {
 }
 
 #Preview {
-    EmojiMemorizeGameView(viewModel: EmojiMemoryGameViewModel())
+    MemorojiView(viewModel: MemorojiViewModel())
 }
 
-extension EmojiMemorizeGameView {
+extension MemorojiView {
     
     private var cards: some View {
         AspectVGrid(viewModel.cards, aspectRatio: cardAspectRatio) { card in
