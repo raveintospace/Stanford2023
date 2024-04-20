@@ -202,6 +202,9 @@ extension EmojiMemorizeGameView {
     
     private var options: some View {
         Menu {
+            AnimatedActionButton(NSLocalizedString("See app info", comment: "")) {
+                showCreditsSheet = true
+            }
             AnimatedActionButton(NSLocalizedString("See scoreboard", comment: "")) {
                 showScoreboardSheet = true
             }
