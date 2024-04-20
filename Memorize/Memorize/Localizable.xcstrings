@@ -67,6 +67,54 @@
         }
       }
     },
+    "App info" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Info de l'app"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Info de la app"
+          }
+        }
+      }
+    },
+    "App purpose" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Propòsit de l'app"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Propósito de la app"
+          }
+        }
+      }
+    },
+    "Application" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aplicació"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aplicación"
+          }
+        }
+      }
+    },
     "Blue" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -97,6 +145,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Marrón"
+          }
+        }
+      }
+    },
+    "Company website" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Web de l'empresa"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Web de la empresa"
           }
         }
       }
@@ -146,6 +210,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Baraja jugada"
+          }
+        }
+      }
+    },
+    "Developer" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desenvolupador"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desarrollador"
           }
         }
       }
@@ -329,6 +409,22 @@
         }
       }
     },
+    "Learn more" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coneix més"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conoce más"
+          }
+        }
+      }
+    },
     "MATCHES" : {
       "localizations" : {
         "ca" : {
@@ -439,6 +535,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nombre del jugador"
+          }
+        }
+      }
+    },
+    "Privacy policy" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Política de privacitat"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Política de privacidad"
           }
         }
       }
@@ -702,6 +814,22 @@
         }
       }
     },
+    "Stanford University" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stanford University"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stanford University"
+          }
+        }
+      }
+    },
     "Start" : {
       "localizations" : {
         "ca" : {
@@ -714,6 +842,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Empezar"
+          }
+        }
+      }
+    },
+    "Terms of service" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Termes del servei"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Términos de servicio"
+          }
+        }
+      }
+    },
+    "This is Uri, a junior iOS developer trying to get my first iOS job.\n\nI have learned autonomously and by taking courses from some of the most renowned iOS developers, such as Paul Hudson, Swiftful Thinking, Brais Moure or SwiftBeta." : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soc l'Uri, un desenvolupador iOS junior intentant trobar la meva primera feina iOS. He après autònomament i fent cursos d'alguns dels desenvolupadors iOS més reconeguts, com Paul Hudson, Swiftul Thinking, Braise Moure o SwiftBeta."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soy Uri, un desarrollador iOS junior intentando encontrar mi primer trabajo iOS. He aprendido autónomamente y siguiendo cursos de alguno de los desarrolladores iOS más reconocidos, como Paul Hudson, Swiftful Thinking, Brais Moure o SwiftBeta."
           }
         }
       }
@@ -767,6 +927,70 @@
         }
       }
     },
+    "Visit my GitHub 🚀" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visita el meu GitHub 🚀"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visita my GitHub 🚀"
+          }
+        }
+      }
+    },
+    "Visit my Linkedin 👨🏻‍💻" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visita el meu Linkedin👨🏻‍💻"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visita my Linkedin 👨🏻‍💻"
+          }
+        }
+      }
+    },
+    "Visit Stanford Course 🏫" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visita el curs d'Stanford 🏫"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visita el curso de Stanford 🏫"
+          }
+        }
+      }
+    },
+    "With this app I followed Stanford University's course CS193p to keep learning how to develop apps with SwiftUI. I have added extra features to make the game more complete.\n\nIt uses MVVM architecture and has several reusable components." : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amb aquesta app he seguit el curs \"CS193p\" de la Universitat d'Stanford per continuar aprenent com desenvolupar apps amb SwiftUI. He afegit funcions extra per fer el joc més complet. Fa servir arquitectura MVVM i té uns quants components reutilitzables."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Con esta app he seguido el curso \"CS193p\" de la Universidad de Stanford para continuar aprendiendo cómo desarrollar apps con SwiftUI. He añadido funciones extra para hacer el juego más completo. Tiene arquitectura MVVM y varios componentes reutilizables."
+          }
+        }
+      }
+    },
     "Yellow" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -780,6 +1004,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Amarillo"
+          }
+        }
+      }
+    },
+    "You can find more information about Stanford University's course CS193p (Developing Applications for iOS using SwiftUI) clicking on the link below." : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pots trobar més informació sobre el curs \"CS193p\" de la Universitat d'Stanford visitant l'enllaç de sota."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puedes encontrar más información sobre el curso \"CS193p\" de la Universidad de Stanford visitando el enlace de debajo."
           }
         }
       }
