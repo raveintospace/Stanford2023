@@ -23,6 +23,7 @@ Started following Stanford's course, evolved freely by myself.
 - Options menu to select the deck, the card color and to check the scoreboard
 - Button to start / restart the game
 - ConfirmationDialog when game ends, user can play again, save the score (if it's a top score) or quit the game
+- DeckCreator view to create a custom deck or edit the existing one
 - Scoreform view to save the score
 - Scoreboard view with highest ten scores & reset possibility
 - Credits view with project's info
@@ -42,7 +43,8 @@ Started following Stanford's course, evolved freely by myself.
 
  **Extensions**
 - Extension "only" for Array, to return the only element if the array is of one element
-- Extension color to work with custom colors 
+- Extension for Color to work with custom colors
+- Extension for String to check if a string contains emoji characters
 
 ## License
 
