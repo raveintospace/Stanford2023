@@ -130,7 +130,6 @@
 				343516972B9F736A00200A8A /* Extensions */,
 				34C9134B2BA4C332006D908B /* ViewModifiers */,
 				343516962B9F736200200A8A /* Core */,
-				34BECC6F2BD2D972001AFD71 /* Credits */,
 				3492EAC32B9B879F00B401D1 /* Assets.xcassets */,
 				346015042BC1A785006F17B9 /* Localizable.xcstrings */,
 				3492EAC52B9B879F00B401D1 /* Preview Content */,
@@ -144,14 +143,6 @@
 				3492EAC62B9B879F00B401D1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		34BECC6F2BD2D972001AFD71 /* Credits */ = {
-			isa = PBXGroup;
-			children = (
-				34BECC6D2BD2D943001AFD71 /* CreditsView.swift */,
-			);
-			path = Credits;
 			sourceTree = "<group>";
 		};
 		34C913482BA4BEC0006D908B /* Components */ = {
@@ -180,6 +171,7 @@
 			children = (
 				3492EAC12B9B879C00B401D1 /* MemorojiView.swift */,
 				34C913462BA4B4A2006D908B /* CardView.swift */,
+				34BECC6D2BD2D943001AFD71 /* CreditsView.swift */,
 				345D16192BD4054E003242D6 /* DeckCreator.swift */,
 				344783DB2BC2E26700155304 /* ScoreForm.swift */,
 				341948332BC451C20075B3DE /* Scoreboard.swift */,
