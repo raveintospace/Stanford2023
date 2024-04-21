@@ -75,7 +75,8 @@ struct MemorojiView: View {
                     .interactiveDismissDisabled()
             }
             .sheet(isPresented: $showDeckCreator) {
-                DeckCreator(deck: $viewModel.memorizeDecks[viewModel.deckIndex])
+                DeckEditor(deck: $viewModel.memorizeDecks[viewModel.deckIndex])
+                    .interactiveDismissDisabled()
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
