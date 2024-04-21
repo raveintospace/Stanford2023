@@ -57,7 +57,7 @@ final class MemorojiViewModel: ObservableObject {
     
     init() {
         scoreboard = getScoreboard()
-        debugPrint("init, scoreboard count: \(scoreboard.count)")
+        addCustomDeckToDefaultDecks()
     }
     
     @Published var showScoreSavedConfirmation: Bool = false
@@ -128,6 +128,18 @@ final class MemorojiViewModel: ObservableObject {
         return nil
     }
     
+    private func addCustomDeckToDefaultDecks() {
+        if let loadedCustomDeck = getCustomDeck() {
+            customDeck = loadedCustomDeck
+            memorizeDecks.append(loadedCustomDeck)
+        }
+    }
+    
+    func removeExistingCustomDeck() {
+        if memorizeDecks.count == 10 {
+            memorizeDecks.removeLast()
+        }
+    }
     
     
     // MARK: - Intents
