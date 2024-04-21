@@ -30,6 +30,8 @@ struct DeckEditor: View {
     
     @FocusState private var focused: Focused?
     
+    @State private var showRemoveAlert: Bool = false
+    
     private let emojiFont: Font = Font.system(size: 40)
     
     var body: some View {
@@ -72,12 +74,25 @@ struct DeckEditor: View {
                         focused = .addEmojis
                     }
                 }
+                .alert(isPresented: $showRemoveAlert) {
+                    Alert(
+                        title: Text("Remove custom deck"),
+                        message: Text("Do you want to remove your custom deck?"),
+                        primaryButton: .default(Text("Discard")),
+                        secondaryButton: .destructive(Text("Remove")) { viewModel.removeExistingCustomDeck()
+                            dismiss()
+                        }
+                    )
+                }
             }
             .navigationTitle("Deck editor")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     DismissXButton(customAction: nil)
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    deleteButton
                 }
             }
         }
@@ -111,6 +126,15 @@ extension DeckEditor {
             }
         }
         .font(emojiFont)
+    }
+    
+    private var deleteButton: some View {
+        Button(action: {
+            showRemoveAlert = true
+        }, label: {
+            Image(systemName: "trash")
+        })
+        
     }
     
     private func saveDeck() {
