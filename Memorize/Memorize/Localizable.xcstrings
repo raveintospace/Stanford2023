@@ -185,9 +185,6 @@
         }
       }
     },
-    "Create custom deck" : {
-
-    },
     "DECK" : {
       "localizations" : {
         "ca" : {
@@ -667,6 +664,9 @@
           }
         }
       }
+    },
+    "Save deck" : {
+
     },
     "Save score" : {
       "localizations" : {

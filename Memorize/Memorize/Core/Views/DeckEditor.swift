@@ -37,7 +37,7 @@ struct DeckEditor: View {
             ZStack {
                 Form {
                     Section(header: Text("Name")) {
-                        TextField("Name", text: $deckName)
+                        TextField("Name", text: $editableCustomDeck.name)
                             .focused($focused, equals: .name)
                             .autocorrectionDisabled()
                             .textInputAutocapitalization(.words)
@@ -62,7 +62,7 @@ struct DeckEditor: View {
                             saveDeck()
                             dismiss()
                         }
-                        .disabled(deckName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                        .disabled(editableCustomDeck.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                     }
                 }
                 .onAppear {
@@ -114,6 +114,6 @@ extension DeckEditor {
     }
     
     private func saveDeck() {
-        
+        viewModel.saveCustomDeck(name: editableCustomDeck.name, emojis: editableCustomDeck.emojis)
     }
 }
