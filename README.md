@@ -23,7 +23,7 @@ Started following Stanford's course, evolved freely by myself.
 - Options menu to select the deck, the card color and to check the scoreboard
 - Button to start / restart the game
 - ConfirmationDialog when game ends, user can play again, save the score (if it's a top score) or quit the game
-- DeckCreator view to create a custom deck or edit the existing one
+- DeckEditor view to create a custom deck, edit the existing one or reset it
 - Scoreform view to save the score
 - Scoreboard view with highest ten scores & reset possibility
 - Credits view with project's info
@@ -35,7 +35,7 @@ Started following Stanford's course, evolved freely by myself.
 **Components**
 - AnimatedactionButton: Button with its actions animated
 - AspectVGrid: View resizes its components in a LazyVGrid according to how many of them are created at the begining of the game, using GeometryReader
-- ConfirmationRectangle: View shown to user after saving their score
+- ConfirmationRectangle: View shown to user after saving their score, reseting the scoreboard or removing the custom deck
 - DismissXButton: Button that dismisses the view by default, but can execute other actions if needed
 - FlyingNumber: The score of each play goes up or down of the card using offset & opacity
 - PieShape: A circle that diminishes using TimeInterval, the smaller the less score for the play
