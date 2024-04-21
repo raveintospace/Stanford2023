@@ -13,12 +13,12 @@ struct MemorojiView: View {
     
     @ObservedObject var viewModel: MemorojiViewModel
     
-    @State private var editableCustomDeck: MemorizeDeck
-    
-    init(viewModel: MemorojiViewModel) {
-        self.viewModel = viewModel
-        _editableCustomDeck = State(initialValue: viewModel.customDeck ?? MemorizeDeck(name: "", emojis: [""]))
-    }
+//    @State private var editableCustomDeck: MemorizeDeck
+//    
+//    init(viewModel: MemorojiViewModel) {
+//        self.viewModel = viewModel
+//        _editableCustomDeck = State(initialValue: viewModel.customDeck ?? MemorizeDeck(name: "", emojis: [""]))
+//    }
     
     @State private var hasGameStarted: Bool = false
     @State private var showGameEndedAlert: Bool = false
@@ -82,7 +82,7 @@ struct MemorojiView: View {
                     .interactiveDismissDisabled()
             }
             .sheet(isPresented: $showDeckCreator) {
-                DeckEditor(deck: $editableCustomDeck)
+                DeckEditor(viewModel: viewModel)
                     .interactiveDismissDisabled()
             }
             .toolbar {
@@ -241,12 +241,20 @@ extension MemorojiView {
             } label: {
                 Text("Set card color")
             }
-            AnimatedActionButton(NSLocalizedString("Create custom deck", comment: "")) {
+            AnimatedActionButton(NSLocalizedString(customDeckString, comment: "")) {
                 showDeckCreator = true
             }
         } label: {
             Image(systemName: "gearshape.2")
                 .font(.system(size: optionsButtonSize))
+        }
+    }
+    
+    private var customDeckString: String {
+        if viewModel.customDeck == nil {
+            return "Create custom deck"
+        } else {
+            return "Edit custom deck"
         }
     }
     

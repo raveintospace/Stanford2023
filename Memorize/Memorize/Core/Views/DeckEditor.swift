@@ -14,10 +14,18 @@ enum Focused {
 
 struct DeckEditor: View {
     
-    @Binding var deck: MemorizeDeck
+    @ObservedObject var viewModel: MemorojiViewModel
+    
+    @State private var editableCustomDeck: MemorizeDeck
+    
+    init(viewModel: MemorojiViewModel) {
+        self.viewModel = viewModel
+        _editableCustomDeck = State(initialValue: viewModel.customDeck ?? MemorizeDeck(name: "", emojis: [""]))
+    }
     
     @Environment(\.dismiss) var dismiss
     
+    @State private var deckName: String = ""
     @State private var emojisToAdd: [String] = []
     
     @FocusState private var focused: Focused?
@@ -29,7 +37,7 @@ struct DeckEditor: View {
             ZStack {
                 Form {
                     Section(header: Text("Name")) {
-                        TextField("Name", text: $deck.name)
+                        TextField("Name", text: $deckName)
                             .focused($focused, equals: .name)
                             .autocorrectionDisabled()
                             .textInputAutocapitalization(.words)
@@ -43,15 +51,22 @@ struct DeckEditor: View {
                             .font(emojiFont)
                             .onChange(of: emojisToAdd) { _, newValue in
                                 let newEmojis = newValue.filter { $0.isEmoji() }
-                                let uniqueEmojis = newEmojis.filter { !deck.emojis.contains($0)
+                                let uniqueEmojis = newEmojis.filter { !editableCustomDeck.emojis.contains($0)
                                 }
-                                deck.emojis.append(contentsOf: uniqueEmojis)
+                                editableCustomDeck.emojis.append(contentsOf: uniqueEmojis)
                             }
                         removeEmojis
                     }
+                    Section {
+                        Button("Save deck") {
+                            saveDeck()
+                            dismiss()
+                        }
+                        .disabled(deckName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                    }
                 }
                 .onAppear {
-                    if deck.name.isEmpty {
+                    if deckName.isEmpty {
                         focused = .name
                     } else {
                         focused = .addEmojis
@@ -70,7 +85,7 @@ struct DeckEditor: View {
 }
 
 #Preview {
-    DeckEditor(deck: .constant(MemorizeDeck(name: "Preview", emojis: ["🐥", "🏋🏻‍♂️", "🐻", "🐼", "🐻‍❄️", "🐨", "🐯", "🦁", "🐮", "🐷", "🐸", "🐲", "🐙"])))
+    DeckEditor(viewModel: MemorojiViewModel())
 }
 
 extension DeckEditor {
@@ -81,12 +96,12 @@ extension DeckEditor {
                 .font(.caption)
                 .foregroundStyle(Color.red)
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 40))]) {
-                ForEach(deck.emojis.indices, id: \.self) { index in
-                    let emoji = deck.emojis[index]
+                ForEach(editableCustomDeck.emojis.indices, id: \.self) { index in
+                    let emoji = editableCustomDeck.emojis[index]
                     Text(emoji)
                         .onTapGesture {
                             withAnimation {
-                                deck.emojis.remove(at: index)
+                                editableCustomDeck.emojis.remove(at: index)
                                 if let indexToRemove = emojisToAdd.firstIndex(of: emoji) {
                                     emojisToAdd.remove(at: indexToRemove)
                                 }
@@ -96,5 +111,9 @@ extension DeckEditor {
             }
         }
         .font(emojiFont)
+    }
+    
+    private func saveDeck() {
+        
     }
 }
