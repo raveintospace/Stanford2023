@@ -16,6 +16,7 @@ struct MemorojiView: View {
     @State private var hasGameStarted: Bool = false
     @State private var showGameEndedAlert: Bool = false
     @State private var showCreditsSheet: Bool = false
+    @State private var showDeckCreator: Bool = false
     @State private var showSaveScoreSheet: Bool = false
     @State private var showScoreboardSheet: Bool = false
     
@@ -72,6 +73,9 @@ struct MemorojiView: View {
             }) {
                 ScoreForm(viewModel: viewModel)
                     .interactiveDismissDisabled()
+            }
+            .sheet(isPresented: $showDeckCreator) {
+                DeckCreator(deck: $viewModel.memorizeDecks[viewModel.deckIndex])
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -228,6 +232,9 @@ extension MemorojiView {
                 }
             } label: {
                 Text("Set card color")
+            }
+            AnimatedActionButton(NSLocalizedString("Create custom deck", comment: "")) {
+                showDeckCreator = true
             }
         } label: {
             Image(systemName: "gearshape.2")
