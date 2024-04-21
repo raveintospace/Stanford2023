@@ -119,6 +119,15 @@ final class MemorojiViewModel: ObservableObject {
         }
     }
     
+    private func getCustomDeck() -> MemorizeDeck? {
+        if let customDeckData = UserDefaults.standard.object(forKey: "customDeck") as? Data {
+            if let customDeck = try? JSONDecoder().decode(MemorizeDeck.self, from: customDeckData) {
+                return customDeck
+            }
+        }
+        return nil
+    }
+    
     
     
     // MARK: - Intents
