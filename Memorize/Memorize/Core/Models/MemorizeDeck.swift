@@ -9,8 +9,8 @@ import Foundation
 
 // up to 21 emojis for better readability in phones
 
-struct MemorizeDeck: Identifiable {
-    let id = UUID()
+struct MemorizeDeck: Identifiable, Codable {
+    var id = UUID()
     var name: String
     var emojis: [String]
     

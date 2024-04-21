@@ -33,6 +33,9 @@
         }
       }
     },
+    "Add emojis here" : {
+
+    },
     "Animal faces" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -182,6 +185,9 @@
         }
       }
     },
+    "Create custom deck" : {
+
+    },
     "DECK" : {
       "localizations" : {
         "ca" : {
@@ -197,6 +203,9 @@
           }
         }
       }
+    },
+    "Deck editor" : {
+
     },
     "Deck played" : {
       "localizations" : {
@@ -261,6 +270,9 @@
           }
         }
       }
+    },
+    "Emojis" : {
+
     },
     "Exit" : {
       "localizations" : {
@@ -473,6 +485,9 @@
           }
         }
       }
+    },
+    "Name" : {
+
     },
     "Orange" : {
       "extractionState" : "manual",
@@ -733,6 +748,9 @@
         }
       }
     },
+    "See app info" : {
+
+    },
     "See scoreboard" : {
       "localizations" : {
         "ca" : {
@@ -845,6 +863,9 @@
           }
         }
       }
+    },
+    "Tap emoji to remove" : {
+
     },
     "Terms of service" : {
       "localizations" : {

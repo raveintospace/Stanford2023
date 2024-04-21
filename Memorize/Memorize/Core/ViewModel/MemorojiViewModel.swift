@@ -110,6 +110,17 @@ final class MemorojiViewModel: ObservableObject {
         return []
     }
     
+    // MARK: - Custom Deck
+    var customDeck: MemorizeDeck? = nil
+    
+    func encodeAndSaveCustomDeck() {
+        if let encoded = try? JSONEncoder().encode(customDeck) {
+            UserDefaults.standard.set(encoded, forKey: "customDeck")
+        }
+    }
+    
+    
+    
     // MARK: - Intents
     func shuffle() {
         model.shuffle()
