@@ -97,34 +97,7 @@ struct MemorojiView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .safeAreaInset(edge: .bottom) {
-            if viewModel.showScoreSavedConfirmation {
-                ConfirmationRectangle(copy: "Score saved", iconName: "checkmark.seal")
-                    .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                            withAnimation(.easeOut) {
-                                viewModel.showScoreSavedConfirmation = false
-                            }
-                        }
-                    }
-            } else if viewModel.showScoreboardResetConfirmation {
-                ConfirmationRectangle(copy: "Scoreboard reset", iconName: "text.badge.minus")
-                    .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                            withAnimation(.easeOut) {
-                                viewModel.showScoreboardResetConfirmation = false
-                            }
-                        }
-                    }
-            } else if viewModel.showCustomDeckRemovedConfirmation {
-                ConfirmationRectangle(copy: "Custom deck removed", iconName: "pencil.slash")
-                    .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                            withAnimation(.easeOut) {
-                                viewModel.showCustomDeckRemovedConfirmation = false
-                            }
-                        }
-                    }
-            }
+            confirmationRectangles
         }
     }
 }
@@ -308,6 +281,19 @@ extension MemorojiView {
             showCreditsSheet = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 resetGame()
+            }
+        }
+    }
+    
+    // MARK: - Confirmation rectangles
+    private var confirmationRectangles: some View {
+        Group {
+            if viewModel.showScoreSavedConfirmation {
+                ConfirmationRectangle(copy: "Score saved", iconName: "checkmark.seal")
+            } else if viewModel.showScoreboardResetConfirmation {
+                ConfirmationRectangle(copy: "Scoreboard reset", iconName: "text.badge.minus")
+            } else if viewModel.showCustomDeckRemovedConfirmation {
+                ConfirmationRectangle(copy: "Custom deck removed", iconName: "pencil.slash")
             }
         }
     }

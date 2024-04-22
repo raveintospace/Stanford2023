@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 final class MemorojiViewModel: ObservableObject {
     
@@ -58,10 +59,8 @@ final class MemorojiViewModel: ObservableObject {
     init() {
         scoreboard = getScoreboard()
         addCustomDeckToDefaultDecks()
+        setupConfirmationTimers()
     }
-    
-    @Published var showScoreSavedConfirmation: Bool = false
-    @Published var showScoreboardResetConfirmation: Bool = false
     
     func saveScore(player: String, deck: String, matches: Int, score: Int) {
         if isScoreboardFull() && isNewHighScore(score: score) {
@@ -116,8 +115,6 @@ final class MemorojiViewModel: ObservableObject {
     // MARK: - Custom Deck
     var customDeck: MemorizeDeck? = nil
     
-    @Published var showCustomDeckRemovedConfirmation: Bool = false
-    
     func saveCustomDeck(name: String, emojis: [String]) {
         removeExistingCustomDeck()
         customDeck = MemorizeDeck(name: name, emojis: emojis)
@@ -170,4 +167,38 @@ final class MemorojiViewModel: ObservableObject {
         model.resetGame()
         model = MemorojiViewModel.createMemorizeGame(memorizeDecks: memorizeDecks, deckIndex: deckIndex)
     }
+    
+    // MARK: - Confirmation rectangles
+    @Published var showScoreSavedConfirmation: Bool = false
+    @Published var showScoreboardResetConfirmation: Bool = false
+    @Published var showCustomDeckRemovedConfirmation: Bool = false
+    
+    private var cancellables = Set<AnyCancellable>()
+    
+    private func setupConfirmationTimers() {
+        let setupTimerForConfirmation = { (confirmationFlag: Published<Bool>.Publisher) in confirmationFlag
+                .filter { $0 }
+                .flatMap { _ in
+                    Just(false).delay(for: .seconds(2), scheduler: DispatchQueue.main)
+                }
+        }
+        
+        let scoreSavedConfirmationTimer = setupTimerForConfirmation($showScoreSavedConfirmation)
+        let scoreboardResetConfirmationTimer = setupTimerForConfirmation($showScoreboardResetConfirmation)
+        let customDeckRemovedConfirmationTimer = setupTimerForConfirmation($showCustomDeckRemovedConfirmation)
+        
+        let allConfirmationTimers = Publishers.Merge3(scoreSavedConfirmationTimer, scoreboardResetConfirmationTimer, customDeckRemovedConfirmationTimer)
+        
+        allConfirmationTimers
+            .sink { [weak self] value in
+                guard let self = self else { return }
+                if value == false {
+                    self.showScoreSavedConfirmation = false
+                    self.showScoreboardResetConfirmation = false
+                    self.showCustomDeckRemovedConfirmation = false
+                }
+            }
+            .store(in: &cancellables)
+    }
+    
 }
