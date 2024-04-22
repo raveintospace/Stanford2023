@@ -14,6 +14,7 @@ Started following Stanford's course, evolved freely by myself.
 - Logic implemented in Model for game: Creation of game, shuffle of cards, chosing a card and comparing it with the next one chosen, score for the game
 - Model for card decks
 - Model for scorecard
+- ViewModel uses Combine to dismiss temporary confirmations shown in View
 ---
 - Animations
 - Transitions
