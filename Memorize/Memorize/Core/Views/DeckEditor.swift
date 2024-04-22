@@ -134,6 +134,7 @@ extension DeckEditor {
         }, label: {
             Image(systemName: "trash")
         })
+        .disabled(viewModel.memorizeDecks.count != 10)
         
     }
     

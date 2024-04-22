@@ -61,6 +61,7 @@ final class MemorojiViewModel: ObservableObject {
     }
     
     @Published var showScoreSavedConfirmation: Bool = false
+    @Published var showScoreboardResetConfirmation: Bool = false
     
     func saveScore(player: String, deck: String, matches: Int, score: Int) {
         if isScoreboardFull() && isNewHighScore(score: score) {
@@ -68,6 +69,7 @@ final class MemorojiViewModel: ObservableObject {
         }
         scoreboard.append(Scorecard(player: player, deck: deck, matches: matches, score: score))
         encodeAndSaveScoreboard()
+        showScoreSavedConfirmation = true
         debugPrint("new score saved: \(score)")
         debugPrint("scoreboard count: \(scoreboard.count)")
     }
@@ -86,6 +88,7 @@ final class MemorojiViewModel: ObservableObject {
     func resetScoreboard() {
         scoreboard.removeAll()
         encodeAndSaveScoreboard()
+        showScoreboardResetConfirmation = true
     }
     
     private func removeLowestScore() {
@@ -112,6 +115,8 @@ final class MemorojiViewModel: ObservableObject {
     
     // MARK: - Custom Deck
     var customDeck: MemorizeDeck? = nil
+    
+    @Published var showCustomDeckRemovedConfirmation: Bool = false
     
     func saveCustomDeck(name: String, emojis: [String]) {
         removeExistingCustomDeck()
@@ -147,6 +152,7 @@ final class MemorojiViewModel: ObservableObject {
             debugPrint("memorizedecks count before removing: \(memorizeDecks.count)")
             memorizeDecks.removeLast()
             debugPrint("memorizedecks count after removing: \(memorizeDecks.count)")
+            showCustomDeckRemovedConfirmation = true
         }
     }
     
