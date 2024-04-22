@@ -13,13 +13,6 @@ struct MemorojiView: View {
     
     @ObservedObject var viewModel: MemorojiViewModel
     
-//    @State private var editableCustomDeck: MemorizeDeck
-//    
-//    init(viewModel: MemorojiViewModel) {
-//        self.viewModel = viewModel
-//        _editableCustomDeck = State(initialValue: viewModel.customDeck ?? MemorizeDeck(name: "", emojis: [""]))
-//    }
-    
     @State private var hasGameStarted: Bool = false
     @State private var showGameEndedAlert: Bool = false
     @State private var showCreditsSheet: Bool = false
@@ -74,10 +67,7 @@ struct MemorojiView: View {
                 Scoreboard(viewModel: viewModel)
                     .interactiveDismissDisabled()
             }
-            .sheet(isPresented: $showSaveScoreSheet,
-                   onDismiss: {
-                resetGame()
-            }) {
+            .sheet(isPresented: $showSaveScoreSheet) {
                 ScoreForm(viewModel: viewModel)
                     .interactiveDismissDisabled()
             }
@@ -257,7 +247,7 @@ extension MemorojiView {
     }
     
     private var restartButton: some View {
-        Button("Restart") {
+        Button(viewModel.isGameFinished() ? "Play again" : "Restart") {
             resetGame()
         }
         .font(.title)

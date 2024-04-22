@@ -93,6 +93,7 @@ extension Scoreboard {
         }, label: {
             Image(systemName: "trash")
         })
+        .disabled(viewModel.scoreboard.isEmpty)
     }
 }
 
