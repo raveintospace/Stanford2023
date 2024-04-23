@@ -16,7 +16,7 @@ Started following Stanford's course, evolved freely by myself.
 - Model for scorecard
 - ViewModel uses Combine to dismiss temporary confirmations shown in View
 ---
-- Animations
+- Animations (also using @Namespace to synchronize view animation from undealt cards to dealt)
 - Transitions
 - MatchedGeometryEffect
 - UserDefaults
@@ -46,6 +46,7 @@ Started following Stanford's course, evolved freely by myself.
 - Extension "only" for Array, to return the only element if the array is of one element
 - Extension for Color to work with custom colors
 - Extension for String to check if a string contains emoji characters
+- Extension for UIApplication to dismiss the keyboard tapping a button
 
 ## License
 
