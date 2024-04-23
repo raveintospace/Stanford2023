@@ -94,6 +94,14 @@ struct DeckEditor: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     deleteButton
                 }
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button(action: {
+                        UIApplication.shared.hideKeyboard()
+                    }, label: {
+                        Text("Done")
+                    })
+                }
             }
         }
     }
