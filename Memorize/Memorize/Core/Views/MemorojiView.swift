@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+enum SheetType: String, Identifiable {
+    case creditsView, deckEditor, scoreboard, scoreForm
+    var id: String { rawValue }
+}
+
 struct MemorojiView: View {
     
     typealias Card = MemorizeGame<String>.Card
@@ -15,10 +20,7 @@ struct MemorojiView: View {
     
     @State private var hasGameStarted: Bool = false
     @State private var showGameEndedAlert: Bool = false
-    @State private var showCreditsSheet: Bool = false
-    @State private var showDeckCreator: Bool = false
-    @State private var showSaveScoreSheet: Bool = false
-    @State private var showScoreboardSheet: Bool = false
+    @State private var sheetType: SheetType?
     
     // tuple with Int & Card.Id as parameters, tracks card with score
     @State private var lastScoreChange = (0, causedByCardId: "")
@@ -42,6 +44,7 @@ struct MemorojiView: View {
     
     @ScaledMetric var optionsButtonSize: CGFloat = 50
     
+    // Synchronizes animation from undealt to dealt
     @Namespace private var dealingNamespace
     
     var body: some View {
@@ -59,22 +62,7 @@ struct MemorojiView: View {
                 playAgainButton
                 quitGameButton
             }
-            .sheet(isPresented: $showCreditsSheet) {
-                CreditsView()
-                    .interactiveDismissDisabled()
-            }
-            .sheet(isPresented: $showScoreboardSheet) {
-                Scoreboard(viewModel: viewModel)
-                    .interactiveDismissDisabled()
-            }
-            .sheet(isPresented: $showSaveScoreSheet) {
-                ScoreForm(viewModel: viewModel)
-                    .interactiveDismissDisabled()
-            }
-            .sheet(isPresented: $showDeckCreator) {
-                DeckEditor(viewModel: viewModel)
-                    .interactiveDismissDisabled()
-            }
+            .sheet(item: $sheetType, content: makeSheet)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     score
@@ -196,10 +184,10 @@ extension MemorojiView {
     private var options: some View {
         Menu {
             AnimatedActionButton(NSLocalizedString("See app info", comment: "")) {
-                showCreditsSheet = true
+                sheetType = .creditsView
             }
             AnimatedActionButton(NSLocalizedString("See scoreboard", comment: "")) {
-                showScoreboardSheet = true
+                sheetType = .scoreboard
             }
             Menu {
                 ForEach(viewModel.memorizeDecks.sorted(by: { $0.name > $1.name })) { memorizeDeck in
@@ -223,7 +211,7 @@ extension MemorojiView {
                 Text("Set card color")
             }
             AnimatedActionButton(NSLocalizedString(customDeckString, comment: "")) {
-                showDeckCreator = true
+                sheetType = .deckEditor
             }
         } label: {
             Image(systemName: "gearshape.2")
@@ -261,14 +249,14 @@ extension MemorojiView {
     
     private var saveScoreButton: some View {
         Button("Save score") {
-            showSaveScoreSheet = true
+            sheetType = .scoreForm
         }
         .disabled(viewModel.isScoreboardFull() && !viewModel.isNewHighScore(score: viewModel.score))
     }
     
     private var quitGameButton: some View {
         Button("Quit game", role: .destructive) {
-            showCreditsSheet = true
+            sheetType = .creditsView
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 resetGame()
             }
@@ -285,6 +273,21 @@ extension MemorojiView {
             } else if viewModel.showCustomDeckRemovedConfirmation {
                 ConfirmationRectangle(copy: "Custom deck removed", iconName: "pencil.slash")
             }
+        }
+    }
+    
+    // MARK: - Sheet presentation
+    @ViewBuilder
+    func makeSheet(_ sheetType: SheetType) -> some View {
+        switch sheetType {
+        case .creditsView:
+            CreditsView().interactiveDismissDisabled()
+        case .scoreboard:
+            Scoreboard(viewModel: viewModel).interactiveDismissDisabled()
+        case .scoreForm:
+            ScoreForm(viewModel: viewModel).interactiveDismissDisabled()
+        case .deckEditor:
+            DeckEditor(viewModel: viewModel).interactiveDismissDisabled()
         }
     }
 }
