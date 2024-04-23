@@ -98,6 +98,7 @@ struct DeckEditor: View {
                     Spacer()
                     Button(action: {
                         UIApplication.shared.hideKeyboard()
+                        // create func to focus, use it with on appear to
                     }, label: {
                         Text("Done")
                     })
