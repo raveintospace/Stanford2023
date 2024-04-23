@@ -73,6 +73,14 @@ struct ScoreForm: View {
                         showDismissAlert = true
                     }
                 }
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button(action: {
+                        UIApplication.shared.hideKeyboard()
+                    }, label: {
+                        Text("Done")
+                    })
+                }
             }
         }
     }

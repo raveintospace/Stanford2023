@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		341004DD2BD81939009CEC7D /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341004DC2BD81939009CEC7D /* UIApplication.swift */; };
 		341948342BC451C20075B3DE /* Scoreboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341948332BC451C20075B3DE /* Scoreboard.swift */; };
 		342E9D802BCD8AB60043F3CE /* ConfirmationRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342E9D7F2BCD8AB60043F3CE /* ConfirmationRectangle.swift */; };
 		34315F712BC0558000F72EF4 /* MemorizeDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34315F702BC0558000F72EF4 /* MemorizeDeck.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		341004DC2BD81939009CEC7D /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		341948332BC451C20075B3DE /* Scoreboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scoreboard.swift; sourceTree = "<group>"; };
 		342E9D7F2BCD8AB60043F3CE /* ConfirmationRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationRectangle.swift; sourceTree = "<group>"; };
 		34315F702BC0558000F72EF4 /* MemorizeDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeDeck.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				343516982B9F737B00200A8A /* Array.swift */,
 				34B742B52BC990F6007806E6 /* Color.swift */,
 				345D161D2BD4097E003242D6 /* String.swift */,
+				341004DC2BD81939009CEC7D /* UIApplication.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				341004DD2BD81939009CEC7D /* UIApplication.swift in Sources */,
 				34C9134A2BA4BED6006D908B /* PieShape.swift in Sources */,
 				34C913472BA4B4A2006D908B /* CardView.swift in Sources */,
 				345D161E2BD4097E003242D6 /* String.swift in Sources */,
