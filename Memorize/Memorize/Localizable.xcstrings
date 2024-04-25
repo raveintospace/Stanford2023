@@ -34,7 +34,20 @@
       }
     },
     "Add emojis here" : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afegeix emojis aquí"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añade emojis aquí"
+          }
+        }
+      }
     },
     "Animal faces" : {
       "extractionState" : "manual",
@@ -202,7 +215,20 @@
       }
     },
     "Deck editor" : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editor de baralles"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editor de barajas"
+          }
+        }
+      }
     },
     "Deck played" : {
       "localizations" : {
@@ -269,13 +295,52 @@
       }
     },
     "Do you want to remove your custom deck?" : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vols eliminar la baralla personalitzada?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quieres borrar la baraja personalizada?"
+          }
+        }
+      }
     },
     "Done" : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fet"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hecho"
+          }
+        }
+      }
     },
     "Emojis" : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emojis"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emojis"
+          }
+        }
+      }
     },
     "Exit" : {
       "localizations" : {
@@ -490,7 +555,20 @@
       }
     },
     "Name" : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nom"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre"
+          }
+        }
+      }
     },
     "Orange" : {
       "extractionState" : "manual",
@@ -624,10 +702,36 @@
       }
     },
     "Remove" : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esborrar"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Borrar"
+          }
+        }
+      }
     },
     "Remove custom deck" : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esborrar baralla personalitzada"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Borrar baraja personalizada"
+          }
+        }
+      }
     },
     "Reset" : {
       "localizations" : {
@@ -646,7 +750,20 @@
       }
     },
     "Reset scoreboard" : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resetejar puntuacions"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resetear puntuaciones"
+          }
+        }
+      }
     },
     "Reset Scoreboard" : {
       "extractionState" : "stale",
@@ -682,7 +799,20 @@
       }
     },
     "Save deck" : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar baralla"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar baraja"
+          }
+        }
+      }
     },
     "Save score" : {
       "localizations" : {
@@ -765,7 +895,20 @@
       }
     },
     "See app info" : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veure info de l'app"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver info de la app"
+          }
+        }
+      }
     },
     "See scoreboard" : {
       "localizations" : {
@@ -881,7 +1024,20 @@
       }
     },
     "Tap emoji to remove" : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prem per esborrar l'emoji"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pulsa para borrar el emoji"
+          }
+        }
+      }
     },
     "Terms of service" : {
       "localizations" : {
