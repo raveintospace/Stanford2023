@@ -765,23 +765,6 @@
         }
       }
     },
-    "Reset Scoreboard" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Resetejar puntuacions"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Resetear puntuaciones"
-          }
-        }
-      }
-    },
     "Restart" : {
       "localizations" : {
         "ca" : {
