@@ -165,6 +165,22 @@
         }
       }
     },
+    "Changes not saved" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Canvis no guardats"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cambios no guardados"
+          }
+        }
+      }
+    },
     "Company website" : {
       "localizations" : {
         "ca" : {
@@ -278,6 +294,22 @@
         }
       }
     },
+    "Do you want to discard or save the changes made?" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vols descartar o guardar els canvis fets?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quieres descartar o guardar los cambios hechos?"
+          }
+        }
+      }
+    },
     "Do you want to erase the scores saved?" : {
       "localizations" : {
         "ca" : {
@@ -338,6 +370,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Emojis"
+          }
+        }
+      }
+    },
+    "Error" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
           }
         }
       }
@@ -473,6 +521,22 @@
         }
       }
     },
+    "Initial deck is missing" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baralla inicial perduda"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baraja inicial perdida"
+          }
+        }
+      }
+    },
     "Keep editing" : {
       "localizations" : {
         "ca" : {
@@ -566,6 +630,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nombre"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         }
       }
@@ -777,6 +857,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reiniciar"
+          }
+        }
+      }
+    },
+    "Save" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar"
           }
         }
       }
