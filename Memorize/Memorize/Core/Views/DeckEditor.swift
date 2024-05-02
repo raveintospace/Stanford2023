@@ -46,8 +46,10 @@ struct DeckEditor: View {
                         .autocorrectionDisabled()
                         .font(emojiFont)
                         .onChange(of: emojiInput) { _, newValue in
-                            let newEmojis = newValue.split(separator: " ").map(String.init)
-                            let uniqueEmojis = Array(Set(newEmojis))
+                            let emojis = newValue.compactMap {
+                                String($0).isEmoji() ? String($0) : nil
+                            }
+                            let uniqueEmojis = Array(Set(emojis))
                             editableCustomDeck.emojis = uniqueEmojis
                         }
                         removeEmojis
