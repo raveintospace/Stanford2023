@@ -24,7 +24,7 @@ Started following Stanford's course, evolved freely by myself.
 - Options menu to select the deck, the card color and to check the scoreboard
 - Button to start / restart the game
 - ConfirmationDialog when game ends, user can play again, save the score (if it's a top score) or quit the game
-- DeckEditor view to create a custom deck, edit the existing one or reset it
+- DeckEditor view to create a custom deck, edit the existing one or remove it
 - Scoreform view to save the score
 - Scoreboard view with highest ten scores & reset possibility
 - Credits view with project's info
