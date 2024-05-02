@@ -211,6 +211,9 @@ extension MemorojiView {
                 Text("Set card color")
             }
             AnimatedActionButton(NSLocalizedString(customDeckString, comment: "")) {
+                if viewModel.customDeck == nil {
+                    viewModel.createEmptyCustomDeck(name: "", emojis: [""])
+                }
                 sheetType = .deckEditor
             }
         } label: {
@@ -220,10 +223,10 @@ extension MemorojiView {
     }
     
     private var customDeckString: String {
-        if viewModel.customDeck == nil {
-            return "Create custom deck"
-        } else {
+        if viewModel.memorizeDecks.count == 10 {
             return "Edit custom deck"
+        } else {
+            return "Create custom deck"
         }
     }
     
@@ -287,7 +290,7 @@ extension MemorojiView {
         case .scoreForm:
             ScoreForm(viewModel: viewModel).interactiveDismissDisabled()
         case .deckEditor:
-            DeckEditor(viewModel: viewModel).interactiveDismissDisabled()
+            DeckEditor(viewModel: viewModel, editableCustomDeck: $viewModel.customDeck).interactiveDismissDisabled()
         }
     }
 }

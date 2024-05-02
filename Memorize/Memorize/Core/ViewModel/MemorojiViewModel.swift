@@ -113,13 +113,15 @@ final class MemorojiViewModel: ObservableObject {
     }
     
     // MARK: - Custom Deck
-    var customDeck: MemorizeDeck? = nil
+    @Published var customDeck: MemorizeDeck = MemorizeDeck(name: "", emojis: [""])
     
     func saveCustomDeck(name: String, emojis: [String]) {
         removeExistingCustomDeck()
         customDeck = MemorizeDeck(name: name, emojis: emojis)
         encodeAndSaveCustomDeck()
+        addCustomDeckToDefaultDecks()
         debugPrint("custom deck saved with name \(name) and emojis \(emojis.count)")
+        debugPrint("memorizedecks count after saving new custom deck: \(memorizeDecks.count)")
     }
     
     private func encodeAndSaveCustomDeck() {
@@ -148,9 +150,15 @@ final class MemorojiViewModel: ObservableObject {
         if memorizeDecks.count == 10 {
             debugPrint("memorizedecks count before removing: \(memorizeDecks.count)")
             memorizeDecks.removeLast()
+            customDeck = MemorizeDeck(name: "", emojis: [""])
             debugPrint("memorizedecks count after removing: \(memorizeDecks.count)")
             showCustomDeckRemovedConfirmation = true
         }
+    }
+    
+    func createEmptyCustomDeck(name: String, emojis: [String]) {
+        customDeck = MemorizeDeck(name: name, emojis: emojis)
+        debugPrint("empty custom deck created")
     }
     
     

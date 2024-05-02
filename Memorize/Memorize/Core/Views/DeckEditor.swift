@@ -16,17 +16,12 @@ struct DeckEditor: View {
     
     @ObservedObject var viewModel: MemorojiViewModel
     
-    @State private var editableCustomDeck: MemorizeDeck
-    
-    init(viewModel: MemorojiViewModel) {
-        self.viewModel = viewModel
-        _editableCustomDeck = State(initialValue: viewModel.customDeck ?? MemorizeDeck(name: "", emojis: [""]))
-    }
+    @Binding var editableCustomDeck: MemorizeDeck
     
     @Environment(\.dismiss) var dismiss
     
     @State private var deckName: String = ""
-    @State private var emojisToAdd: [String] = []
+    @State private var emojisToAdd: [String] = [""]
     
     @FocusState private var focused: Focused?
     
@@ -44,7 +39,6 @@ struct DeckEditor: View {
                             .autocorrectionDisabled()
                             .textInputAutocapitalization(.words)
                         // limit length of name
-                        
                     }
                     Section(header: Text("Emojis")) {
                         TextField("Add emojis here", text: .constant(emojisToAdd.joined()))
@@ -53,9 +47,8 @@ struct DeckEditor: View {
                             .font(emojiFont)
                             .onChange(of: emojisToAdd) { _, newValue in
                                 let newEmojis = newValue.filter { $0.isEmoji() }
-                                let uniqueEmojis = newEmojis.filter { !editableCustomDeck.emojis.contains($0)
-                                }
-                                editableCustomDeck.emojis.append(contentsOf: uniqueEmojis)
+                                emojisToAdd = newEmojis.map { String($0) }
+                                editableCustomDeck.emojis = emojisToAdd
                             }
                         removeEmojis
                     }
@@ -109,7 +102,7 @@ struct DeckEditor: View {
 }
 
 #Preview {
-    DeckEditor(viewModel: MemorojiViewModel())
+    DeckEditor(viewModel: MemorojiViewModel(), editableCustomDeck: .constant(MemorizeDeck(name: "", emojis: [""])))
 }
 
 extension DeckEditor {
