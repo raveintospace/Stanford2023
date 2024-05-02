@@ -49,8 +49,8 @@ struct DeckEditor: View {
                             let emojis = newValue.compactMap {
                                 String($0).isEmoji() ? String($0) : nil
                             }
-                            let uniqueEmojis = Array(Set(emojis))
-                            editableCustomDeck.emojis = uniqueEmojis
+                            let uniqueEmojis = emojis.filter { !editableCustomDeck.emojis.contains($0) }
+                            editableCustomDeck.emojis += uniqueEmojis
                         }
                         removeEmojis
                     }
@@ -114,14 +114,12 @@ extension DeckEditor {
                 ForEach(editableCustomDeck.emojis.indices, id: \.self) { index in
                     let emoji = editableCustomDeck.emojis[index]
                     Text(emoji)
-//                        .onTapGesture {
-//                            withAnimation {
-//                                editableCustomDeck.emojis.remove(at: index)
-//                                if let indexToRemove = emojisToAdd.firstIndex(of: emoji) {
-//                                    emojisToAdd.remove(at: indexToRemove)
-//                                }
-//                            }
-//                        }
+                        .onTapGesture {
+                            withAnimation {
+                                editableCustomDeck.emojis.remove(at: index)
+                                emojiInput = emojiInput.replacingOccurrences(of: emoji, with: "")
+                            }
+                        }
                 }
             }
         }
