@@ -152,7 +152,6 @@ final class MemorojiViewModel: ObservableObject {
             memorizeDecks.removeLast()
             customDeck = MemorizeDeck(name: "", emojis: [""])
             debugPrint("memorizedecks count after removing: \(memorizeDecks.count)")
-            showCustomDeckRemovedConfirmation = true
         }
     }
     

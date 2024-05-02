@@ -62,18 +62,15 @@ struct DeckEditor: View {
                     }
                 }
                 .onAppear {
-                    if deckName.isEmpty {
-                        focused = .name
-                    } else {
-                        focused = .addEmojis
-                    }
+                    focusTextField()
                 }
                 .alert(isPresented: $showRemoveAlert) {
                     Alert(
                         title: Text("Remove custom deck"),
                         message: Text("Do you want to remove your custom deck?"),
                         primaryButton: .default(Text("Discard")),
-                        secondaryButton: .destructive(Text("Remove")) { viewModel.removeExistingCustomDeck()
+                        secondaryButton: .destructive(Text("Remove")) {
+                            removeDeck()
                             dismiss()
                         }
                     )
@@ -92,7 +89,6 @@ struct DeckEditor: View {
                     Spacer()
                     Button(action: {
                         UIApplication.shared.hideKeyboard()
-                        // create func to focus, use it with on appear to
                     }, label: {
                         Text("Done")
                     })
@@ -143,5 +139,18 @@ extension DeckEditor {
     
     private func saveDeck() {
         viewModel.saveCustomDeck(name: editableCustomDeck.name, emojis: editableCustomDeck.emojis)
+    }
+    
+    private func removeDeck() {
+        viewModel.removeExistingCustomDeck()
+        viewModel.showCustomDeckRemovedConfirmation = true
+    }
+    
+    private func focusTextField() {
+        if editableCustomDeck.name.isEmpty {
+            focused = .name
+        } else {
+            focused = .addEmojis
+        }
     }
 }
