@@ -41,14 +41,15 @@ struct DeckEditor: View {
                         // limit length of name
                     }
                     Section(header: Text("Emojis")) {
-                        TextField("Add emojis here", text: .constant(emojisToAdd.joined()))
+                        TextField("Add emojis here", text: .constant(emojisToAdd.joined(separator: " ")))
                             .focused($focused, equals: .addEmojis)
                             .autocorrectionDisabled()
                             .font(emojiFont)
-                            .onChange(of: emojisToAdd) { _, newValue in
-                                let newEmojis = newValue.filter { $0.isEmoji() }
-                                emojisToAdd = newEmojis.map { String($0) }
-                                editableCustomDeck.emojis = emojisToAdd
+                            .onChange(of: editableCustomDeck.emojis) { _, newValue in
+                                let newEmojis = newValue.flatMap { $0.split(separator: " ")}
+                                    .map(String.init)
+                                    .filter { $0.isEmoji() }
+                                editableCustomDeck.emojis = newEmojis
                             }
                         removeEmojis
                     }
