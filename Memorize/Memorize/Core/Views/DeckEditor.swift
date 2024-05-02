@@ -21,7 +21,7 @@ struct DeckEditor: View {
     @Environment(\.dismiss) var dismiss
     
     @State private var deckName: String = ""
-    @State private var emojisToAdd: [String] = [""]
+    @State private var emojiInput: String = ""
     
     @FocusState private var focused: Focused?
     
@@ -41,16 +41,14 @@ struct DeckEditor: View {
                         // limit length of name
                     }
                     Section(header: Text("Emojis")) {
-                        TextField("Add emojis here", text: .constant(emojisToAdd.joined(separator: " ")))
-                            .focused($focused, equals: .addEmojis)
-                            .autocorrectionDisabled()
-                            .font(emojiFont)
-                            .onChange(of: editableCustomDeck.emojis) { _, newValue in
-                                let newEmojis = newValue.flatMap { $0.split(separator: " ")}
-                                    .map(String.init)
-                                    .filter { $0.isEmoji() }
-                                editableCustomDeck.emojis.append(contentsOf: newEmojis)
-                            }
+                        TextField("Add emojis here", text: $emojiInput)
+                        .focused($focused, equals: .addEmojis)
+                        .autocorrectionDisabled()
+                        .font(emojiFont)
+                        .onChange(of: emojiInput) { _, newValue in
+                            let newEmojis = newValue.split(separator: " ").map(String.init)
+                            editableCustomDeck.emojis = newEmojis
+                        }
                         removeEmojis
                     }
                     Section {
@@ -113,14 +111,14 @@ extension DeckEditor {
                 ForEach(editableCustomDeck.emojis.indices, id: \.self) { index in
                     let emoji = editableCustomDeck.emojis[index]
                     Text(emoji)
-                        .onTapGesture {
-                            withAnimation {
-                                editableCustomDeck.emojis.remove(at: index)
-                                if let indexToRemove = emojisToAdd.firstIndex(of: emoji) {
-                                    emojisToAdd.remove(at: indexToRemove)
-                                }
-                            }
-                        }
+//                        .onTapGesture {
+//                            withAnimation {
+//                                editableCustomDeck.emojis.remove(at: index)
+//                                if let indexToRemove = emojisToAdd.firstIndex(of: emoji) {
+//                                    emojisToAdd.remove(at: indexToRemove)
+//                                }
+//                            }
+//                        }
                 }
             }
         }

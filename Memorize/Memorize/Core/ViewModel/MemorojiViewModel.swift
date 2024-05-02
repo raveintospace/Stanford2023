@@ -120,7 +120,7 @@ final class MemorojiViewModel: ObservableObject {
         customDeck = MemorizeDeck(name: name, emojis: emojis)
         encodeAndSaveCustomDeck()
         addCustomDeckToDefaultDecks()
-        debugPrint("custom deck saved with name \(name) and emojis \(emojis.count)")
+        debugPrint("custom deck saved with name \(customDeck.name) and emojis \(customDeck.emojis.indices.count)")
         debugPrint("memorizedecks count after saving new custom deck: \(memorizeDecks.count)")
     }
     
