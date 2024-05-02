@@ -49,7 +49,7 @@ struct DeckEditor: View {
                                 let newEmojis = newValue.flatMap { $0.split(separator: " ")}
                                     .map(String.init)
                                     .filter { $0.isEmoji() }
-                                editableCustomDeck.emojis = newEmojis
+                                editableCustomDeck.emojis.append(contentsOf: newEmojis)
                             }
                         removeEmojis
                     }
