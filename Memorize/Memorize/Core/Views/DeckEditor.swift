@@ -22,10 +22,12 @@ struct DeckEditor: View {
     
     @State private var deckName: String = ""
     @State private var emojiInput: String = ""
+    @State private var initialCustomDeck: MemorizeDeck?
     
     @FocusState private var focused: Focused?
     
     @State private var showRemoveAlert: Bool = false
+    @State private var showDismissAlert: Bool = false
     
     private let emojiFont: Font = Font.system(size: 40)
     
@@ -52,17 +54,18 @@ struct DeckEditor: View {
                             let uniqueEmojis = emojis.filter { !editableCustomDeck.emojis.contains($0) }
                             editableCustomDeck.emojis += uniqueEmojis
                         }
+                        // limit to max 20 emojis
                         removeEmojis
                     }
                     Section {
                         Button("Save deck") {
-                            saveDeck()
-                            dismiss()
+                            saveDeckAndDismiss()
                         }
                         .disabled(editableCustomDeck.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                     }
                 }
                 .onAppear {
+                    initialCustomDeck = editableCustomDeck
                     focusTextField()
                 }
                 .alert(isPresented: $showRemoveAlert) {
@@ -71,17 +74,44 @@ struct DeckEditor: View {
                         message: Text("Do you want to remove your custom deck?"),
                         primaryButton: .default(Text("Discard")),
                         secondaryButton: .destructive(Text("Remove")) {
-                            removeDeck()
-                            dismiss()
+                            removeDeckAndDismiss()
                         }
                     )
                 }
+                .alert(isPresented: $showDismissAlert) {
+                    
+                    guard let initialDeck = initialCustomDeck else {
+                        return Alert(
+                            title: Text("Error"),
+                            message: Text("Initial deck is missing"),
+                            dismissButton: .default(Text("OK")))
+                    }
+                    
+                    return Alert(
+                        title: Text("Changes not saved"),
+                        message: Text("Do you want to discard or save the changes made?"),
+                        primaryButton: .destructive(Text("Discard")) {
+                            editableCustomDeck = initialDeck
+                            dismiss()
+                        },
+                        secondaryButton: .default(Text("Save")) {
+                            saveDeckAndDismiss()
+                        }
+                    )
+                }
+                
             }
             .navigationTitle("Deck editor")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    DismissXButton(customAction: nil)
+                    DismissXButton {
+                        if shouldDismiss() {
+                            dismiss()
+                        } else {
+                            showDismissAlert = true
+                        }
+                    }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     deleteButton
@@ -136,13 +166,15 @@ extension DeckEditor {
         
     }
     
-    private func saveDeck() {
+    private func saveDeckAndDismiss() {
         viewModel.saveCustomDeck(name: editableCustomDeck.name, emojis: editableCustomDeck.emojis)
+        dismiss()
     }
     
-    private func removeDeck() {
+    private func removeDeckAndDismiss() {
         viewModel.removeExistingCustomDeck()
         viewModel.showCustomDeckRemovedConfirmation = true
+        dismiss()
     }
     
     private func focusTextField() {
@@ -151,5 +183,10 @@ extension DeckEditor {
         } else {
             focused = .addEmojis
         }
+    }
+    
+    private func shouldDismiss() -> Bool {
+        guard let initialCustomDeck = initialCustomDeck else { return true }
+        return initialCustomDeck == editableCustomDeck
     }
 }
