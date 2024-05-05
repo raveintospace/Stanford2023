@@ -5,7 +5,6 @@
 //  Created by Uri on 23/4/24.
 //
 
-import Foundation
 import SwiftUI
 
 extension UIApplication {
