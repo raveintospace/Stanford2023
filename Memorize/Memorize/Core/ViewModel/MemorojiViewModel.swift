@@ -150,7 +150,7 @@ final class MemorojiViewModel: ObservableObject {
         if memorizeDecks.count == 10 {
             debugPrint("memorizedecks count before removing: \(memorizeDecks.count)")
             memorizeDecks.removeLast()
-            customDeck = MemorizeDeck(name: "", emojis: [""])
+            customDeck = MemorizeDeck(name: "", emojis: [])
             debugPrint("memorizedecks count after removing: \(memorizeDecks.count)")
         }
     }

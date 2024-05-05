@@ -68,16 +68,6 @@ struct DeckEditor: View {
                     initialCustomDeck = editableCustomDeck
                     focusTextField()
                 }
-                .alert(isPresented: $showRemoveAlert) {
-                    Alert(
-                        title: Text("Remove custom deck"),
-                        message: Text("Do you want to remove your custom deck?"),
-                        primaryButton: .default(Text("Discard")),
-                        secondaryButton: .destructive(Text("Remove")) {
-                            removeDeckAndDismiss()
-                        }
-                    )
-                }
                 .alert(isPresented: $showDismissAlert) {
                     
                     guard let initialDeck = initialCustomDeck else {
@@ -130,7 +120,7 @@ struct DeckEditor: View {
 }
 
 #Preview {
-    DeckEditor(viewModel: MemorojiViewModel(), editableCustomDeck: .constant(MemorizeDeck(name: "", emojis: [])))
+    DeckEditor(viewModel: MemorojiViewModel(), editableCustomDeck: .constant(MemorizeDeck(name: "", emojis: ["🐙"])))
 }
 
 extension DeckEditor {
@@ -159,11 +149,21 @@ extension DeckEditor {
     private var deleteButton: some View {
         Button(action: {
             showRemoveAlert = true
+            debugPrint("trash button pressed")
         }, label: {
             Image(systemName: "trash")
         })
         .disabled(viewModel.memorizeDecks.count != 10)
-        
+        .alert(isPresented: $showRemoveAlert) {
+            Alert(
+                title: Text("Remove custom deck"),
+                message: Text("Do you want to remove your custom deck?"),
+                primaryButton: .default(Text("Discard")),
+                secondaryButton: .destructive(Text("Remove")) {
+                    removeDeckAndDismiss()
+                }
+            )
+        }
     }
     
     private func saveDeckAndDismiss() {
