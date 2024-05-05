@@ -130,7 +130,7 @@ struct DeckEditor: View {
 }
 
 #Preview {
-    DeckEditor(viewModel: MemorojiViewModel(), editableCustomDeck: .constant(MemorizeDeck(name: "", emojis: [""])))
+    DeckEditor(viewModel: MemorojiViewModel(), editableCustomDeck: .constant(MemorizeDeck(name: "", emojis: [])))
 }
 
 extension DeckEditor {
@@ -192,7 +192,9 @@ extension DeckEditor {
     
     private func shouldSaveButtonBeDisabled() -> Bool {
         let isNameEmpty = editableCustomDeck.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-        let containsNonEmojiCharacters = !emojiInput.isEmpty && !emojiInput.isEmoji()
-        return isNameEmpty || containsNonEmojiCharacters
+        let isCustomDeckEmojisEmpty = editableCustomDeck.emojis.isEmpty
+        let emojiInputContainsNonEmojiCharacters = !emojiInput.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && !emojiInput.isEmoji()
+        
+        return isNameEmpty || isCustomDeckEmojisEmpty || emojiInputContainsNonEmojiCharacters
     }
 }

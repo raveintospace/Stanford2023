@@ -113,7 +113,7 @@ final class MemorojiViewModel: ObservableObject {
     }
     
     // MARK: - Custom Deck
-    @Published var customDeck: MemorizeDeck = MemorizeDeck(name: "", emojis: [""])
+    @Published var customDeck: MemorizeDeck = MemorizeDeck(name: "", emojis: [])
     
     func saveCustomDeck(name: String, emojis: [String]) {
         removeExistingCustomDeck()
