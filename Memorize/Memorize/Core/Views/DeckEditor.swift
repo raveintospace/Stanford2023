@@ -122,23 +122,35 @@ extension DeckEditor {
     
     private var removeEmojis: some View {
         VStack(alignment: .trailing) {
-            Text("Tap emoji to remove")
-                .font(.caption)
-                .foregroundStyle(Color.red)
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 40))]) {
-                ForEach(editableCustomDeck.emojis.indices, id: \.self) { index in
-                    let emoji = editableCustomDeck.emojis[index]
-                    Text(emoji)
-                        .onTapGesture {
-                            withAnimation {
-                                editableCustomDeck.emojis.remove(at: index)
-                                emojiInput = emojiInput.replacingOccurrences(of: emoji, with: "")
-                            }
-                        }
-                }
-            }
+            removeEmojisHStack
+            removeEmojisLazyVGrid
         }
         .font(emojiFont)
+    }
+    
+    private var removeEmojisHStack: some View {
+        HStack {
+            Text("Tap emoji to remove")
+            Spacer()
+            Text("Max 20 emojis")
+        }
+        .font(.caption)
+        .foregroundStyle(Color.red)
+    }
+    
+    private var removeEmojisLazyVGrid: some View {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 40))]) {
+            ForEach(editableCustomDeck.emojis.indices, id: \.self) { index in
+                let emoji = editableCustomDeck.emojis[index]
+                Text(emoji)
+                    .onTapGesture {
+                        withAnimation {
+                            editableCustomDeck.emojis.remove(at: index)
+                            emojiInput = emojiInput.replacingOccurrences(of: emoji, with: "")
+                        }
+                    }
+            }
+        }
     }
     
     private var deleteButton: some View {
