@@ -29,46 +29,14 @@ struct DeckEditor: View {
     @State private var showDismissAlert: Bool = false
     
     private let emojiFont: Font = Font.system(size: 40)
+    private let textFieldMaxLength: Int = 8
     
     var body: some View {
         NavigationStack {
             ZStack {
                 Form {
-                    Section(header: Text("Name")) {
-                        TextField("Set a name for your deck", text: $editableCustomDeck.name)
-                            .focused($focused, equals: .name)
-                            .autocorrectionDisabled()
-                            .textInputAutocapitalization(.sentences)
-                            .submitLabel(.done)
-                            .keyboardType(.alphabet)
-                            .onChange(of: editableCustomDeck.name) { _, newValue in
-                                let allowedInput = CharacterSet.alphanumerics
-                                let filteredText = newValue.filter { character in
-                                    return String(character).rangeOfCharacter(from: allowedInput) != nil
-                                }
-                                
-                                if filteredText.count > 8 {
-                                    editableCustomDeck.name = String(filteredText.prefix(8))
-                                } else {
-                                    editableCustomDeck.name = filteredText
-                                }
-                            }
-                    }
-                    Section(header: Text("Emojis")) {
-                        TextField("Add emojis here", text: $emojiInput)
-                            .focused($focused, equals: .addEmojis)
-                            .autocorrectionDisabled()
-                            .submitLabel(.done)
-                            .disabled(editableCustomDeck.emojis.count >= 20)
-                            .onChange(of: emojiInput) { _, newValue in
-                                let emojis = newValue.compactMap {
-                                    String($0).isEmoji() ? String($0) : nil
-                                }
-                                let uniqueEmojis = emojis.filter { !editableCustomDeck.emojis.contains($0) }
-                                editableCustomDeck.emojis += uniqueEmojis
-                            }
-                        removeEmojis
-                    }
+                    formNameSection
+                    formEmojisSection
                     Section {
                         Button("Save deck") {
                             saveDeckAndDismiss()
@@ -125,6 +93,47 @@ struct DeckEditor: View {
 }
 
 extension DeckEditor {
+    
+    private var formNameSection: some View {
+        Section(header: Text("Name")) {
+            TextField("Set a name for your deck", text: $editableCustomDeck.name)
+                .focused($focused, equals: .name)
+                .autocorrectionDisabled()
+                .textInputAutocapitalization(.sentences)
+                .submitLabel(.done)
+                .keyboardType(.alphabet)
+                .onChange(of: editableCustomDeck.name) { _, newValue in
+                    let allowedInput = CharacterSet.alphanumerics
+                    let filteredText = newValue.filter { character in
+                        return String(character).rangeOfCharacter(from: allowedInput) != nil
+                    }
+                    
+                    if filteredText.count > textFieldMaxLength {
+                        editableCustomDeck.name = String(filteredText.prefix(textFieldMaxLength))
+                    } else {
+                        editableCustomDeck.name = filteredText
+                    }
+                }
+        }
+    }
+    
+    private var formEmojisSection: some View {
+        Section(header: Text("Emojis")) {
+            TextField("Add emojis here", text: $emojiInput)
+                .focused($focused, equals: .addEmojis)
+                .autocorrectionDisabled()
+                .submitLabel(.done)
+                .disabled(editableCustomDeck.emojis.count >= 20)
+                .onChange(of: emojiInput) { _, newValue in
+                    let emojis = newValue.compactMap {
+                        String($0).isEmoji() ? String($0) : nil
+                    }
+                    let uniqueEmojis = emojis.filter { !editableCustomDeck.emojis.contains($0) }
+                    editableCustomDeck.emojis += uniqueEmojis
+                }
+            removeEmojis
+        }
+    }
     
     private var removeEmojis: some View {
         VStack(alignment: .trailing) {

@@ -18,6 +18,8 @@ struct ScoreForm: View {
     
     @State private var showDismissAlert: Bool = false
     
+    private let textFieldMaxLength: Int = 8
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -32,7 +34,7 @@ struct ScoreForm: View {
                             .onChange(of: playerName) { _, newValue in
                                 playerName = newValue.filter { $0.isLetter || $0.isNumber }
                                 
-                                if playerName.count > 8 { playerName = String(playerName.prefix(8))
+                                if playerName.count > textFieldMaxLength { playerName = String(playerName.prefix(textFieldMaxLength))
                                 }
                             }
                     }
