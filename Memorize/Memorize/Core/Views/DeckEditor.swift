@@ -191,10 +191,8 @@ extension DeckEditor {
     }
     
     private func shouldSaveButtonBeDisabled() -> Bool {
-        if editableCustomDeck.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && !emojiInput.isEmoji() {
-            return true
-        } else {
-            return false
-        }
+        let isNameEmpty = editableCustomDeck.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        let containsNonEmojiCharacters = !emojiInput.isEmpty && !emojiInput.isEmoji()
+        return isNameEmpty || containsNonEmojiCharacters
     }
 }
