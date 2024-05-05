@@ -16,6 +16,7 @@
 		344783DA2BC2B10500155304 /* Scorecard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344783D92BC2B10500155304 /* Scorecard.swift */; };
 		344783DC2BC2E26700155304 /* ScoreForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344783DB2BC2E26700155304 /* ScoreForm.swift */; };
 		344783DE2BC2E7F100155304 /* DismissXButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344783DD2BC2E7F100155304 /* DismissXButton.swift */; };
+		344DAA3C2BE79EA90006976F /* MaxLengthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DAA3B2BE79EA90006976F /* MaxLengthTextField.swift */; };
 		345BD6712BA7057C004AFF24 /* FlyingNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345BD6702BA7057C004AFF24 /* FlyingNumber.swift */; };
 		345D161A2BD4054E003242D6 /* DeckEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D16192BD4054E003242D6 /* DeckEditor.swift */; };
 		345D161E2BD4097E003242D6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D161D2BD4097E003242D6 /* String.swift */; };
@@ -45,6 +46,7 @@
 		344783D92BC2B10500155304 /* Scorecard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scorecard.swift; sourceTree = "<group>"; };
 		344783DB2BC2E26700155304 /* ScoreForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreForm.swift; sourceTree = "<group>"; };
 		344783DD2BC2E7F100155304 /* DismissXButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissXButton.swift; sourceTree = "<group>"; };
+		344DAA3B2BE79EA90006976F /* MaxLengthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxLengthTextField.swift; sourceTree = "<group>"; };
 		345BD6702BA7057C004AFF24 /* FlyingNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyingNumber.swift; sourceTree = "<group>"; };
 		345D16192BD4054E003242D6 /* DeckEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckEditor.swift; sourceTree = "<group>"; };
 		345D161D2BD4097E003242D6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				34BD7CA12BA0CD77006D051A /* AspectVGrid.swift */,
 				342E9D7F2BCD8AB60043F3CE /* ConfirmationRectangle.swift */,
 				344783DD2BC2E7F100155304 /* DismissXButton.swift */,
+				344DAA3B2BE79EA90006976F /* MaxLengthTextField.swift */,
 				345BD6702BA7057C004AFF24 /* FlyingNumber.swift */,
 				34C913492BA4BED6006D908B /* PieShape.swift */,
 			);
@@ -274,6 +277,7 @@
 				34C9134A2BA4BED6006D908B /* PieShape.swift in Sources */,
 				34C913472BA4B4A2006D908B /* CardView.swift in Sources */,
 				345D161E2BD4097E003242D6 /* String.swift in Sources */,
+				344DAA3C2BE79EA90006976F /* MaxLengthTextField.swift in Sources */,
 				3492EAC22B9B879C00B401D1 /* MemorojiView.swift in Sources */,
 				34C9134D2BA4C34A006D908B /* Cardify.swift in Sources */,
 				346015032BC18A4C006F17B9 /* CardColor.swift in Sources */,

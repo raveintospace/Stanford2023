@@ -20,7 +20,6 @@ struct DeckEditor: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @State private var deckName: String = ""
     @State private var emojiInput: String = ""
     @State private var initialCustomDeck: MemorizeDeck?
     
@@ -36,11 +35,10 @@ struct DeckEditor: View {
             ZStack {
                 Form {
                     Section(header: Text("Name")) {
-                        TextField("Name", text: $editableCustomDeck.name)
+                        MaxLengthTextField(text: $editableCustomDeck.name, placeholder: "Set a name for your deck", maxLength: 15)
                             .focused($focused, equals: .name)
                             .autocorrectionDisabled()
-                            .textInputAutocapitalization(.words)
-                        // limit length of name
+                            .textInputAutocapitalization(.sentences)
                     }
                     Section(header: Text("Emojis")) {
                         TextField("Add emojis here", text: $emojiInput)
@@ -69,14 +67,12 @@ struct DeckEditor: View {
                     focusTextField()
                 }
                 .alert(isPresented: $showDismissAlert) {
-                    
                     guard let initialDeck = initialCustomDeck else {
                         return Alert(
                             title: Text("Error"),
                             message: Text("Initial deck is missing"),
                             dismissButton: .default(Text("OK")))
                     }
-                    
                     return Alert(
                         title: Text("Changes not saved"),
                         message: Text("Do you want to discard or save the changes made?"),
@@ -89,7 +85,6 @@ struct DeckEditor: View {
                         }
                     )
                 }
-                
             }
             .navigationTitle("Deck editor")
             .navigationBarTitleDisplayMode(.inline)
