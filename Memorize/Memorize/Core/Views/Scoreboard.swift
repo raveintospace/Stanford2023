@@ -60,10 +60,10 @@ struct Scoreboard: View {
                     Alert(
                         title: Text("Reset scoreboard"),
                         message: Text("Do you want to erase the scores saved?"),
-                        primaryButton: .default(Text("Discard")),
-                        secondaryButton: .destructive(Text("Reset")) { viewModel.resetScoreboard()
+                        primaryButton: .destructive(Text("Reset")) { viewModel.resetScoreboard()
                             dismiss()
-                        }
+                        },
+                        secondaryButton: .default(Text("Discard"))
                     )
                 }
             }

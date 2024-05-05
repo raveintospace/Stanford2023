@@ -60,8 +60,8 @@ struct ScoreForm: View {
                     Alert(
                         title: Text("Exit screen"),
                         message: Text("You will lose your score if you press Exit"),
-                        primaryButton: .default(Text("Keep editing")),
-                        secondaryButton: .destructive(Text("Exit")) { dismiss() }
+                        primaryButton: .destructive(Text("Exit")) { dismiss() },
+                        secondaryButton: .default(Text("Keep editing"))
                     )
                 }
             }
