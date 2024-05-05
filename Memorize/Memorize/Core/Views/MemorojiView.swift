@@ -211,9 +211,6 @@ extension MemorojiView {
                 Text("Set card color")
             }
             AnimatedActionButton(NSLocalizedString(customDeckString, comment: "")) {
-                if viewModel.customDeck == nil {
-                    viewModel.createEmptyCustomDeck(name: "", emojis: [""])
-                }
                 sheetType = .deckEditor
             }
         } label: {

@@ -61,7 +61,7 @@ struct DeckEditor: View {
                         Button("Save deck") {
                             saveDeckAndDismiss()
                         }
-                        .disabled(editableCustomDeck.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                        .disabled(shouldSaveButtonBeDisabled())
                     }
                 }
                 .onAppear {
@@ -188,5 +188,13 @@ extension DeckEditor {
     private func shouldDismiss() -> Bool {
         guard let initialCustomDeck = initialCustomDeck else { return true }
         return initialCustomDeck == editableCustomDeck
+    }
+    
+    private func shouldSaveButtonBeDisabled() -> Bool {
+        if editableCustomDeck.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && !emojiInput.isEmoji() {
+            return true
+        } else {
+            return false
+        }
     }
 }
