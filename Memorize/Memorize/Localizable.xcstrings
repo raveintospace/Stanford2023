@@ -601,6 +601,9 @@
         }
       }
     },
+    "Max 20 emojis" : {
+
+    },
     "Music" : {
       "extractionState" : "manual",
       "localizations" : {

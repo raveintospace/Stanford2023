@@ -42,17 +42,17 @@ struct DeckEditor: View {
                     }
                     Section(header: Text("Emojis")) {
                         TextField("Add emojis here", text: $emojiInput)
-                        .focused($focused, equals: .addEmojis)
-                        .autocorrectionDisabled()
-                        .font(emojiFont)
-                        .onChange(of: emojiInput) { _, newValue in
-                            let emojis = newValue.compactMap {
-                                String($0).isEmoji() ? String($0) : nil
+                            .focused($focused, equals: .addEmojis)
+                            .autocorrectionDisabled()
+                            .font(emojiFont)
+                            .disabled(editableCustomDeck.emojis.count >= 20)
+                            .onChange(of: emojiInput) { _, newValue in
+                                let emojis = newValue.compactMap {
+                                    String($0).isEmoji() ? String($0) : nil
+                                }
+                                let uniqueEmojis = emojis.filter { !editableCustomDeck.emojis.contains($0) }
+                                editableCustomDeck.emojis += uniqueEmojis
                             }
-                            let uniqueEmojis = emojis.filter { !editableCustomDeck.emojis.contains($0) }
-                            editableCustomDeck.emojis += uniqueEmojis
-                        }
-                        // limit to max 20 emojis
                         removeEmojis
                     }
                     Section {
