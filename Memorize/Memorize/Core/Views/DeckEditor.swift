@@ -44,7 +44,6 @@ struct DeckEditor: View {
                         TextField("Add emojis here", text: $emojiInput)
                             .focused($focused, equals: .addEmojis)
                             .autocorrectionDisabled()
-                            .font(emojiFont)
                             .disabled(editableCustomDeck.emojis.count >= 20)
                             .onChange(of: emojiInput) { _, newValue in
                                 let emojis = newValue.compactMap {
