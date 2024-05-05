@@ -343,6 +343,7 @@
       }
     },
     "Done" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -536,6 +537,9 @@
           }
         }
       }
+    },
+    "Keep" : {
+
     },
     "Keep editing" : {
       "localizations" : {

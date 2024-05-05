@@ -27,7 +27,9 @@ struct ScoreForm: View {
                             .autocorrectionDisabled()
                             .textInputAutocapitalization(.words)
                             .focused($playerNameFocused)
-                            .onChange(of: playerName) { if playerName.count > 20 { playerName = String(String(playerName).prefix(20)) }
+                            .submitLabel(.done)
+                            .keyboardType(.alphabet)
+                            .onChange(of: playerName) { if playerName.count > 10 { playerName = String(String(playerName).prefix(10)) }
                             }
                     }
                     Section(header: Text("Deck played")) {
@@ -72,14 +74,6 @@ struct ScoreForm: View {
                     DismissXButton {
                         showDismissAlert = true
                     }
-                }
-                ToolbarItemGroup(placement: .keyboard) {
-                    Spacer()
-                    Button(action: {
-                        UIApplication.shared.hideKeyboard()
-                    }, label: {
-                        Text("Done")
-                    })
                 }
             }
         }

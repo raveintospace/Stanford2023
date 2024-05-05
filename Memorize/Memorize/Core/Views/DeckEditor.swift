@@ -165,11 +165,11 @@ extension DeckEditor {
         .alert(isPresented: $showRemoveAlert) {
             Alert(
                 title: Text("Remove custom deck"),
-                message: Text("Do you want to remove your custom deck?"),
-                primaryButton: .default(Text("Discard")),
-                secondaryButton: .destructive(Text("Remove")) {
+                message: Text("Do you want to remove or keep your custom deck?"),
+                primaryButton: .destructive(Text("Remove")) {
                     removeDeckAndDismiss()
-                }
+                },
+                secondaryButton: .default(Text("Keep"))
             )
         }
     }
