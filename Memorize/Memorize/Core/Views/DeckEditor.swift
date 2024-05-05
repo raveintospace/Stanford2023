@@ -35,7 +35,7 @@ struct DeckEditor: View {
             ZStack {
                 Form {
                     Section(header: Text("Name")) {
-                        MaxLengthTextField(text: $editableCustomDeck.name, placeholder: "Set a name for your deck", maxLength: 15)
+                        TextField("Set a name for your deck", text: $editableCustomDeck.name)
                             .focused($focused, equals: .name)
                             .autocorrectionDisabled()
                             .textInputAutocapitalization(.sentences)
@@ -46,7 +46,12 @@ struct DeckEditor: View {
                                 let filteredText = newValue.filter { character in
                                     return String(character).rangeOfCharacter(from: allowedInput) != nil
                                 }
-                                editableCustomDeck.name = filteredText
+                                
+                                if filteredText.count > 8 {
+                                    editableCustomDeck.name = String(filteredText.prefix(8))
+                                } else {
+                                    editableCustomDeck.name = filteredText
+                                }
                             }
                     }
                     Section(header: Text("Emojis")) {

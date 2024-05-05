@@ -326,7 +326,11 @@
         }
       }
     },
+    "Do you want to remove or keep your custom deck?" : {
+
+    },
     "Do you want to remove your custom deck?" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -1027,6 +1031,9 @@
           }
         }
       }
+    },
+    "Set a name for your deck" : {
+
     },
     "Set card color" : {
       "localizations" : {

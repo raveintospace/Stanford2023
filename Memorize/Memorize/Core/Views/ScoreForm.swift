@@ -29,7 +29,11 @@ struct ScoreForm: View {
                             .focused($playerNameFocused)
                             .submitLabel(.done)
                             .keyboardType(.alphabet)
-                            .onChange(of: playerName) { if playerName.count > 10 { playerName = String(String(playerName).prefix(10)) }
+                            .onChange(of: playerName) { _, newValue in
+                                playerName = newValue.filter { $0.isLetter || $0.isNumber }
+                                
+                                if playerName.count > 8 { playerName = String(playerName.prefix(8))
+                                }
                             }
                     }
                     Section(header: Text("Deck played")) {
