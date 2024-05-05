@@ -39,11 +39,21 @@ struct DeckEditor: View {
                             .focused($focused, equals: .name)
                             .autocorrectionDisabled()
                             .textInputAutocapitalization(.sentences)
+                            .submitLabel(.done)
+                            .keyboardType(.alphabet)
+                            .onChange(of: editableCustomDeck.name) { _, newValue in
+                                let allowedInput = CharacterSet.alphanumerics
+                                let filteredText = newValue.filter { character in
+                                    return String(character).rangeOfCharacter(from: allowedInput) != nil
+                                }
+                                editableCustomDeck.name = filteredText
+                            }
                     }
                     Section(header: Text("Emojis")) {
                         TextField("Add emojis here", text: $emojiInput)
                             .focused($focused, equals: .addEmojis)
                             .autocorrectionDisabled()
+                            .submitLabel(.done)
                             .disabled(editableCustomDeck.emojis.count >= 20)
                             .onChange(of: emojiInput) { _, newValue in
                                 let emojis = newValue.compactMap {
@@ -99,14 +109,6 @@ struct DeckEditor: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     deleteButton
-                }
-                ToolbarItemGroup(placement: .keyboard) {
-                    Spacer()
-                    Button(action: {
-                        UIApplication.shared.hideKeyboard()
-                    }, label: {
-                        Text("Done")
-                    })
                 }
             }
         }
