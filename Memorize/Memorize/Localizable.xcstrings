@@ -327,38 +327,17 @@
       }
     },
     "Do you want to remove or keep your custom deck?" : {
-
-    },
-    "Do you want to remove your custom deck?" : {
-      "extractionState" : "stale",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vols eliminar la baralla personalitzada?"
+            "value" : "Vols esborrar o mantenir la teva baralla personalitzada?"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "¿Quieres borrar la baraja personalizada?"
-          }
-        }
-      }
-    },
-    "Done" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fet"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hecho"
+            "value" : "¿Quieres borrar o mantener tu baraja personalizada?"
           }
         }
       }
@@ -543,7 +522,20 @@
       }
     },
     "Keep" : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mantenir"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mantener"
+          }
+        }
+      }
     },
     "Keep editing" : {
       "localizations" : {
@@ -610,7 +602,20 @@
       }
     },
     "Max 20 emojis" : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Max 20 emojis"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Max 20 emojis"
+          }
+        }
+      }
     },
     "Music" : {
       "extractionState" : "manual",
@@ -1033,7 +1038,20 @@
       }
     },
     "Set a name for your deck" : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posa nom a la teva baralla"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pon nombre a tu baraja"
+          }
+        }
+      }
     },
     "Set card color" : {
       "localizations" : {
