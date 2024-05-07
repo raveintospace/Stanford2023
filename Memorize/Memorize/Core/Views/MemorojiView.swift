@@ -287,7 +287,11 @@ extension MemorojiView {
         case .scoreForm:
             ScoreForm(viewModel: viewModel).interactiveDismissDisabled()
         case .deckEditor:
-            DeckEditor(viewModel: viewModel, editableCustomDeck: $viewModel.customDeck).interactiveDismissDisabled()
+            DeckEditor(viewModel: viewModel, editableCustomDeck: $viewModel.customDeck)
+                .interactiveDismissDisabled()
+                .onDisappear {
+                    resetGame()
+                }
         }
     }
 }
