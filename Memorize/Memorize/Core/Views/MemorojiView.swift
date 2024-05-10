@@ -290,7 +290,9 @@ extension MemorojiView {
             DeckEditor(viewModel: viewModel, editableCustomDeck: $viewModel.customDeck)
                 .interactiveDismissDisabled()
                 .onDisappear {
-                    resetGame()
+                    if viewModel.deckIndex == 9 {
+                        resetGame()
+                    }
                 }
         }
     }
