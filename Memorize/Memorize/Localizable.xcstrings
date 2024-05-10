@@ -214,6 +214,9 @@
         }
       }
     },
+    "Custom deck selected" : {
+
+    },
     "DECK" : {
       "localizations" : {
         "ca" : {
@@ -730,6 +733,9 @@
           }
         }
       }
+    },
+    "Please select another deck before editing the custom one" : {
+
     },
     "Privacy policy" : {
       "localizations" : {

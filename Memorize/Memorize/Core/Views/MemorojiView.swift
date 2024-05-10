@@ -20,6 +20,8 @@ struct MemorojiView: View {
     
     @State private var hasGameStarted: Bool = false
     @State private var showGameEndedAlert: Bool = false
+    @State private var showDeckEditorAlert: Bool = false
+    
     @State private var sheetType: SheetType?
     
     // tuple with Int & Card.Id as parameters, tracks card with score
@@ -42,6 +44,7 @@ struct MemorojiView: View {
     private let dealInterval: TimeInterval = 0.05
     private let dealAnimation: Animation = .spring(duration: 0.7)
     
+    // adapts to user's Dynamic Type
     @ScaledMetric var optionsButtonSize: CGFloat = 50
     
     // Synchronizes animation from undealt to dealt
@@ -61,6 +64,13 @@ struct MemorojiView: View {
                 saveScoreButton
                 playAgainButton
                 quitGameButton
+            }
+            .alert(isPresented: $showDeckEditorAlert) {
+                Alert(
+                    title: Text("Custom deck selected"),
+                    message: Text("Please select another deck before editing the custom one"),
+                    dismissButton: .default(Text("OK"))
+                )
             }
             .sheet(item: $sheetType, content: makeSheet)
             .toolbar {
@@ -211,7 +221,11 @@ extension MemorojiView {
                 Text("Set card color")
             }
             AnimatedActionButton(NSLocalizedString(customDeckString, comment: "")) {
-                sheetType = .deckEditor
+                if viewModel.deckIndex == 9 {
+                    showDeckEditorAlert = true
+                } else {
+                    sheetType = .deckEditor
+                }
             }
         } label: {
             Image(systemName: "gearshape.2")
@@ -289,11 +303,6 @@ extension MemorojiView {
         case .deckEditor:
             DeckEditor(viewModel: viewModel, editableCustomDeck: $viewModel.customDeck)
                 .interactiveDismissDisabled()
-                .onDisappear {
-                    if viewModel.deckIndex == 9 {
-                        resetGame()
-                    }
-                }
         }
     }
 }
