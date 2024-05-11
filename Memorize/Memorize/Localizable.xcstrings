@@ -215,7 +215,20 @@
       }
     },
     "Custom deck selected" : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baralla personalitzada sel·leccionada"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baraja personalizada seleccionada"
+          }
+        }
+      }
     },
     "DECK" : {
       "localizations" : {
@@ -735,7 +748,20 @@
       }
     },
     "Please select another deck before editing the custom one" : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per favor, tria una altra baralla abans d'editar la personalitzada"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, escoge otra baraja antes de editar la personalizada"
+          }
+        }
+      }
     },
     "Privacy policy" : {
       "localizations" : {
