@@ -33,6 +33,22 @@
         }
       }
     },
+    "Add emojis here" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afegeix emojis aquí"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añade emojis aquí"
+          }
+        }
+      }
+    },
     "Animal faces" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -149,6 +165,22 @@
         }
       }
     },
+    "Changes not saved" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Canvis no guardats"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cambios no guardados"
+          }
+        }
+      }
+    },
     "Company website" : {
       "localizations" : {
         "ca" : {
@@ -182,6 +214,22 @@
         }
       }
     },
+    "Custom deck selected" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baralla personalitzada sel·leccionada"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baraja personalizada seleccionada"
+          }
+        }
+      }
+    },
     "DECK" : {
       "localizations" : {
         "ca" : {
@@ -194,6 +242,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "BARAJA"
+          }
+        }
+      }
+    },
+    "Deck editor" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editor de baralles"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editor de barajas"
           }
         }
       }
@@ -246,6 +310,22 @@
         }
       }
     },
+    "Do you want to discard or save the changes made?" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vols descartar o guardar els canvis fets?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quieres descartar o guardar los cambios hechos?"
+          }
+        }
+      }
+    },
     "Do you want to erase the scores saved?" : {
       "localizations" : {
         "ca" : {
@@ -258,6 +338,54 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¿Quieres borrar las puntuaciones guardadas?"
+          }
+        }
+      }
+    },
+    "Do you want to remove or keep your custom deck?" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vols esborrar o mantenir la teva baralla personalitzada?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quieres borrar o mantener tu baraja personalizada?"
+          }
+        }
+      }
+    },
+    "Emojis" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emojis"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emojis"
+          }
+        }
+      }
+    },
+    "Error" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error"
           }
         }
       }
@@ -393,6 +521,38 @@
         }
       }
     },
+    "Initial deck is missing" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baralla inicial perduda"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baraja inicial perdida"
+          }
+        }
+      }
+    },
+    "Keep" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mantenir"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mantener"
+          }
+        }
+      }
+    },
     "Keep editing" : {
       "localizations" : {
         "ca" : {
@@ -457,6 +617,22 @@
         }
       }
     },
+    "Max 20 emojis" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Max 20 emojis"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Max 20 emojis"
+          }
+        }
+      }
+    },
     "Music" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -470,6 +646,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Música"
+          }
+        }
+      }
+    },
+    "Name" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nom"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
           }
         }
       }
@@ -535,6 +743,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nombre del jugador"
+          }
+        }
+      }
+    },
+    "Please select another deck before editing the custom one" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per favor, tria una altra baralla abans d'editar la personalitzada"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, escoge otra baraja antes de editar la personalizada"
           }
         }
       }
@@ -605,6 +829,38 @@
         }
       }
     },
+    "Remove" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esborrar"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Borrar"
+          }
+        }
+      }
+    },
+    "Remove custom deck" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esborrar baralla personalitzada"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Borrar baraja personalizada"
+          }
+        }
+      }
+    },
     "Reset" : {
       "localizations" : {
         "ca" : {
@@ -621,7 +877,7 @@
         }
       }
     },
-    "Reset Scoreboard" : {
+    "Reset scoreboard" : {
       "localizations" : {
         "ca" : {
           "stringUnit" : {
@@ -649,6 +905,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Reiniciar"
+          }
+        }
+      }
+    },
+    "Save" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar"
+          }
+        }
+      }
+    },
+    "Save deck" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar baralla"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar baraja"
           }
         }
       }
@@ -733,6 +1021,22 @@
         }
       }
     },
+    "See app info" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veure info de l'app"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver info de la app"
+          }
+        }
+      }
+    },
     "See scoreboard" : {
       "localizations" : {
         "ca" : {
@@ -761,6 +1065,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Escoger baraja"
+          }
+        }
+      }
+    },
+    "Set a name for your deck" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posa nom a la teva baralla"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pon nombre a tu baraja"
           }
         }
       }
@@ -842,6 +1162,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Empezar"
+          }
+        }
+      }
+    },
+    "Tap emoji to remove" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prem per esborrar l'emoji"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pulsa para borrar el emoji"
           }
         }
       }

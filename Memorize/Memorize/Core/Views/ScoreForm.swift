@@ -18,6 +18,8 @@ struct ScoreForm: View {
     
     @State private var showDismissAlert: Bool = false
     
+    private let textFieldMaxLength: Int = 8
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -27,7 +29,13 @@ struct ScoreForm: View {
                             .autocorrectionDisabled()
                             .textInputAutocapitalization(.words)
                             .focused($playerNameFocused)
-                            .onChange(of: playerName) { if playerName.count > 20 { playerName = String(String(playerName).prefix(20)) }
+                            .submitLabel(.done)
+                            .keyboardType(.alphabet)
+                            .onChange(of: playerName) { _, newValue in
+                                playerName = newValue.filter { $0.isLetter || $0.isNumber }
+                                
+                                if playerName.count > textFieldMaxLength { playerName = String(playerName.prefix(textFieldMaxLength))
+                                }
                             }
                     }
                     Section(header: Text("Deck played")) {
@@ -60,8 +68,8 @@ struct ScoreForm: View {
                     Alert(
                         title: Text("Exit screen"),
                         message: Text("You will lose your score if you press Exit"),
-                        primaryButton: .default(Text("Keep editing")),
-                        secondaryButton: .destructive(Text("Exit")) { dismiss() }
+                        primaryButton: .destructive(Text("Exit")) { dismiss() },
+                        secondaryButton: .default(Text("Keep editing"))
                     )
                 }
             }
@@ -86,6 +94,5 @@ extension ScoreForm {
     
     private func saveScore() {
         viewModel.saveScore(player: playerName, deck: viewModel.memorizeDecks[viewModel.deckIndex].name, matches: viewModel.matches, score: viewModel.score)
-        viewModel.showScoreSavedConfirmation = true
     }
 }

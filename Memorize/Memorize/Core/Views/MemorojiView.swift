@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+enum SheetType: String, Identifiable {
+    case creditsView, deckEditor, scoreboard, scoreForm
+    var id: String { rawValue }
+}
+
 struct MemorojiView: View {
     
     typealias Card = MemorizeGame<String>.Card
@@ -15,10 +20,9 @@ struct MemorojiView: View {
     
     @State private var hasGameStarted: Bool = false
     @State private var showGameEndedAlert: Bool = false
-    @State private var showCreditsSheet: Bool = false
-    @State private var showDeckCreator: Bool = false
-    @State private var showSaveScoreSheet: Bool = false
-    @State private var showScoreboardSheet: Bool = false
+    @State private var showDeckEditorAlert: Bool = false
+    
+    @State private var sheetType: SheetType?
     
     // tuple with Int & Card.Id as parameters, tracks card with score
     @State private var lastScoreChange = (0, causedByCardId: "")
@@ -40,8 +44,10 @@ struct MemorojiView: View {
     private let dealInterval: TimeInterval = 0.05
     private let dealAnimation: Animation = .spring(duration: 0.7)
     
+    // adapts to user's Dynamic Type
     @ScaledMetric var optionsButtonSize: CGFloat = 50
     
+    // Synchronizes animation from undealt to dealt
     @Namespace private var dealingNamespace
     
     var body: some View {
@@ -59,24 +65,14 @@ struct MemorojiView: View {
                 playAgainButton
                 quitGameButton
             }
-            .sheet(isPresented: $showCreditsSheet) {
-                CreditsView()
-                    .interactiveDismissDisabled()
+            .alert(isPresented: $showDeckEditorAlert) {
+                Alert(
+                    title: Text("Custom deck selected"),
+                    message: Text("Please select another deck before editing the custom one"),
+                    dismissButton: .default(Text("OK"))
+                )
             }
-            .sheet(isPresented: $showScoreboardSheet) {
-                Scoreboard(viewModel: viewModel)
-                    .interactiveDismissDisabled()
-            }
-            .sheet(isPresented: $showSaveScoreSheet,
-                   onDismiss: {
-                resetGame()
-            }) {
-                ScoreForm(viewModel: viewModel)
-                    .interactiveDismissDisabled()
-            }
-            .sheet(isPresented: $showDeckCreator) {
-                DeckCreator(deck: $viewModel.memorizeDecks[viewModel.deckIndex])
-            }
+            .sheet(item: $sheetType, content: makeSheet)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     score
@@ -89,16 +85,7 @@ struct MemorojiView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .safeAreaInset(edge: .bottom) {
-            if viewModel.showScoreSavedConfirmation {
-                ConfirmationRectangle(copy: "Score saved", iconName: "checkmark.seal")
-                    .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                            withAnimation(.easeOut) {
-                                viewModel.showScoreSavedConfirmation = false
-                            }
-                        }
-                    }
-            }
+            confirmationRectangles
         }
     }
 }
@@ -207,10 +194,10 @@ extension MemorojiView {
     private var options: some View {
         Menu {
             AnimatedActionButton(NSLocalizedString("See app info", comment: "")) {
-                showCreditsSheet = true
+                sheetType = .creditsView
             }
             AnimatedActionButton(NSLocalizedString("See scoreboard", comment: "")) {
-                showScoreboardSheet = true
+                sheetType = .scoreboard
             }
             Menu {
                 ForEach(viewModel.memorizeDecks.sorted(by: { $0.name > $1.name })) { memorizeDeck in
@@ -233,12 +220,24 @@ extension MemorojiView {
             } label: {
                 Text("Set card color")
             }
-            AnimatedActionButton(NSLocalizedString("Create custom deck", comment: "")) {
-                showDeckCreator = true
+            AnimatedActionButton(NSLocalizedString(customDeckString, comment: "")) {
+                if viewModel.deckIndex == 9 {
+                    showDeckEditorAlert = true
+                } else {
+                    sheetType = .deckEditor
+                }
             }
         } label: {
             Image(systemName: "gearshape.2")
                 .font(.system(size: optionsButtonSize))
+        }
+    }
+    
+    private var customDeckString: String {
+        if viewModel.memorizeDecks.count == 10 {
+            return "Edit custom deck"
+        } else {
+            return "Create custom deck"
         }
     }
     
@@ -250,7 +249,7 @@ extension MemorojiView {
     }
     
     private var restartButton: some View {
-        Button("Restart") {
+        Button(viewModel.isGameFinished() ? "Play again" : "Restart") {
             resetGame()
         }
         .font(.title)
@@ -264,17 +263,46 @@ extension MemorojiView {
     
     private var saveScoreButton: some View {
         Button("Save score") {
-            showSaveScoreSheet = true
+            sheetType = .scoreForm
         }
         .disabled(viewModel.isScoreboardFull() && !viewModel.isNewHighScore(score: viewModel.score))
     }
     
     private var quitGameButton: some View {
         Button("Quit game", role: .destructive) {
-            showCreditsSheet = true
+            sheetType = .creditsView
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 resetGame()
             }
+        }
+    }
+    
+    // MARK: - Confirmation rectangles
+    private var confirmationRectangles: some View {
+        Group {
+            if viewModel.showScoreSavedConfirmation {
+                ConfirmationRectangle(copy: "Score saved", iconName: "checkmark.seal")
+            } else if viewModel.showScoreboardResetConfirmation {
+                ConfirmationRectangle(copy: "Scoreboard reset", iconName: "text.badge.minus")
+            } else if viewModel.showCustomDeckRemovedConfirmation {
+                ConfirmationRectangle(copy: "Custom deck removed", iconName: "pencil.slash")
+            }
+        }
+    }
+    
+    // MARK: - Sheet presentation
+    @ViewBuilder
+    func makeSheet(_ sheetType: SheetType) -> some View {
+        switch sheetType {
+        case .creditsView:
+            CreditsView().interactiveDismissDisabled()
+        case .scoreboard:
+            Scoreboard(viewModel: viewModel).interactiveDismissDisabled()
+        case .scoreForm:
+            ScoreForm(viewModel: viewModel).interactiveDismissDisabled()
+        case .deckEditor:
+            DeckEditor(viewModel: viewModel, editableCustomDeck: $viewModel.customDeck)
+                .interactiveDismissDisabled()
         }
     }
 }

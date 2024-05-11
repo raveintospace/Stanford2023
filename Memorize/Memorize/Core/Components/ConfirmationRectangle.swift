@@ -17,7 +17,7 @@ struct ConfirmationRectangle: View {
             .ignoresSafeArea()
             .frame(height: 75)
             .frame(maxWidth: .infinity)
-            .foregroundStyle(Color.green).opacity(0.9)
+            .foregroundStyle(Color.green).opacity(0.5)
             .overlay(
                 HStack(spacing: 2) {
                     Text(copy)

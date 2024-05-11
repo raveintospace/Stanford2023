@@ -58,11 +58,12 @@ struct Scoreboard: View {
                 .padding(.top, 20)
                 .alert(isPresented: $showResetAlert) {
                     Alert(
-                        title: Text("Reset Scoreboard"),
+                        title: Text("Reset scoreboard"),
                         message: Text("Do you want to erase the scores saved?"),
-                        primaryButton: .default(Text("Discard")),
-                        secondaryButton: .destructive(Text("Reset")) { viewModel.resetScoreboard()
-                        }
+                        primaryButton: .destructive(Text("Reset")) { viewModel.resetScoreboard()
+                            dismiss()
+                        },
+                        secondaryButton: .default(Text("Discard"))
                     )
                 }
             }
@@ -87,9 +88,12 @@ struct Scoreboard: View {
 extension Scoreboard {
     
     private var resetButton: some View {
-        Button("Reset") {
+        Button(action: {
             showResetAlert = true
-        }
+        }, label: {
+            Image(systemName: "trash")
+        })
+        .disabled(viewModel.scoreboard.isEmpty)
     }
 }
 
