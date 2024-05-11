@@ -115,6 +115,9 @@ final class MemorojiViewModel: ObservableObject {
     // MARK: - Custom Deck
     @Published var customDeck: MemorizeDeck = MemorizeDeck(name: "", emojis: [])
     
+    private let maxMemorizeDecks: Int = 10
+    private let customDeckUserDefaultsKey: String = "customDeck"
+    
     func saveCustomDeck(name: String, emojis: [String]) {
         removeExistingCustomDeck()
         customDeck = MemorizeDeck(name: name, emojis: emojis)
@@ -125,15 +128,21 @@ final class MemorojiViewModel: ObservableObject {
     }
     
     private func encodeAndSaveCustomDeck() {
-        if let encoded = try? JSONEncoder().encode(customDeck) {
-            UserDefaults.standard.set(encoded, forKey: "customDeck")
+        do {
+            let encoded = try JSONEncoder().encode(customDeck)
+            UserDefaults.standard.set(encoded, forKey: customDeckUserDefaultsKey)
+        } catch {
+            debugPrint("Error encoding custom deck: \(error)")
         }
     }
     
     private func getCustomDeck() -> MemorizeDeck? {
-        if let customDeckData = UserDefaults.standard.object(forKey: "customDeck") as? Data {
-            if let customDeck = try? JSONDecoder().decode(MemorizeDeck.self, from: customDeckData) {
+        if let customDeckData = UserDefaults.standard.object(forKey: customDeckUserDefaultsKey) as? Data {
+            do {
+                let customDeck = try JSONDecoder().decode(MemorizeDeck.self, from: customDeckData)
                 return customDeck
+            } catch {
+                debugPrint("Error decoding custom deck: \(error)")
             }
         }
         return nil
@@ -150,7 +159,7 @@ final class MemorojiViewModel: ObservableObject {
     }
     
     func removeExistingCustomDeck() {
-        if memorizeDecks.count == 10 {
+        if memorizeDecks.count == maxMemorizeDecks {
             debugPrint("memorizedecks count before removing: \(memorizeDecks.count)")
             memorizeDecks.removeLast()
             customDeck = MemorizeDeck(name: "", emojis: [])
