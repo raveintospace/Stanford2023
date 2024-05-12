@@ -143,10 +143,8 @@ extension DeckEditor {
                 let emoji = editableCustomDeck.emojis[index]
                 Text(emoji)
                     .onTapGesture {
-                        withAnimation {
-                            editableCustomDeck.emojis.remove(at: index)
-                            emojiInput = emojiInput.replacingOccurrences(of: emoji, with: "")
-                        }
+                        editableCustomDeck.emojis.remove(at: index)
+                        emojiInput = emojiInput.replacingOccurrences(of: emoji, with: "")
                     }
             }
         }
