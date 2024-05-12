@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVKit
 
 enum SheetType: String, Identifiable {
     case creditsView, deckEditor, scoreboard, scoreForm
@@ -43,6 +44,10 @@ struct MemorojiView: View {
     private let pileOfCardsWidth: CGFloat = 50
     private let dealInterval: TimeInterval = 0.05
     private let dealAnimation: Animation = .spring(duration: 0.7)
+    
+    // sound
+    private let soundPlayer = SoundPlayer()
+    private let gameFinishedSound = SoundModel(name: "finishSound")
     
     // adapts to user's Dynamic Type
     @ScaledMetric var optionsButtonSize: CGFloat = 50
@@ -151,6 +156,10 @@ extension MemorojiView {
             lastScoreChange = (scoreChange, causedByCardId: card.id)
             
             if viewModel.isGameFinished() {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    soundPlayer.play(withURL: gameFinishedSound.getURL())
+                }
+                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     showGameEndedAlert = true
                 }
@@ -180,7 +189,6 @@ extension MemorojiView {
     }
     
     // MARK: - Toolbar & Buttons
-    
     private var score: some View {
         Text("Score: \(viewModel.score)")
             .animation(nil)
