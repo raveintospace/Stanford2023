@@ -19,14 +19,16 @@ Started following Stanford's course, evolved freely by myself.
 - Logic implemented in Model for game: Creation of game, shuffle of cards, chosing a card and comparing it with the next one chosen, score for the game
 - Model for card decks
 - Model for scorecard
+- Model for sounds of the app
 - ViewModel uses Combine to dismiss temporary confirmations shown in View
 ---
 - Animations (also using @Namespace to synchronize view animation from undealt cards to dealt)
+- AVKit (Sound player)
 - Transitions
 - MatchedGeometryEffect
 - UserDefaults
 ---
-- Options menu to create or edit a custom deck, to set the card color, to select the deck to play, to see the scoreboard and to see the app info
+- Options menu to activate or mute sounds, to create or edit a custom deck, to set the card color, to select the deck to play, to see the scoreboard and to see the app info
 - Button to start / restart the game
 - ConfirmationDialog when game ends, user can play again, save the score (if it's a top score) or quit the game
 - DeckEditor view to create a custom deck, edit the existing one or remove it
@@ -35,6 +37,7 @@ Started following Stanford's course, evolved freely by myself.
 - Credits view with project's info
 ---
 - Languages: Localized in Catalan, English and Spanish
+- Sounds played when cards are dealt and game finishes
 - Custom Colors Gold, Silver and UltraViolet (see reference below)
 - Custom App Icon made with Canva
 ---
