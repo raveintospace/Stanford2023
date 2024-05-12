@@ -8,6 +8,11 @@ Started following Stanford's course, evolved freely by myself.
 <br>
 ⚠️⚠️ Project in construction ⚠️⚠️
 
+##
+<p align="center">
+<img src="Memorize/Memorize/Assets.xcassets/AppIcon.appiconset/memorojiAppIcon.jpg" alt="App icon" title="App icon" width="150" height="150">
+</p>
+
 ## This app features
 - MVVM architecture
 - Model for game conforming to Equatable, Identifiable and CustomDebugStringConvertible
@@ -21,7 +26,7 @@ Started following Stanford's course, evolved freely by myself.
 - MatchedGeometryEffect
 - UserDefaults
 ---
-- Options menu to select the deck, the card color and to check the scoreboard
+- Options menu to create or edit a custom deck, to set the card color, to select the deck to play, to see the scoreboard and to see the app info
 - Button to start / restart the game
 - ConfirmationDialog when game ends, user can play again, save the score (if it's a top score) or quit the game
 - DeckEditor view to create a custom deck, edit the existing one or remove it
@@ -46,6 +51,14 @@ Started following Stanford's course, evolved freely by myself.
 - Extension "only" for Array, to return the only element if the array is of one element
 - Extension for Color to work with custom colors
 - Extension for String to check if a string contains emoji characters
+
+**Color Reference**
+
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Gold Color | ![#B5975B](https://via.placeholder.com/10/b5975b?text=+) #B5975B |
+| Silver Color | ![#CAD3D9](https://via.placeholder.com/10/CAD3D9?text=+) #CAD3D9 |
+| UltraViolet Color | ![#CB95F9](https://via.placeholder.com/10/CB95F9?text=+) #CB95F9 |
 
 ## License
 
