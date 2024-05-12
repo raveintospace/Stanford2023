@@ -195,7 +195,7 @@ extension DeckEditor {
     
     private func removeDeckAndDismiss() {
         viewModel.removeExistingCustomDeck()
-        viewModel.showCustomDeckRemovedConfirmation = true
+       // viewModel.showCustomDeckRemovedConfirmation = true
         dismiss()
     }
     

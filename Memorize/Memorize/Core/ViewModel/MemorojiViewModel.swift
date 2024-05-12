@@ -123,6 +123,7 @@ final class MemorojiViewModel: ObservableObject {
         customDeck = MemorizeDeck(name: name, emojis: emojis)
         encodeAndSaveCustomDeck()
         addCustomDeckToDefaultDecks()
+        showCustomDeckSavedConfirmation = true
         debugPrint("custom deck saved with name \(customDeck.name) and emojis \(customDeck.emojis.indices.count)")
         debugPrint("memorizedecks count after saving new custom deck: \(memorizeDecks.count)")
     }
@@ -164,6 +165,7 @@ final class MemorojiViewModel: ObservableObject {
             memorizeDecks.removeLast()
             customDeck = MemorizeDeck(name: "", emojis: [])
             encodeAndSaveCustomDeck()
+            showCustomDeckRemovedConfirmation = true
             debugPrint("memorizedecks count after removing: \(memorizeDecks.count)")
         }
     }
@@ -196,6 +198,7 @@ final class MemorojiViewModel: ObservableObject {
     @Published var showScoreSavedConfirmation: Bool = false
     @Published var showScoreboardResetConfirmation: Bool = false
     @Published var showCustomDeckRemovedConfirmation: Bool = false
+    @Published var showCustomDeckSavedConfirmation: Bool = false
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -210,8 +213,9 @@ final class MemorojiViewModel: ObservableObject {
         let scoreSavedConfirmationTimer = setupTimerForConfirmation($showScoreSavedConfirmation)
         let scoreboardResetConfirmationTimer = setupTimerForConfirmation($showScoreboardResetConfirmation)
         let customDeckRemovedConfirmationTimer = setupTimerForConfirmation($showCustomDeckRemovedConfirmation)
+        let customDeckSavedConfirmationTimer = setupTimerForConfirmation($showCustomDeckSavedConfirmation)
         
-        let allConfirmationTimers = Publishers.Merge3(scoreSavedConfirmationTimer, scoreboardResetConfirmationTimer, customDeckRemovedConfirmationTimer)
+        let allConfirmationTimers = Publishers.Merge4(scoreSavedConfirmationTimer, scoreboardResetConfirmationTimer, customDeckRemovedConfirmationTimer, customDeckSavedConfirmationTimer)
         
         allConfirmationTimers
             .sink { [weak self] value in
@@ -220,6 +224,7 @@ final class MemorojiViewModel: ObservableObject {
                     self.showScoreSavedConfirmation = false
                     self.showScoreboardResetConfirmation = false
                     self.showCustomDeckRemovedConfirmation = false
+                    self.showCustomDeckSavedConfirmation = false
                 }
             }
             .store(in: &cancellables)
