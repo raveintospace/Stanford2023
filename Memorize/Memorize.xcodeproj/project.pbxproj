@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		341948342BC451C20075B3DE /* Scoreboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341948332BC451C20075B3DE /* Scoreboard.swift */; };
 		342E9D802BCD8AB60043F3CE /* ConfirmationRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342E9D7F2BCD8AB60043F3CE /* ConfirmationRectangle.swift */; };
+		34309EDB2BF11826006E3971 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34309EDA2BF11826006E3971 /* SoundPlayer.swift */; };
 		34315F712BC0558000F72EF4 /* MemorizeDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34315F702BC0558000F72EF4 /* MemorizeDeck.swift */; };
 		34315F732BC05B7C00F72EF4 /* AnimatedActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34315F722BC05B7C00F72EF4 /* AnimatedActionButton.swift */; };
 		343516992B9F737B00200A8A /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343516982B9F737B00200A8A /* Array.swift */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		341948332BC451C20075B3DE /* Scoreboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scoreboard.swift; sourceTree = "<group>"; };
 		342E9D7F2BCD8AB60043F3CE /* ConfirmationRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationRectangle.swift; sourceTree = "<group>"; };
+		34309EDA2BF11826006E3971 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		34315F702BC0558000F72EF4 /* MemorizeDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeDeck.swift; sourceTree = "<group>"; };
 		34315F722BC05B7C00F72EF4 /* AnimatedActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedActionButton.swift; sourceTree = "<group>"; };
 		343516982B9F737B00200A8A /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -74,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34309ED92BF11807006E3971 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				34309EDA2BF11826006E3971 /* SoundPlayer.swift */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
 		343516962B9F736200200A8A /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +136,7 @@
 				346015012BC18A35006F17B9 /* Enums */,
 				343516972B9F736A00200A8A /* Extensions */,
 				34C9134B2BA4C332006D908B /* ViewModifiers */,
+				34309ED92BF11807006E3971 /* Sound */,
 				343516962B9F736200200A8A /* Core */,
 				3492EAC32B9B879F00B401D1 /* Assets.xcassets */,
 				346015042BC1A785006F17B9 /* Localizable.xcstrings */,
@@ -278,6 +289,7 @@
 				344783DA2BC2B10500155304 /* Scorecard.swift in Sources */,
 				342E9D802BCD8AB60043F3CE /* ConfirmationRectangle.swift in Sources */,
 				341948342BC451C20075B3DE /* Scoreboard.swift in Sources */,
+				34309EDB2BF11826006E3971 /* SoundPlayer.swift in Sources */,
 				34BD7CA22BA0CD77006D051A /* AspectVGrid.swift in Sources */,
 				34315F732BC05B7C00F72EF4 /* AnimatedActionButton.swift in Sources */,
 				3492EAC02B9B879C00B401D1 /* MemorizeApp.swift in Sources */,
