@@ -10,6 +10,7 @@
 		341948342BC451C20075B3DE /* Scoreboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341948332BC451C20075B3DE /* Scoreboard.swift */; };
 		342E9D802BCD8AB60043F3CE /* ConfirmationRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342E9D7F2BCD8AB60043F3CE /* ConfirmationRectangle.swift */; };
 		34309EDB2BF11826006E3971 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34309EDA2BF11826006E3971 /* SoundPlayer.swift */; };
+		34309EDD2BF1197F006E3971 /* 3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34309EDC2BF1197F006E3971 /* 3.wav */; };
 		34315F712BC0558000F72EF4 /* MemorizeDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34315F702BC0558000F72EF4 /* MemorizeDeck.swift */; };
 		34315F732BC05B7C00F72EF4 /* AnimatedActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34315F722BC05B7C00F72EF4 /* AnimatedActionButton.swift */; };
 		343516992B9F737B00200A8A /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343516982B9F737B00200A8A /* Array.swift */; };
@@ -39,6 +40,7 @@
 		341948332BC451C20075B3DE /* Scoreboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scoreboard.swift; sourceTree = "<group>"; };
 		342E9D7F2BCD8AB60043F3CE /* ConfirmationRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationRectangle.swift; sourceTree = "<group>"; };
 		34309EDA2BF11826006E3971 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
+		34309EDC2BF1197F006E3971 /* 3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 3.wav; sourceTree = "<group>"; };
 		34315F702BC0558000F72EF4 /* MemorizeDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeDeck.swift; sourceTree = "<group>"; };
 		34315F722BC05B7C00F72EF4 /* AnimatedActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedActionButton.swift; sourceTree = "<group>"; };
 		343516982B9F737B00200A8A /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				34309EDA2BF11826006E3971 /* SoundPlayer.swift */,
+				34309EDC2BF1197F006E3971 /* 3.wav */,
 			);
 			path = Sound;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34309EDD2BF1197F006E3971 /* 3.wav in Resources */,
 				3492EAC72B9B879F00B401D1 /* Preview Assets.xcassets in Resources */,
 				3492EAC42B9B879F00B401D1 /* Assets.xcassets in Resources */,
 				346015052BC1A785006F17B9 /* Localizable.xcstrings in Resources */,
