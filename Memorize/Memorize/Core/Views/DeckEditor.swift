@@ -44,19 +44,18 @@ struct DeckEditor: View {
                         }
                         .disabled(shouldSaveBeDisallowed())
                     }
+                    .alert(isPresented: $showEmptyFieldsAlert) {
+                        emptyFieldsAlert()
+                    }
                 }
                 .onAppear {
                     initialCustomDeck = editableCustomDeck
                     focusTextField()
                 }
-            
-                .alert(isPresented: $showEmptyFieldsAlert) {
-                    emptyFieldsAlert()
-                }
             }
             .alert(isPresented: $showDismissAlert) {
                 dismissAlert()
-            }            
+            }
             .navigationTitle("Deck editor")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
