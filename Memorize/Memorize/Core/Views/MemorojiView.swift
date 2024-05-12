@@ -25,10 +25,10 @@ struct MemorojiView: View {
     
     @State private var sheetType: SheetType?
     
-    // tuple with Int & Card.Id as parameters, tracks card with score
+    // Tuple with Int & Card.Id as parameters, tracks card with score
     @State private var lastScoreChange = (0, causedByCardId: "")
     
-    // initial dealt of cards, shows the pileOfCards at the bottom of view
+    // Initial dealt of cards, shows the pileOfCards at the bottom of view
     @State private var dealt = Set<Card.ID>()
     
     private func isDealt(_ card: Card) -> Bool {
@@ -45,11 +45,11 @@ struct MemorojiView: View {
     private let dealInterval: TimeInterval = 0.05
     private let dealAnimation: Animation = .spring(duration: 0.7)
     
-    // sound
+    // Sound management
     private let soundPlayer = SoundPlayer()
     private let gameFinishedSound = SoundModel(name: "finishSound")
     
-    // adapts to user's Dynamic Type
+    // Adapts to user's Dynamic Type
     @ScaledMetric var optionsButtonSize: CGFloat = 50
     
     // Synchronizes animation from undealt to dealt
