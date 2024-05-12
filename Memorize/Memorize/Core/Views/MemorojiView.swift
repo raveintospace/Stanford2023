@@ -22,6 +22,7 @@ struct MemorojiView: View {
     @State private var hasGameStarted: Bool = false
     @State private var showGameEndedAlert: Bool = false
     @State private var showDeckEditorAlert: Bool = false
+    @State private var soundActivated: Bool = true
     
     @State private var sheetType: SheetType?
     
@@ -156,8 +157,11 @@ extension MemorojiView {
             lastScoreChange = (scoreChange, causedByCardId: card.id)
             
             if viewModel.isGameFinished() {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    soundPlayer.play(withURL: gameFinishedSound.getURL())
+                
+                if soundActivated {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        soundPlayer.play(withURL: gameFinishedSound.getURL())
+                    }
                 }
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -235,6 +239,9 @@ extension MemorojiView {
                     sheetType = .deckEditor
                 }
             }
+            AnimatedActionButton(NSLocalizedString(customSoundString, comment: "")) {
+                soundActivated.toggle()
+            }
         } label: {
             Image(systemName: "gearshape.2")
                 .font(.system(size: optionsButtonSize))
@@ -246,6 +253,14 @@ extension MemorojiView {
             return "Edit custom deck"
         } else {
             return "Create custom deck"
+        }
+    }
+    
+    private var customSoundString: String {
+        if soundActivated {
+            return "🔇 Mute sound 🔇"
+        } else {
+            return "🔊 Activate sound 🔊"
         }
     }
     
