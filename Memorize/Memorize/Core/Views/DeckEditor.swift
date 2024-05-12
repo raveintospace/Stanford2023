@@ -49,13 +49,14 @@ struct DeckEditor: View {
                     initialCustomDeck = editableCustomDeck
                     focusTextField()
                 }
-                .alert(isPresented: $showDismissAlert) {
-                    dismissAlert()
-                }
+            
                 .alert(isPresented: $showEmptyFieldsAlert) {
                     emptyFieldsAlert()
                 }
             }
+            .alert(isPresented: $showDismissAlert) {
+                dismissAlert()
+            }            
             .navigationTitle("Deck editor")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -155,7 +156,6 @@ extension DeckEditor {
     private var deleteButton: some View {
         Button(action: {
             showRemoveAlert = true
-            debugPrint("trash button pressed")
         }, label: {
             Image(systemName: "trash")
         })
@@ -178,7 +178,7 @@ extension DeckEditor {
         } else {
             if !shouldSaveBeDisallowed() {
                 showDismissAlert = true
-                debugPrint("Show dismiss alert")
+                debugPrint("Show dismiss alert \(showDismissAlert) ")
             } else {
                 showEmptyFieldsAlert = true
             }
