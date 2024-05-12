@@ -49,6 +49,7 @@ struct MemorojiView: View {
     // Sound management
     private let soundPlayer = SoundPlayer()
     private let gameFinishedSound = SoundModel(name: "finishSound")
+    private let dealSound = SoundModel(name: "dealSound")
     
     // Adapts to user's Dynamic Type
     @ScaledMetric var optionsButtonSize: CGFloat = 50
@@ -172,6 +173,12 @@ extension MemorojiView {
     }
     
     private func deal() {
+        if soundActivated {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                soundPlayer.play(withURL: dealSound.getURL())
+            }
+        }
+        
         //viewModel.shuffle()
         
         var delay: TimeInterval = 0
