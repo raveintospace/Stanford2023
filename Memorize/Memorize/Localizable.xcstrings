@@ -374,6 +374,9 @@
         }
       }
     },
+    "Empty fields" : {
+
+    },
     "Error" : {
       "localizations" : {
         "ca" : {
@@ -762,6 +765,9 @@
           }
         }
       }
+    },
+    "Please set a name and emojis for your custom deck" : {
+
     },
     "Privacy policy" : {
       "localizations" : {

@@ -27,6 +27,7 @@ struct DeckEditor: View {
     
     @State private var showRemoveAlert: Bool = false
     @State private var showDismissAlert: Bool = false
+    @State private var showEmptyFieldsAlert: Bool = false
     
     private let emojiFont: Font = Font.system(size: 40)
     private let textFieldMaxLength: Int = 8
@@ -41,7 +42,7 @@ struct DeckEditor: View {
                         Button("Save deck") {
                             saveDeckAndDismiss()
                         }
-                        .disabled(shouldSaveButtonBeDisabled())
+                        .disabled(shouldSaveBeDisallowed())
                     }
                 }
                 .onAppear {
@@ -49,23 +50,10 @@ struct DeckEditor: View {
                     focusTextField()
                 }
                 .alert(isPresented: $showDismissAlert) {
-                    guard let initialDeck = initialCustomDeck else {
-                        return Alert(
-                            title: Text("Error"),
-                            message: Text("Initial deck is missing"),
-                            dismissButton: .default(Text("OK")))
-                    }
-                    return Alert(
-                        title: Text("Changes not saved"),
-                        message: Text("Do you want to discard or save the changes made?"),
-                        primaryButton: .destructive(Text("Discard")) {
-                            editableCustomDeck = initialDeck
-                            dismiss()
-                        },
-                        secondaryButton: .default(Text("Save")) {
-                            saveDeckAndDismiss()
-                        }
-                    )
+                    dismissAlert()
+                }
+                .alert(isPresented: $showEmptyFieldsAlert) {
+                    emptyFieldsAlert()
                 }
             }
             .navigationTitle("Deck editor")
@@ -73,11 +61,7 @@ struct DeckEditor: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     DismissXButton {
-                        if shouldDismiss() {
-                            dismiss()
-                        } else {
-                            showDismissAlert = true
-                        }
+                        dismissAction()
                     }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
@@ -188,6 +172,47 @@ extension DeckEditor {
         }
     }
     
+    private func dismissAction() {
+        if shouldDismiss() {
+            dismiss()
+        } else {
+            if !shouldSaveBeDisallowed() {
+                showDismissAlert = true
+                debugPrint("Show dismiss alert")
+            } else {
+                showEmptyFieldsAlert = true
+            }
+        }
+    }
+    
+    private func dismissAlert() -> Alert {
+        guard let initialDeck = initialCustomDeck else {
+            return Alert(
+                title: Text("Error"),
+                message: Text("Initial deck is missing"),
+                dismissButton: .default(Text("OK")))
+        }
+        return Alert(
+            title: Text("Changes not saved"),
+            message: Text("Do you want to discard or save the changes made?"),
+            primaryButton: .destructive(Text("Discard")) {
+                editableCustomDeck = initialDeck
+                dismiss()
+            },
+            secondaryButton: .default(Text("Save")) {
+                saveDeckAndDismiss()
+            }
+        )
+    }
+    
+    private func emptyFieldsAlert() -> Alert {
+        return Alert(
+            title: Text("Empty fields"),
+            message: Text("Please set a name and emojis for your custom deck"),
+            dismissButton: .default(Text("OK"))
+        )
+    }
+    
     private func saveDeckAndDismiss() {
         viewModel.saveCustomDeck(name: editableCustomDeck.name, emojis: editableCustomDeck.emojis)
         viewModel.showCustomDeckSavedConfirmation = true
@@ -213,7 +238,7 @@ extension DeckEditor {
         return initialCustomDeck == editableCustomDeck
     }
     
-    private func shouldSaveButtonBeDisabled() -> Bool {
+    private func shouldSaveBeDisallowed() -> Bool {
         let isNameEmpty = editableCustomDeck.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         let isCustomDeckEmojisEmpty = editableCustomDeck.emojis.isEmpty
         let emojiInputContainsNonEmojiCharacters = !emojiInput.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && !emojiInput.isEmoji()
