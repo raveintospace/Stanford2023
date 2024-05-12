@@ -52,15 +52,15 @@ final class MemorojiViewModel: ObservableObject {
         }
     }
     
-    // MARK: - Scoreboard
-    @Published var scoreboard: [Scorecard] = []
-    private var scoreboardLimit: Int = 10
-    
     init() {
         scoreboard = getScoreboard()
         addCustomDeckToDefaultDecks()
         setupConfirmationTimers()
     }
+    
+    // MARK: - Scoreboard
+    @Published var scoreboard: [Scorecard] = []
+    private var scoreboardLimit: Int = 10
     
     func saveScore(player: String, deck: String, matches: Int, score: Int) {
         if isScoreboardFull() && isNewHighScore(score: score) {
