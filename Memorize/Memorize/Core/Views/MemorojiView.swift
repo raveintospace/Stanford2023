@@ -22,7 +22,6 @@ struct MemorojiView: View {
     @State private var hasGameStarted: Bool = false
     @State private var showGameEndedAlert: Bool = false
     @State private var showDeckEditorAlert: Bool = false
-    @State private var soundActivated: Bool = true
     
     @State private var sheetType: SheetType?
     
@@ -48,8 +47,6 @@ struct MemorojiView: View {
     
     // Sound management
     private let soundPlayer = SoundPlayer()
-    private let gameFinishedSound = SoundModel(name: "finishSound")
-    private let dealSound = SoundModel(name: "dealSound")
     
     // Adapts to user's Dynamic Type
     @ScaledMetric var optionsButtonSize: CGFloat = 50
@@ -159,9 +156,9 @@ extension MemorojiView {
             
             if viewModel.isGameFinished() {
                 
-                if soundActivated {
+                if viewModel.soundActivated {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                        soundPlayer.play(withURL: gameFinishedSound.getURL())
+                        soundPlayer.play(withURL: viewModel.gameFinishedSound.getURL())
                     }
                 }
                 
@@ -173,9 +170,9 @@ extension MemorojiView {
     }
     
     private func deal() {
-        if soundActivated {
+        if viewModel.soundActivated {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
-                soundPlayer.play(withURL: dealSound.getURL())
+                soundPlayer.play(withURL: viewModel.dealSound.getURL())
             }
         }
         
@@ -247,7 +244,7 @@ extension MemorojiView {
                 }
             }
             AnimatedActionButton(NSLocalizedString(customSoundString, comment: "")) {
-                soundActivated.toggle()
+                viewModel.soundActivated.toggle()
             }
         } label: {
             Image(systemName: "gearshape.2")
@@ -264,7 +261,7 @@ extension MemorojiView {
     }
     
     private var customSoundString: String {
-        if soundActivated {
+        if viewModel.soundActivated {
             return "🔇 Mute sound 🔇"
         } else {
             return "🔊 Activate sound 🔊"

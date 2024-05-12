@@ -177,6 +177,10 @@ final class MemorojiViewModel: ObservableObject {
         return customDeck.name == "" && customDeck.emojis.isEmpty
     }
     
+    // MARK: - Sound
+    @Published var soundActivated: Bool = true
+    let gameFinishedSound = SoundModel(name: "finishSound")
+    let dealSound = SoundModel(name: "dealSound")
     
     // MARK: - Intents
     func shuffle() {
