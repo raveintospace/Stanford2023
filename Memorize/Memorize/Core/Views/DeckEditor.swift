@@ -190,12 +190,13 @@ extension DeckEditor {
     
     private func saveDeckAndDismiss() {
         viewModel.saveCustomDeck(name: editableCustomDeck.name, emojis: editableCustomDeck.emojis)
+        viewModel.showCustomDeckSavedConfirmation = true
         dismiss()
     }
     
     private func removeDeckAndDismiss() {
         viewModel.removeExistingCustomDeck()
-       // viewModel.showCustomDeckRemovedConfirmation = true
+        viewModel.showCustomDeckRemovedConfirmation = true
         dismiss()
     }
     

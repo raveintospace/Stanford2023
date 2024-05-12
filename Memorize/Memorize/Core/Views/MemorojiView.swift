@@ -286,6 +286,8 @@ extension MemorojiView {
                 ConfirmationRectangle(copy: "Scoreboard reset", iconName: "text.badge.minus")
             } else if viewModel.showCustomDeckRemovedConfirmation {
                 ConfirmationRectangle(copy: "Custom deck removed", iconName: "pencil.slash")
+            } else if viewModel.showCustomDeckSavedConfirmation {
+                ConfirmationRectangle(copy: "Custom deck saved", iconName: "pencil.and.scribble")
             }
         }
     }
