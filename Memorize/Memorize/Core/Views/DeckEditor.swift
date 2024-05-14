@@ -32,40 +32,49 @@ struct DeckEditor: View {
     private let emojiFont: Font = Font.system(size: 40)
     private let textFieldMaxLength: Int = 8
     
+    // detect landscape mode when presenting this view
+    private var isLandscape: Bool {
+        UIDevice.current.orientation.isLandscape
+    }
+    
     var body: some View {
-        NavigationStack {
-            ZStack {
-                Form {
-                    formNameSection
-                    formEmojisSection
-                    Section {
-                        Button("Save deck") {
-                            saveDeckAndDismiss()
+        if isLandscape {
+            landscapeWarningView
+        } else {
+            NavigationStack {
+                ZStack {
+                    Form {
+                        formNameSection
+                        formEmojisSection
+                        Section {
+                            Button("Save deck") {
+                                saveDeckAndDismiss()
+                            }
+                            .disabled(shouldSaveBeDisallowed())
                         }
-                        .disabled(shouldSaveBeDisallowed())
+                        .alert(isPresented: $showEmptyFieldsAlert) {
+                            emptyFieldsAlert()
+                        }
                     }
-                    .alert(isPresented: $showEmptyFieldsAlert) {
-                        emptyFieldsAlert()
-                    }
-                }
-                .onAppear {
-                    initialCustomDeck = editableCustomDeck
-                    focusTextField()
-                }
-            }
-            .alert(isPresented: $showDismissAlert) {
-                dismissAlert()
-            }
-            .navigationTitle("Deck editor")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    DismissXButton {
-                        dismissAction()
+                    .onAppear {
+                        initialCustomDeck = editableCustomDeck
+                        focusTextField()
                     }
                 }
-                ToolbarItem(placement: .topBarTrailing) {
-                    deleteButton
+                .alert(isPresented: $showDismissAlert) {
+                    dismissAlert()
+                }
+                .navigationTitle("Deck editor")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        DismissXButton {
+                            dismissAction()
+                        }
+                    }
+                    ToolbarItem(placement: .topBarTrailing) {
+                        deleteButton
+                    }
                 }
             }
         }
@@ -77,6 +86,17 @@ struct DeckEditor: View {
 }
 
 extension DeckEditor {
+    
+    private var landscapeWarningView: some View {
+        VStack {
+            Text("Sorry 😳")
+                .bold()
+                .padding(.bottom, 10)
+            Text("This feature is only available in vertical mode")
+        }
+        .font(.title)
+        .foregroundColor(.red)
+    }
     
     private var formNameSection: some View {
         Section(header: Text("Name")) {

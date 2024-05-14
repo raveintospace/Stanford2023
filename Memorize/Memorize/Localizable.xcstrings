@@ -1123,6 +1123,9 @@
         }
       }
     },
+    "Sorry 😳" : {
+
+    },
     "Sports" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1203,6 +1206,9 @@
           }
         }
       }
+    },
+    "This feature is only available in vertical mode" : {
+
     },
     "This is Uri, a junior iOS developer trying to get my first iOS job.\n\nI have learned autonomously and by taking courses from some of the most renowned iOS developers, such as Paul Hudson, Swiftful Thinking, Brais Moure or SwiftBeta." : {
       "localizations" : {
