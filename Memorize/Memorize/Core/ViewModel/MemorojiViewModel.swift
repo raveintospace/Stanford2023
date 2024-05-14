@@ -55,12 +55,15 @@ final class MemorojiViewModel: ObservableObject {
     init() {
         scoreboard = getScoreboard()
         addCustomDeckToDefaultDecks()
+        soundActivated = getSoundSetting()
         setupConfirmationTimers()
     }
     
     // MARK: - Scoreboard
     @Published var scoreboard: [Scorecard] = []
-    private var scoreboardLimit: Int = 10
+    
+    private let scoreboardLimit: Int = 10
+    private let scoreboardUserDefaultsKey: String = "scoreboard"
     
     func saveScore(player: String, deck: String, matches: Int, score: Int) {
         if isScoreboardFull() && isNewHighScore(score: score) {
@@ -99,12 +102,12 @@ final class MemorojiViewModel: ObservableObject {
     
     private func encodeAndSaveScoreboard() {
         if let encoded = try? JSONEncoder().encode(scoreboard) {
-            UserDefaults.standard.set(encoded, forKey: "scoreboard")
+            UserDefaults.standard.set(encoded, forKey: scoreboardUserDefaultsKey)
         }
     }
     
     private func getScoreboard() -> [Scorecard] {
-        if let scoreboardData = UserDefaults.standard.object(forKey: "scoreboard") as? Data {
+        if let scoreboardData = UserDefaults.standard.object(forKey: scoreboardUserDefaultsKey) as? Data {
             if let scoreboard = try? JSONDecoder().decode([Scorecard].self, from: scoreboardData) {
                 return scoreboard
             }
@@ -168,19 +171,42 @@ final class MemorojiViewModel: ObservableObject {
         }
     }
     
-    private func createEmptyCustomDeck(name: String, emojis: [String]) {
-        customDeck = MemorizeDeck(name: name, emojis: emojis)
-        debugPrint("empty custom deck created")
-    }
-    
     private func isCustomDeckEmpty() -> Bool {
         return customDeck.name == "" && customDeck.emojis.isEmpty
     }
     
-    // MARK: - Sound
-    @Published var soundActivated: Bool = true
+    // MARK: - Sound setting
+    @Published var soundActivated: Bool = true {
+        didSet {
+            encodeAndSaveSoundSetting()
+        }
+    }
+    
+    private let soundUserDefaultsKey: String = "soundSetting"
     let gameFinishedSound = SoundModel(name: "finishSound")
     let dealSound = SoundModel(name: "dealSound")
+    
+    private func encodeAndSaveSoundSetting() {
+        do {
+            let encoded = try JSONEncoder().encode(soundActivated)
+            UserDefaults.standard.set(encoded, forKey: soundUserDefaultsKey)
+        } catch {
+            debugPrint("Error encoding sound setting: \(error)")
+        }
+    }
+    
+    private func getSoundSetting() -> Bool {
+        if let soundSettingData = UserDefaults.standard.object(forKey: soundUserDefaultsKey) as? Data {
+            do {
+                let soundSetting = try JSONDecoder().decode(Bool.self, from: soundSettingData)
+                return soundSetting
+            } catch {
+                debugPrint("Error decoding sound setting: \(error)")
+            }
+        }
+        // default value if decoding fails
+        return true
+    }
     
     // MARK: - Intents
     func shuffle() {
