@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVKit
 
 enum SheetType: String, Identifiable {
     case creditsView, deckEditor, scoreboard, scoreForm
@@ -24,10 +25,10 @@ struct MemorojiView: View {
     
     @State private var sheetType: SheetType?
     
-    // tuple with Int & Card.Id as parameters, tracks card with score
+    // Tuple with Int & Card.Id as parameters, tracks card with score
     @State private var lastScoreChange = (0, causedByCardId: "")
     
-    // initial dealt of cards, shows the pileOfCards at the bottom of view
+    // Initial dealt of cards, shows the pileOfCards at the bottom of view
     @State private var dealt = Set<Card.ID>()
     
     private func isDealt(_ card: Card) -> Bool {
@@ -44,7 +45,10 @@ struct MemorojiView: View {
     private let dealInterval: TimeInterval = 0.05
     private let dealAnimation: Animation = .spring(duration: 0.7)
     
-    // adapts to user's Dynamic Type
+    // Sound management
+    private let soundPlayer = SoundPlayer()
+    
+    // Adapts to user's Dynamic Type
     @ScaledMetric var optionsButtonSize: CGFloat = 50
     
     // Synchronizes animation from undealt to dealt
@@ -151,6 +155,13 @@ extension MemorojiView {
             lastScoreChange = (scoreChange, causedByCardId: card.id)
             
             if viewModel.isGameFinished() {
+                
+                if viewModel.soundActivated {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        soundPlayer.play(withURL: viewModel.gameFinishedSound.getURL())
+                    }
+                }
+                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     showGameEndedAlert = true
                 }
@@ -159,6 +170,12 @@ extension MemorojiView {
     }
     
     private func deal() {
+        if viewModel.soundActivated {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                soundPlayer.play(withURL: viewModel.dealSound.getURL())
+            }
+        }
+        
         //viewModel.shuffle()
         
         var delay: TimeInterval = 0
@@ -180,7 +197,6 @@ extension MemorojiView {
     }
     
     // MARK: - Toolbar & Buttons
-    
     private var score: some View {
         Text("Score: \(viewModel.score)")
             .animation(nil)
@@ -227,6 +243,9 @@ extension MemorojiView {
                     sheetType = .deckEditor
                 }
             }
+            AnimatedActionButton(NSLocalizedString(customSoundString, comment: "")) {
+                viewModel.soundActivated.toggle()
+            }
         } label: {
             Image(systemName: "gearshape.2")
                 .font(.system(size: optionsButtonSize))
@@ -238,6 +257,14 @@ extension MemorojiView {
             return "Edit custom deck"
         } else {
             return "Create custom deck"
+        }
+    }
+    
+    private var customSoundString: String {
+        if viewModel.soundActivated {
+            return "🔇 Mute sound 🔇"
+        } else {
+            return "🔊 Activate sound 🔊"
         }
     }
     
