@@ -375,7 +375,20 @@
       }
     },
     "Empty fields" : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Camps buits"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Campos vacíos"
+          }
+        }
+      }
     },
     "Error" : {
       "localizations" : {
@@ -767,7 +780,20 @@
       }
     },
     "Please set a name and emojis for your custom deck" : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per favor, posa nom i emojis a la teva baralla personalitzada"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, configura un nombre y emojis para tu baraja personalizada"
+          }
+        }
+      }
     },
     "Privacy policy" : {
       "localizations" : {
@@ -1124,7 +1150,20 @@
       }
     },
     "Sorry 😳" : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disculpa 😳"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disculpa 😳"
+          }
+        }
+      }
     },
     "Sports" : {
       "extractionState" : "manual",
@@ -1208,7 +1247,20 @@
       }
     },
     "This feature is only available in vertical mode" : {
-
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aquesta opció només está disponible en mode vertical"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta opción sólo está disponible en modo vertical"
+          }
+        }
+      }
     },
     "This is Uri, a junior iOS developer trying to get my first iOS job.\n\nI have learned autonomously and by taking courses from some of the most renowned iOS developers, such as Paul Hudson, Swiftful Thinking, Brais Moure or SwiftBeta." : {
       "localizations" : {
