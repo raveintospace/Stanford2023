@@ -14,25 +14,27 @@ struct LaunchView: View {
     var body: some View {
         VStack {
             HStack {
-                launchCard
-                launchCard
+                LaunchCard(letter: "M", startRotation: 0.5)
+                LaunchCard(letter: "E", startRotation: 0.5)
             }
             HStack {
-                launchCard
-                launchCard
+                LaunchCard(letter: "M", startRotation: 1)
+                LaunchCard(letter: "O", startRotation: 1)
             }
             HStack {
-                launchCard
-                launchCard
+                LaunchCard(letter: "R", startRotation: 1.5)
+                LaunchCard(letter: "O", startRotation: 1.5)
             }
             HStack {
-                launchCard
-                launchCard
+                LaunchCard(letter: "J", startRotation: 2)
+                LaunchCard(letter: "I", startRotation: 2)
             }
+            Text("Created by Uri46")
+                .foregroundStyle(Color.orange)
+                .bold()
         }
-        .padding()
         .onAppear {
-            Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { timer in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                 withAnimation(.easeOut(duration: 0.3)) {
                     showLaunchView = false
                 }
@@ -43,24 +45,4 @@ struct LaunchView: View {
 
 #Preview {
     LaunchView(showLaunchView: .constant(true))
-}
-
-extension LaunchView {
-    
-    private var launchCard: some View {
-        RoundedRectangle(cornerRadius: 10)
-            .stroke(.orange, lineWidth: 2)
-            .fill()
-            .foregroundStyle(Color.white)
-            .overlay {
-                Circle()
-                    .foregroundStyle(Color.orange)
-                    .opacity(0.8)
-                    .padding(5)
-                Text("M")
-                    .font(.system(size: 50))
-            }
-            .frame(width: 100, height: 175)
-            .padding(.horizontal, 10)
-    }
 }
