@@ -19,6 +19,7 @@
 		344783DA2BC2B10500155304 /* Scorecard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344783D92BC2B10500155304 /* Scorecard.swift */; };
 		344783DC2BC2E26700155304 /* ScoreForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344783DB2BC2E26700155304 /* ScoreForm.swift */; };
 		344783DE2BC2E7F100155304 /* DismissXButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344783DD2BC2E7F100155304 /* DismissXButton.swift */; };
+		34545E572BFA381900CF82E0 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34545E562BFA381900CF82E0 /* LaunchView.swift */; };
 		345BD6712BA7057C004AFF24 /* FlyingNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345BD6702BA7057C004AFF24 /* FlyingNumber.swift */; };
 		345D161A2BD4054E003242D6 /* DeckEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D16192BD4054E003242D6 /* DeckEditor.swift */; };
 		345D161E2BD4097E003242D6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D161D2BD4097E003242D6 /* String.swift */; };
@@ -51,6 +52,7 @@
 		344783D92BC2B10500155304 /* Scorecard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scorecard.swift; sourceTree = "<group>"; };
 		344783DB2BC2E26700155304 /* ScoreForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreForm.swift; sourceTree = "<group>"; };
 		344783DD2BC2E7F100155304 /* DismissXButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissXButton.swift; sourceTree = "<group>"; };
+		34545E562BFA381900CF82E0 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		345BD6702BA7057C004AFF24 /* FlyingNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyingNumber.swift; sourceTree = "<group>"; };
 		345D16192BD4054E003242D6 /* DeckEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckEditor.swift; sourceTree = "<group>"; };
 		345D161D2BD4097E003242D6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -114,6 +116,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		34545E552BFA37F700CF82E0 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				34545E562BFA381900CF82E0 /* LaunchView.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
 		346015012BC18A35006F17B9 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +156,7 @@
 				343516972B9F736A00200A8A /* Extensions */,
 				34C9134B2BA4C332006D908B /* ViewModifiers */,
 				34309ED92BF11807006E3971 /* Sound */,
+				34545E552BFA37F700CF82E0 /* Launch */,
 				343516962B9F736200200A8A /* Core */,
 				3492EAC32B9B879F00B401D1 /* Assets.xcassets */,
 				346015042BC1A785006F17B9 /* Localizable.xcstrings */,
@@ -300,6 +311,7 @@
 				344783DA2BC2B10500155304 /* Scorecard.swift in Sources */,
 				342E9D802BCD8AB60043F3CE /* ConfirmationRectangle.swift in Sources */,
 				341948342BC451C20075B3DE /* Scoreboard.swift in Sources */,
+				34545E572BFA381900CF82E0 /* LaunchView.swift in Sources */,
 				34309EDB2BF11826006E3971 /* SoundPlayer.swift in Sources */,
 				34BD7CA22BA0CD77006D051A /* AspectVGrid.swift in Sources */,
 				34315F732BC05B7C00F72EF4 /* AnimatedActionButton.swift in Sources */,

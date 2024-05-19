@@ -9,11 +9,16 @@ import SwiftUI
 
 @main
 struct MemorizeApp: App {
-    @StateObject var game = MemorojiViewModel()
+    @StateObject private var game = MemorojiViewModel()
+    @State private var showLaunchView: Bool = true
     
     var body: some Scene {
         WindowGroup {
-            MemorojiView(viewModel: game)
+            if showLaunchView {
+                LaunchView(showLaunchView: $showLaunchView)
+            } else {
+                MemorojiView(viewModel: game)
+            }
         }
     }
 }
