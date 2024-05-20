@@ -71,6 +71,23 @@ Evolved freely by myself to add several features:
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/) [MIT](https://choosealicense.com/licenses/mit/) 
 
 ## Screenshots
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+    <img src="MemorojiShots/memorojishot.jpeg" alt="Launch View" title="Launch View" width="200">
+    <img src="MemorojiShots/memorojishot1.jpeg" alt="Game on" title="Game on" width="200">
+    <img src="MemorojiShots/memorojishot3.jpeg" alt="Scorecard" title="Scorecard" width="200">
+    <img src="MemorojiShots/memorojishot4.jpeg" alt="Scoreboard" title="Scoreboard" width="200">
+</div> 
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+    <img src="MemorojiShots/memorojishot5.jpeg" alt="Card color selector" title="Card color selector" width="200">
+    <img src="MemorojiShots/memorojishot6.jpeg" alt="Deck selector" title="Deck selector" width="200">
+    <img src="MemorojiShots/memorojishot9.jpeg" alt="Deck editor" title="Deck editor" width="200">
+    <img src="MemorojiShots/memorojishot7.jpeg" alt="App info" title="App info" width="200">
+</div> 
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+   <img src="MemorojiShots/memorojishot10.jpeg" alt="Game animations" title="Game animations" width="200">
+   <img src="MemorojiShots/memorojishot11.jpeg" alt="Options menu" title="Options menu" width="200">
+  <img src="MemorojiShots/memorojishot8.jpeg" alt="Landscape mode" title="Landscape mode" width="200">
+</div>    
 
 ## Requirements
 - iOS 17.2
