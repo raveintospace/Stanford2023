@@ -176,7 +176,7 @@ extension MemorojiView {
             }
         }
         
-        //viewModel.shuffle()
+        viewModel.shuffle()
         
         var delay: TimeInterval = 0
         for card in viewModel.cards {
