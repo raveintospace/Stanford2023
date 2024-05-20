@@ -195,7 +195,6 @@ extension DeckEditor {
         } else {
             if !shouldSaveBeDisallowed() {
                 showDismissAlert = true
-                debugPrint("Show dismiss alert \(showDismissAlert) ")
             } else {
                 showEmptyFieldsAlert = true
             }

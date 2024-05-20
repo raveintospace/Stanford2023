@@ -72,8 +72,6 @@ final class MemorojiViewModel: ObservableObject {
         scoreboard.append(Scorecard(player: player, deck: deck, matches: matches, score: score))
         encodeAndSaveScoreboard()
         showScoreSavedConfirmation = true
-        debugPrint("new score saved: \(score)")
-        debugPrint("scoreboard count: \(scoreboard.count)")
     }
     
     func isNewHighScore(score: Int) -> Bool {
@@ -126,8 +124,6 @@ final class MemorojiViewModel: ObservableObject {
         customDeck = MemorizeDeck(name: name, emojis: emojis)
         encodeAndSaveCustomDeck()
         addCustomDeckToDefaultDecks()
-        debugPrint("custom deck saved with name \(customDeck.name) and emojis \(customDeck.emojis.indices.count)")
-        debugPrint("memorizedecks count after saving new custom deck: \(memorizeDecks.count)")
     }
     
     private func encodeAndSaveCustomDeck() {
@@ -163,11 +159,9 @@ final class MemorojiViewModel: ObservableObject {
     
     func removeExistingCustomDeck() {
         if memorizeDecks.count == maxMemorizeDecks {
-            debugPrint("memorizedecks count before removing: \(memorizeDecks.count)")
             memorizeDecks.removeLast()
             customDeck = MemorizeDeck(name: "", emojis: [])
             encodeAndSaveCustomDeck()
-            debugPrint("memorizedecks count after removing: \(memorizeDecks.count)")
         }
     }
     
