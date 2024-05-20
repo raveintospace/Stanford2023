@@ -1,12 +1,15 @@
 # Stanford 2023 - Memoroji
-App made following Stanford University's course CS193p (Developing Applications for iOS using SwiftUI) - https://cs193p.sites.stanford.edu/2023
+Game app made following Stanford University's course CS193p (Developing Applications for iOS using SwiftUI) - https://cs193p.sites.stanford.edu/2023
 
-Memory game to match pairs of emojis, user can play with several themed decks.
-<br>
-Started following Stanford's course, evolved freely by myself.
+Memory card game to match pairs of emojis, user can play with several themed decks.
 <br>
 <br>
-⚠️⚠️ Project in construction ⚠️⚠️
+Started following Stanford's course, evolved freely by myself to add several features: 
+- App Sound
+- Custom deck & Multiple default themed decks
+- Card color
+- Launch Screen
+- Scoreboard & Scorecard
 
 ##
 <p align="center">
@@ -35,6 +38,7 @@ Started following Stanford's course, evolved freely by myself.
 - Scoreform view to save the score
 - Scoreboard view with highest ten scores & reset possibility
 - Credits view with project's info
+- Animated Launch view
 ---
 - Languages: Localized in Catalan, English and Spanish
 - Sounds played when cards are dealt and game finishes
@@ -49,6 +53,7 @@ Started following Stanford's course, evolved freely by myself.
 - FlyingNumber: The score of each play goes up or down of the card using offset & opacity
 - PieShape: A circle that diminishes using TimeInterval, the smaller the less score for the play
 - Cardify: Animatable & ViewModifier to give a look & feel of a game card, including a rotation3DEffect
+- DelayedAnimafy: ViewModifier to delay views' animation when they appear on the screen
 
  **Extensions**
 - Extension "only" for Array, to return the only element if the array is of one element
