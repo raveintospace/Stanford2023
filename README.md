@@ -1,13 +1,11 @@
 # Stanford 2023 - Memoroji
-Game app made following Stanford University's course CS193p (Developing Applications for iOS using SwiftUI) - https://cs193p.sites.stanford.edu/2023
-
-Memory card game to match pairs of emojis, user can play with several themed decks.
+Memory card game app made following Stanford University's course CS193p (Developing Applications for iOS using SwiftUI) - https://cs193p.sites.stanford.edu/2023
 <br>
 <br>
-Started following Stanford's course, evolved freely by myself to add several features: 
+Evolved freely by myself to add several features: 
 - App Sound
+- Cards color
 - Custom deck & Multiple default themed decks
-- Card color
 - Launch Screen
 - Scoreboard & Scorecard
 
@@ -71,3 +69,11 @@ Started following Stanford's course, evolved freely by myself to add several fea
 ## License
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/) [MIT](https://choosealicense.com/licenses/mit/) 
+
+## Screenshots
+
+## Requirements
+- iOS 17.2
+
+
+
