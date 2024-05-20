@@ -26,7 +26,7 @@
 		345D161E2BD4097E003242D6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D161D2BD4097E003242D6 /* String.swift */; };
 		346015032BC18A4C006F17B9 /* CardColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346015022BC18A4C006F17B9 /* CardColor.swift */; };
 		346015052BC1A785006F17B9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 346015042BC1A785006F17B9 /* Localizable.xcstrings */; };
-		3478FBA92BFB8B1B00B9AFC0 /* DelayedAnimationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478FBA82BFB8B1B00B9AFC0 /* DelayedAnimationModifier.swift */; };
+		3478FBA92BFB8B1B00B9AFC0 /* DelayedAnimafy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478FBA82BFB8B1B00B9AFC0 /* DelayedAnimafy.swift */; };
 		3492EAC02B9B879C00B401D1 /* MemorizeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3492EABF2B9B879C00B401D1 /* MemorizeApp.swift */; };
 		3492EAC22B9B879C00B401D1 /* MemorojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3492EAC12B9B879C00B401D1 /* MemorojiView.swift */; };
 		3492EAC42B9B879F00B401D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3492EAC32B9B879F00B401D1 /* Assets.xcassets */; };
@@ -61,7 +61,7 @@
 		345D161D2BD4097E003242D6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		346015022BC18A4C006F17B9 /* CardColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardColor.swift; sourceTree = "<group>"; };
 		346015042BC1A785006F17B9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = Memorize/Localizable.xcstrings; sourceTree = SOURCE_ROOT; };
-		3478FBA82BFB8B1B00B9AFC0 /* DelayedAnimationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayedAnimationModifier.swift; sourceTree = "<group>"; };
+		3478FBA82BFB8B1B00B9AFC0 /* DelayedAnimafy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayedAnimafy.swift; sourceTree = "<group>"; };
 		3492EABC2B9B879C00B401D1 /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3492EABF2B9B879C00B401D1 /* MemorizeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeApp.swift; sourceTree = "<group>"; };
 		3492EAC12B9B879C00B401D1 /* MemorojiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorojiView.swift; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				34C9134C2BA4C34A006D908B /* Cardify.swift */,
-				3478FBA82BFB8B1B00B9AFC0 /* DelayedAnimationModifier.swift */,
+				3478FBA82BFB8B1B00B9AFC0 /* DelayedAnimafy.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -317,7 +317,7 @@
 				344783DA2BC2B10500155304 /* Scorecard.swift in Sources */,
 				342E9D802BCD8AB60043F3CE /* ConfirmationRectangle.swift in Sources */,
 				341948342BC451C20075B3DE /* Scoreboard.swift in Sources */,
-				3478FBA92BFB8B1B00B9AFC0 /* DelayedAnimationModifier.swift in Sources */,
+				3478FBA92BFB8B1B00B9AFC0 /* DelayedAnimafy.swift in Sources */,
 				34545E572BFA381900CF82E0 /* LaunchView.swift in Sources */,
 				34309EDB2BF11826006E3971 /* SoundPlayer.swift in Sources */,
 				34BD7CA22BA0CD77006D051A /* AspectVGrid.swift in Sources */,

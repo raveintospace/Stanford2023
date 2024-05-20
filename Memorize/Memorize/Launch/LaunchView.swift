@@ -78,7 +78,7 @@ extension LaunchView {
             .foregroundStyle(Color.orange)
             .bold()
             .opacity(textOpacity)
-            .delayedAnimation(delay: 2.5, duration: 0.3) {
+            .delayedAnimafy(delay: 2.5, duration: 0.3) {
                 textOpacity = 1.0
             }
     }

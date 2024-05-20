@@ -214,6 +214,22 @@
         }
       }
     },
+    "Created by Uri46" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Creada per Uri46"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Creada por Uri46"
+          }
+        }
+      }
+    },
     "Custom deck selected" : {
       "localizations" : {
         "ca" : {

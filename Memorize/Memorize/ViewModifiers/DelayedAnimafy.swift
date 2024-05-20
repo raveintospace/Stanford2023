@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DelayedAnimationModifier: ViewModifier {
+struct DelayedAnimafy: ViewModifier {
     let delay: TimeInterval
     let duration: TimeInterval
     let action: () -> Void
@@ -25,7 +25,7 @@ struct DelayedAnimationModifier: ViewModifier {
 }
 
 extension View {
-    func delayedAnimation(delay: TimeInterval, duration: TimeInterval, action: @escaping () -> Void) -> some View {
-        self.modifier(DelayedAnimationModifier(delay: delay, duration: duration, action: action))
+    func delayedAnimafy(delay: TimeInterval, duration: TimeInterval, action: @escaping () -> Void) -> some View {
+        self.modifier(DelayedAnimafy(delay: delay, duration: duration, action: action))
     }
 }
