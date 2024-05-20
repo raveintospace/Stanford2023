@@ -170,11 +170,7 @@ extension MemorojiView {
     }
     
     private func deal() {
-        if viewModel.soundActivated {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
-                soundPlayer.play(withURL: viewModel.dealSound.getURL())
-            }
-        }
+        startGameSound()
         
         viewModel.shuffle()
         
@@ -194,6 +190,12 @@ extension MemorojiView {
         dealt = []
         lastScoreChange = (0, causedByCardId: "")
         hasGameStarted = false
+    }
+    
+    private func startGameSound() {
+        if viewModel.soundActivated {
+            soundPlayer.play(withURL: viewModel.dealSound.getURL())
+        }
     }
     
     // MARK: - Toolbar & Buttons
