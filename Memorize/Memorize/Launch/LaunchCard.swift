@@ -34,10 +34,7 @@ struct LaunchCard: View {
             }
             .frame(width: 90, height: 157.5)
             .padding(10)
-            .rotation3DEffect(
-                .degrees(rotationAngle),
-                                    axis: (x: 0, y: 1, z: 0)
-            )
+            .modifier(LaunchRotify(rotation: rotationAngle))
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + startRotation) {
                     withAnimation(.easeInOut(duration: 0.5)) {
