@@ -20,18 +20,11 @@ struct LaunchView: View {
     
     var body: some View {
         if isLandscape {
-            
+            landscapeVStack
         } else {
             portraitVStack
         }
     }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
-                withAnimation(.easeOut(duration: 0.3)) {
-                    showLaunchView = false
-                }
-            }
-        }
 }
 
 #Preview {
@@ -62,17 +55,31 @@ extension LaunchView {
         }
     }
     
+    private var landscapeVStack: some View {
+        VStack {
+            HStack {
+                LaunchCard(letter: "M", startRotation: 0.5)
+                LaunchCard(letter: "E", startRotation: 0.5)
+                LaunchCard(letter: "M", startRotation: 1)
+                LaunchCard(letter: "O", startRotation: 1)
+            }
+            HStack {
+                LaunchCard(letter: "R", startRotation: 1.5)
+                LaunchCard(letter: "O", startRotation: 1.5)
+                LaunchCard(letter: "J", startRotation: 2)
+                LaunchCard(letter: "I", startRotation: 2)
+            }
+            createdByText
+        }
+    }
+    
     private var createdByText: some View {
         Text("Created by Uri46")
             .foregroundStyle(Color.orange)
             .bold()
             .opacity(textOpacity)
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-                    withAnimation(.easeOut(duration: 0.3)) {
-                        textOpacity = 1
-                    }
-                }
+            .delayedAnimation(delay: 2.5, duration: 0.3) {
+                textOpacity = 1.0
             }
     }
 }

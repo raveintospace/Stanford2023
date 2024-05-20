@@ -16,6 +16,9 @@ struct MemorizeApp: App {
         WindowGroup {
             if showLaunchView {
                 LaunchView(showLaunchView: $showLaunchView)
+                    .delayedAnimation(delay: 3.5, duration: 0.3) {
+                        showLaunchView = false
+                    }
             } else {
                 MemorojiView(viewModel: game)
             }
