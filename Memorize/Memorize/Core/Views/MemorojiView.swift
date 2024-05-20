@@ -162,7 +162,7 @@ extension MemorojiView {
                     }
                 }
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     showGameEndedAlert = true
                 }
             }
@@ -176,7 +176,7 @@ extension MemorojiView {
             }
         }
         
-        //viewModel.shuffle()
+        viewModel.shuffle()
         
         var delay: TimeInterval = 0
         for card in viewModel.cards {
