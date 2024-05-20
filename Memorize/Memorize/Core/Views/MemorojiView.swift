@@ -100,6 +100,7 @@ struct MemorojiView: View {
 
 extension MemorojiView {
     
+    // MARK: - Main elements of view
     private var cards: some View {
         AspectVGrid(viewModel.cards, aspectRatio: cardAspectRatio) { card in
             if isDealt(card) {
@@ -142,6 +143,7 @@ extension MemorojiView {
         .padding(.top, 0)
     }
     
+    // MARK: - Gameplay methods
     private func scoreChanged(causedBy card: Card) -> Int {
         let (amount, causedByCardId: id) = lastScoreChange
         return card.id == id ? amount : 0
@@ -185,19 +187,19 @@ extension MemorojiView {
         hasGameStarted = true
     }
     
-    private func resetGame() {
-        viewModel.resetGame()
-        dealt = []
-        lastScoreChange = (0, causedByCardId: "")
-        hasGameStarted = false
-    }
-    
     private func startGameSound() {
         if viewModel.soundActivated {
             soundPlayer.play(withURL: viewModel.dealSound.getURL())
         }
     }
     
+    private func resetGame() {
+        viewModel.resetGame()
+        dealt = []
+        lastScoreChange = (0, causedByCardId: "")
+        hasGameStarted = false
+    }
+
     // MARK: - Toolbar & Buttons
     private var score: some View {
         Text("Score: \(viewModel.score)")
