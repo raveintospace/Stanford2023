@@ -66,17 +66,16 @@ extension LaunchView {
                 LaunchCard(letter: "M", startRotation: 1)
                 LaunchCard(letter: "O", startRotation: 1)
             }
-            .padding(10)
             HStack {
                 LaunchCard(letter: "R", startRotation: 1.5)
                 LaunchCard(letter: "O", startRotation: 1.5)
                 LaunchCard(letter: "J", startRotation: 2)
                 LaunchCard(letter: "I", startRotation: 2)
             }
-            .padding(10)
             createdByText
         }
         .foregroundStyle(Color.orange)
+        .padding(20)
     }
     
     private var createdByText: some View {
