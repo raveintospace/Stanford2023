@@ -55,5 +55,7 @@ struct LaunchCard: View {
         LaunchCard(letter: "M", startRotation: 0.2)
         LaunchCard(letter: "E", startRotation: 0.4)
     }
-    
+    .foregroundStyle(Color.orange)
+    .padding(10)
+    .aspectRatio(1, contentMode: .fit)
 }
