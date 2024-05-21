@@ -52,7 +52,6 @@ Evolved freely by myself to add several features:
 - PieShape: A circle that diminishes using TimeInterval, the smaller the less score for the play
 - Cardify: Animatable & ViewModifier to give a look & feel of a game card, including a rotation3DEffect
 - DelayedAnimafy: ViewModifier to delay views' animation when they appear on the screen
-- LaunchRotify: Animatable & ViewModifier to rotate with a 3D effect the cards of the launch view
 
  **Extensions**
 - Extension "only" for Array, to return the only element if the array is of one element
@@ -73,7 +72,7 @@ Evolved freely by myself to add several features:
 
 ## Screenshots
 <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
-    <img src="MemorojiShots/memorojishot.jpeg" alt="Launch View" title="Launch View" width="200">
+    <img src="MemorojiShots/memorojishot0.jpeg" alt="Launch View" title="Launch View" width="200">
     <img src="MemorojiShots/memorojishot1.jpeg" alt="Game on" title="Game on" width="200">
     <img src="MemorojiShots/memorojishot3.jpeg" alt="Scorecard" title="Scorecard" width="200">
     <img src="MemorojiShots/memorojishot4.jpeg" alt="Scoreboard" title="Scoreboard" width="200">
