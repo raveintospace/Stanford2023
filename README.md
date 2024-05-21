@@ -75,7 +75,7 @@ Evolved freely by myself to add several features:
     <img src="MemorojiShots/memorojishot0.jpeg" alt="Launch View" title="Launch View" width="200">
     <img src="MemorojiShots/memorojishot1.jpeg" alt="Game on" title="Game on" width="200">
     <img src="MemorojiShots/memorojishot3.jpeg" alt="Scorecard" title="Scorecard" width="200">
-    <img src="MemorojiShots/memorojishot4.jpeg" alt="Scoreboard" title="Scoreboard" width="200">
+    <img src="MemorojiShots/memorojishot12.jpeg" alt="Scoreboard" title="Scoreboard" width="200">
 </div> 
 <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
     <img src="MemorojiShots/memorojishot5.jpeg" alt="Card color selector" title="Card color selector" width="200">
