@@ -27,7 +27,6 @@
 		346015032BC18A4C006F17B9 /* CardColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346015022BC18A4C006F17B9 /* CardColor.swift */; };
 		346015052BC1A785006F17B9 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 346015042BC1A785006F17B9 /* Localizable.xcstrings */; };
 		3478FBA92BFB8B1B00B9AFC0 /* DelayedAnimafy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478FBA82BFB8B1B00B9AFC0 /* DelayedAnimafy.swift */; };
-		3478FBAB2BFBBC4E00B9AFC0 /* LaunchRotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478FBAA2BFBBC4E00B9AFC0 /* LaunchRotify.swift */; };
 		3492EAC02B9B879C00B401D1 /* MemorizeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3492EABF2B9B879C00B401D1 /* MemorizeApp.swift */; };
 		3492EAC22B9B879C00B401D1 /* MemorojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3492EAC12B9B879C00B401D1 /* MemorojiView.swift */; };
 		3492EAC42B9B879F00B401D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3492EAC32B9B879F00B401D1 /* Assets.xcassets */; };
@@ -63,7 +62,6 @@
 		346015022BC18A4C006F17B9 /* CardColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardColor.swift; sourceTree = "<group>"; };
 		346015042BC1A785006F17B9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = Localizable.xcstrings; path = Memorize/Localizable.xcstrings; sourceTree = SOURCE_ROOT; };
 		3478FBA82BFB8B1B00B9AFC0 /* DelayedAnimafy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayedAnimafy.swift; sourceTree = "<group>"; };
-		3478FBAA2BFBBC4E00B9AFC0 /* LaunchRotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRotify.swift; sourceTree = "<group>"; };
 		3492EABC2B9B879C00B401D1 /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3492EABF2B9B879C00B401D1 /* MemorizeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeApp.swift; sourceTree = "<group>"; };
 		3492EAC12B9B879C00B401D1 /* MemorojiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorojiView.swift; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 			children = (
 				34C9134C2BA4C34A006D908B /* Cardify.swift */,
 				3478FBA82BFB8B1B00B9AFC0 /* DelayedAnimafy.swift */,
-				3478FBAA2BFBBC4E00B9AFC0 /* LaunchRotify.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -334,7 +331,6 @@
 				34315F712BC0558000F72EF4 /* MemorizeDeck.swift in Sources */,
 				34309EDF2BF11A7A006E3971 /* SoundModel.swift in Sources */,
 				344783DE2BC2E7F100155304 /* DismissXButton.swift in Sources */,
-				3478FBAB2BFBBC4E00B9AFC0 /* LaunchRotify.swift in Sources */,
 				34B742B62BC990F6007806E6 /* Color.swift in Sources */,
 				34545E592BFA4F9D00CF82E0 /* LaunchCard.swift in Sources */,
 			);

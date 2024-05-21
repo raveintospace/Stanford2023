@@ -14,27 +14,31 @@ struct LaunchCard: View {
     @State private var isFaceUp: Bool = false
     @State private var rotationAngle: Double = 0
     
+    private struct Constants {
+        static let inset: CGFloat = 5
+        
+        struct FontSize {
+            static let largest: CGFloat = 200
+            static let smallest: CGFloat = 10
+            static let scaleFactor = smallest / largest
+        }
+    }
+    
     var body: some View {
-        RoundedRectangle(cornerRadius: 10)
-            .stroke(.orange, lineWidth: 2)
-            .fill()
-            .foregroundStyle(isFaceUp ? Color.white : Color.orange)
+        Circle()
+            .opacity(0.8)
             .overlay {
-                if isFaceUp {
-                    ZStack {
-                        Circle()
-                            .foregroundStyle(Color.orange)
-                            .opacity(0.8)
-                            .padding(5)
-                        Text(letter)
-                            .font(.system(size: 50))
-                            .foregroundStyle(Color.white)
-                    }
-                }
+                Text(letter)
+                    .font(.system(size: Constants.FontSize.largest))
+                    .minimumScaleFactor(Constants.FontSize.scaleFactor)
+                    .multilineTextAlignment(.center)
+                    .aspectRatio(4/3, contentMode: .fit)
+                    .foregroundStyle(Color.white)
+                    .padding(Constants.inset)
             }
-            .frame(width: 90, height: 157.5)
-            .padding(10)
-            .modifier(LaunchRotify(rotation: rotationAngle))
+            .padding(Constants.inset)
+            .cardify(isFaceUp: isFaceUp)
+            .transition(.scale)
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + startRotation) {
                     withAnimation(.easeInOut(duration: 0.5)) {

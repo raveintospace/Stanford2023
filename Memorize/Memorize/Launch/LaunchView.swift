@@ -53,6 +53,9 @@ extension LaunchView {
             }
             createdByText
         }
+        .foregroundStyle(Color.orange)
+        .padding(10)
+        .aspectRatio(3/9, contentMode: .fit)
     }
     
     private var landscapeVStack: some View {
@@ -63,19 +66,21 @@ extension LaunchView {
                 LaunchCard(letter: "M", startRotation: 1)
                 LaunchCard(letter: "O", startRotation: 1)
             }
+            .padding(10)
             HStack {
                 LaunchCard(letter: "R", startRotation: 1.5)
                 LaunchCard(letter: "O", startRotation: 1.5)
                 LaunchCard(letter: "J", startRotation: 2)
                 LaunchCard(letter: "I", startRotation: 2)
             }
+            .padding(10)
             createdByText
         }
+        .foregroundStyle(Color.orange)
     }
     
     private var createdByText: some View {
         Text("Created by Uri46")
-            .foregroundStyle(Color.orange)
             .bold()
             .opacity(textOpacity)
             .delayedAnimafy(delay: 2.5, duration: 0.3) {
