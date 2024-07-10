@@ -8,6 +8,9 @@ Evolved freely by myself to add several features:
 - Custom deck & Multiple default themed decks
 - Launch Screen
 - Scoreboard & Scorecard
+  <br>
+<br>
+Video presentation available here: https://shorturl.at/EPlUc
 
 ##
 <p align="center">
